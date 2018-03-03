@@ -1,6 +1,6 @@
 <?php     
-    $con=mysqli_connect("localhost", "id4830367_root","water123");
-    mysqli_select_db("id4830367_elmarfinresort", $con);
+    $con=mysqli_connect("localhost", "root","water123");
+    mysqli_select_db("aplayadb", $con);
 
         $path = $_FILES['uploadedfile']['name'];
         $ext = pathinfo($path, PATHINFO_EXTENSION);
