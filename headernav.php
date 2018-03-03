@@ -1,21 +1,3 @@
-
- <div class="container clearfix">
-        <div class="topbar">
-          <ul>
-            <li><a href="../../../index.php?page=8">Login</a></li>
-            <li class="phoneNo"><i class="fa fa-phone"></i> <?php $catcher=mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #1' "); ?>
-                   <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
-                      <?php echo $getf22['DESCRIPTION']?>
-                   <?php endwhile; ?> 
-                        or
-               <?php $catcher=mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #2' "); ?>
-                   <?php while($getf222=mysqli_fetch_assoc($catcher)): ?>
-                      <?php echo $getf222['DESCRIPTION']?>
-                   <?php endwhile; ?> </li>
-           
-          </ul>
-        </div>
-      </div>
 <!DOCTYPE html>
 <html>
 <head>
