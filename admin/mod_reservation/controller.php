@@ -87,6 +87,10 @@ function doInsert()
 	$arrival = $_GET['from'];
 	$departure = $_GET['to'];
 
+	$checkin = $_GET['check_in'];
+	$checkout = $_GET['check_out'];
+
+	//dd($checkin);
 	$guest = new Guest;
 	$guest->firstname = $_GET['fname'];
 	$guest->lastname = $_GET['lname'];
@@ -107,6 +111,7 @@ function doInsert()
 	{
 		if($value)
 		{
+			//datediff * 24 / timein-timeoute
 	        $days = dateDiff($arrival,$departure); 
 		    $totalprice = $reserved_price[$key] * $days;
 

@@ -13,47 +13,12 @@
 <form  method="post" action="processreservation.php?action=delete">
 	<table id="table" class="table table-striped" cellspacing="0">
 
-<div class="row">
-  	<div class="col-md-3 col-xs-6">
-	    <?php $catcher1 = mysqli_query($con, "SELECT * from roomtype "); ?>
-		<div class="form-group">
-		<select class="form-control select-amenities-type" name="amenity_type" required>
-		    <option>Choose Type</option>
-		    <?php while($gettype = mysqli_fetch_assoc($catcher1)): ?>
-		    <option <?php echo (isset($_GET['type']) ? ($_GET['type'] == $gettype['typename'] ? 'selected' : '') : '')?>  value="<?php echo $gettype['typename']?>"><?php echo $gettype['typename']?></option>
-		    <?php endwhile; ?>  
-		</select>
-		</div>
-	</div>
-	<div class="col-md-3 col-xs-6">
-		<div class="form-group">
-		<select class="form-control select-reservation" name="reservation_status" required>
-		    <option>Choose Status</option>
-		    <option <?php echo (isset($_GET['status']) ? ($_GET['status'] == 'Checkedin' ? 'selected' : '') : '')?> value="Checkedin">Checkedin</option>
-		    <option <?php echo (isset($_GET['status']) ? ($_GET['status'] == 'Checkedout' ? 'selected' : '') : '')?> value="Checkedout">Checkedout</option>
-		    <option <?php echo (isset($_GET['status']) ? ($_GET['status'] == 'Pending' ? 'selected' : '') : '')?> value="Pending">Pending</option>
-		    <option <?php echo (isset($_GET['status']) ? ($_GET['status'] == 'Cancelled' ? 'selected' : '') : '')?> value="Cancelled">Cancelled</option>
-		</select>
-		</div>
-	</div>
-
-	<div class="col-md-3 col-xs-6">
-		<div class="form-group">
-			<button onclick="filter_reservation()" type="button" class="btn btn-primary">Filter</button>
-		</div>
-	</div>
-	<div class="col-md-3 col-xs-6">
-		<div class="form-group" align="right">
-			<a href="admin/mod_room_slot" class="btn btn-primary">View Room Slot</a>
-		</div>
-	</div>
-</div>
 
 <thead>
 <tr>
 <td>No</td>	
 
-<td width="90"><strong>Name</strong></td>
+<td width="90"><strong>Room List</strong></td>
 <!--<td width="10"><strong>Confirmation</strong></td>-->
 <td width="80"><strong>Confirmation</strong></td>
 <td width="80"><strong>Arrival</strong></td>

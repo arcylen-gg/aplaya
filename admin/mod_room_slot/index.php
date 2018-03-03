@@ -21,9 +21,6 @@ switch ($view) {
     case 'view' :
 		$content    = 'view.php';		
 		break;
-	case 'room_slot' :
-		$content    = 'room_slot.php';		
-		break;
 
 	default :
 		$content    = 'list.php';		

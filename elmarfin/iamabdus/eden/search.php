@@ -118,11 +118,12 @@
             <div class="comment-form">
               <h3 class="headline">Let us know by filling up below.</h3>
                 <div class="row">
+                  <label>Event Type</label>
                   <div class="col-md-12 col-xs-12">
                     <?php $catcher1 = mysqli_query($con, "SELECT * from roomtype WHERE other_services = 0 "); ?>
                     <div class="form-group">
-                      <select class="form-control select-amenities" name="event_name" required>
-                        <option>Event Type</option>
+                      <select class="form-control select-amenities" name="event_name" placeholder="Select Event" required>
+                        <option></option>
                         <option value="Convention">Conventions</option>
                         <option value="Seminars">Seminars</option>
                         <option value="Conferences">Conferences</option>
@@ -138,23 +139,60 @@
                         <option value="Pictorials">Pictorials</option>
                       </select>
                     </div>
-                    <div class="form-group">
-                      <select class="form-control select-amenities" name="amenity_type" required>
-                        <option>Amenity Type</option>
-                        <?php while($gettype = mysqli_fetch_assoc($catcher1)): ?>
-                        <option value="<?php echo $gettype['typename']?>"><?php echo $gettype['typename']?></option>
-                        <?php endwhile; ?>  
-                      </select>
+                    <div class="row">
+                        <label>Amenity Type</label>
+                      <div class="col-md-12 col-xs-12">
+                        <div class="form-group">
+                          <select class="form-control select-amenities" name="amenity_type" placeholder="Select Amenity" required>
+                            <option></option>
+                            <?php while($gettype = mysqli_fetch_assoc($catcher1)): ?>
+                            <option value="<?php echo $gettype['typename']?>"><?php echo $gettype['typename']?></option>
+                            <?php endwhile; ?>  
+                          </select>
+                        </div>
+                      </div>
                     </div>
-
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="from" required placeholder="Check In Date" name="check_in">
+                    <div class="row">
+                      <label>Estimated Budget Range</label>
+                      <div class="form-group">
+                        <div class="col-md-6 col-xs-12">
+                          <input type="text" class="form-control" id="from_budget" placeholder="from" name="from_budget">
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                          <input type="text" class="form-control" id="to_budget" placeholder="to" name="to_budget">
+                        </div>
+                      </div>
                     </div>
-
-                    <div class="form-group">
-                      <input type="text" class="form-control" id="to" required placeholder="Checkout Date" name="check_out">
+                    <div class="row">
+                      <label>Number of persons</label>
+                      <div class="form-group">
+                        <div class="col-md-6 col-xs-12">
+                          <input type="text" class="form-control" id="number_person" required placeholder="number of persons" name="number_person">
+                        </div>
+                      </div>
                     </div>
-
+                    <div class="row">
+                      <label>Checked In</label>
+                      <div class="form-group">
+                        <div class="col-md-6 col-xs-12">
+                          <input type="text" class="form-control" id="from" required placeholder="Date" name="check_in['checkin']">
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                          <input type="text" class="form-control" id="check_in_time" required placeholder="Time" name="check_in_time">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <label>Checked Out</label>
+                      <div class="form-group">
+                        <div class="col-md-6 col-xs-12">
+                          <input type="text" class="form-control" id="to" required placeholder="Date" name="check_out['checkout']">
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                          <input type="text" class="form-control" id="check_out_time" required placeholder="Time" name="check_out_time">
+                        </div>
+                      </div>
+                    </div>
                   </div>
                 </div>
               <div class="other-services" style="display: block">
