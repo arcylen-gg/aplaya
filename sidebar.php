@@ -1,6 +1,6 @@
 <?php     
-    $con=mysqli_connect("localhost", "id4830367_root","water123");
-    mysqli_select_db($con, "id4830367_elmarfinresort"); 
+    $con=mysqli_connect("localhost", "root","water123");
+    mysqli_select_db($con, "aplayadb"); 
 ?>
 
 <?php
@@ -11,7 +11,7 @@ if(isset($_POST['login'])){
 	 if ($email == '' OR $pass == '') {
 
          	message("Invalid Username and Password!", "error");
-			redirect("../../../../index.php?page=5");
+			redirect("/about.php");
          
     } else {
 	$guest = new Guest();

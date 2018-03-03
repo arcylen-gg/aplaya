@@ -2,8 +2,8 @@
 <html lang="en">
         
   <?php     
-    $con=mysqli_connect("localhost", "id4830367_root","water123");
-    mysqli_select_db($con, "id4830367_elmarfinresort"); ?>
+    $con=mysqli_connect("localhost", "root","water123");
+    mysqli_select_db($con, "aplayadb"); ?>
 <head>
 
   <!-- SITE TITTLE -->
@@ -45,7 +45,7 @@
     <div class="header clearfix">
 
       <!-- TOPBAR -->
-      <div class="container clearfix">
+      <div class="container clearfix hidden">
         <div class="topbar">
           <ul>
             <li><a href="../../../index.php?page=8">Login</a></li>

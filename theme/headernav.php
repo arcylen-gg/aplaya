@@ -47,6 +47,7 @@
 
 </body>
 </html>
+<?php include("../topbarstatus.php"); ?>
   <!-- NAVBAR -->
       <nav class="navbar navbar-main navbar-default clearfix">
         <div class="container">

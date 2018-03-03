@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
       <?php     
-    $con=mysqli_connect("localhost", "id4830367_root","water123");
-    mysqli_select_db($con, "id4830367_elmarfinresort"); ?>
+    $con=mysqli_connect("localhost", "root","water123");
+    mysqli_select_db($con, "aplayadb"); ?>
 <!-- Mirrored from demo.themefisher.com/iamabdus/eden/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jan 2018 05:17:17 GMT -->
 <head>
 

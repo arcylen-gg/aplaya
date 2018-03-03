@@ -2,8 +2,8 @@
 <html lang="en">
    <?php
     
-        $con=mysqli_connect("localhost", "id4830367_root","water123");
-        mysqli_select_db($con, "id4830367_elmarfinresort"); 
+        $con=mysqli_connect("localhost", "root","water123");
+        mysqli_select_db($con, "aplayadb"); 
 ?>
 <head>
 
@@ -52,34 +52,7 @@
     <div class="header clearfix">
 
       <!-- TOPBAR -->
-      <div class="container clearfix">
-        <div class="topbar">
-          <ul>
-            <li class="phoneNo"><i class="fa fa-phone"></i> <?php $catcher=mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #1' "); ?>
-                   <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
-                      <?php echo $getf22['DESCRIPTION']?>
-                   <?php endwhile; ?> 
-                        or
-               <?php $catcher=mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #2' "); ?>
-                   <?php while($getf222=mysqli_fetch_assoc($catcher)): ?>
-                      <?php echo $getf222['DESCRIPTION']?>
-                   <?php endwhile; ?> </li>
-            <li class="dropdown language">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-              <i class="fa fa-globe"></i>EN
-              <i class="fa fa-caret-down"></i>
-              </a>
-              <ul class="dropdown-menu">
-                <li class="active">
-                      <a href="#">English </a> 
-                </li>
-              
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-
+   
       <!-- NAVBAR -->
        <?php include "headernav.php" ?>      
 

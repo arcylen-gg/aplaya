@@ -91,8 +91,8 @@
 
         
   <?php     
-    $con=mysqli_connect("localhost", "id4830367_root","water123");
-    mysqli_select_db($con, "id4830367_elmarfinresort"); ?>
+    $con=mysqli_connect("localhost", "root","water123");
+    mysqli_select_db($con, "aplayadb"); ?>
 
       <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE room.gallery_img = 1"); ?>
       <?php while($get=mysqli_fetch_assoc($catcher)): ?>
