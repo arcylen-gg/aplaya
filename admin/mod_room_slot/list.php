@@ -10,7 +10,6 @@
 <div class="container">
 <!-- <div class="panel panel-primary"> -->
 			<div class="panel-body">
-<form  method="post" action="processreservation.php?action=delete">
 	<table id="example" class="table table-striped" cellspacing="0" width="100%">
 
 <thead>
@@ -95,7 +94,7 @@ else
 <td class="" width="20%">
 	<?php if($rows)
 	{ ?>
-	<button class="btn btn-warning">Extend</button>
+	<button class="btn btn-warning"  onclick="extend_reservation(<?php echo $rows['reservation_id']; ?>)">Extend</button>
 	<?php }  ?>
 </td>
 
@@ -145,13 +144,121 @@ function nicetime($date)
 ?>
 	
 </table>
-<div class="btn-group">
-  <a href="index.php?view=add" class="btn btn-default">New</a>
-  <button type="submit" class="btn btn-default" name="delete"><span class="glyphicon glyphicon-trash"></span> Delete Selected</button>
-</div>
-</form>
-</table>
-
 </form>
 <!-- </div> -->
+<div class="modal fade" id="extend-reservation" tabindex="-1" role="dialog" aria-labelledby="modal_share">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <form action="controller.php" method="get">
+        <input type="hidden" name="action" value="extend">
+        <input type="hidden" name="reservation_id" class="reservation-id">
+        <div class="modal-header">
+          Extend Reservation
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+          	<label>Check In Date</label>
+                <input class="form-control" size="11" value="" required name="checkindate" id="from_1">
+          </div>
+          <div class="form-group">
+          	<label>Check In Time</label>
+	             <select class="form-control" required name="checkintime">
+	                <option value="" disabled selected>Select Time in</option>
+	                <option value="24:00:00">12:00 AM</option>
+	                <option value="01:00:00">01:00 AM</option>
+	                <option value="02:00:00">02:00 AM</option>
+	                <option value="03:00:00">03:00 AM</option>
+	                <option value="04:00:00">04:00 AM</option>
+	                <option value="05:00:00">05:00 AM</option>
+	                <option value="06:00:00">06:00 AM</option>
+	                <option value="07:00:00">07:00 AM</option>
+	                <option value="08:00:00">08:00 AM</option>
+	                <option value="09:00:00">09:00 AM</option>
+	                <option value="10:00:00">10:00 AM</option>
+	                <option value="11:00:00">11:00 AM</option>
+	                <option value="12:00:00">12:00 NN</option>
+	                <option value="13:00:00">01:00 PM</option>
+	                <option value="14:00:00">02:00 PM</option>
+	                <option value="15:00:00">03:00 PM</option>
+	                <option value="16:00:00">04:00 PM</option>
+	                <option value="17:00:00">05:00 PM</option>
+	                <option value="18:00:00">06:00 PM</option>
+	                <option value="19:00:00">07:00 PM</option>
+	                <option value="20:00:00">08:00 PM</option>
+	                <option value="21:00:00">09:00 PM</option>
+	                <option value="22:00:00">10:00 PM</option>
+	                <option value="23:00:00">11:00 PM</option>
+	              </select>
+          </div>
+          <div class="form-group">
+          	<label>Check Out Date</label>
+                <input class="form-control" size="11" value="" required name="checkoutdate" id="to_1">
+          </div>
+          <div class="form-group">
+          	<label>Check Out Time</label>
+                <select class="form-control" required name="checkouttime">
+	                <option value="" disabled selected>Select Time out</option>
+	                <option value="24:00:00">12:00 AM</option>
+	                <option value="01:00:00">01:00 AM</option>
+	                <option value="02:00:00">02:00 AM</option>
+	                <option value="03:00:00">03:00 AM</option>
+	                <option value="04:00:00">04:00 AM</option>
+	                <option value="05:00:00">05:00 AM</option>
+	                <option value="06:00:00">06:00 AM</option>
+	                <option value="07:00:00">07:00 AM</option>
+	                <option value="08:00:00">08:00 AM</option>
+	                <option value="09:00:00">09:00 AM</option>
+	                <option value="10:00:00">10:00 AM</option>
+	                <option value="11:00:00">11:00 AM</option>
+	                <option value="12:00:00">12:00 NN</option>
+	                <option value="13:00:00">01:00 PM</option>
+	                <option value="14:00:00">02:00 PM</option>
+	                <option value="15:00:00">03:00 PM</option>
+	                <option value="16:00:00">04:00 PM</option>
+	                <option value="17:00:00">05:00 PM</option>
+	                <option value="18:00:00">06:00 PM</option>
+	                <option value="19:00:00">07:00 PM</option>
+	                <option value="20:00:00">08:00 PM</option>
+	                <option value="21:00:00">09:00 PM</option>
+	                <option value="22:00:00">10:00 PM</option>
+	                <option value="23:00:00">11:00 PM</option>
+	              </select>
+          </div>
+		    <div class="form-group">
+		      	<label>Amenities Rate</label>
+		        <input class="form-control" size="11" required name="amenetiesrate">
+		    </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-defualt" data-dismiss="modal">Cancel</button>
+          <button class="btn btn-success" type="submit" data-url="">Yes</button>
+        </div>
+     </form>
+    </div>
+  </div>
 </div>
+</div>
+<script type="text/javascript">
+	function extend_reservation(reservation_id)
+	{
+	    $(".reservation-id").val(reservation_id);
+	    $("#extend-reservation").modal("show");
+	}
+</script>
+
+    <script type="text/javascript">
+    var dateToday = new Date();
+    var dates = $("#from_1, #to_1").datepicker({
+    defaultDate: "+1w",
+    changeMonth: true,
+    numberOfMonths: 1,
+    minDate: dateToday,
+    onSelect: function(selectedDate) {
+    var option = this.id == "from_1" ? "minDate" : "maxDate",
+    instance = $(this).data("datepicker"),
+    date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
+    dates.not(this).datepicker("option", option, date);
+    }
+    });
+    </script>
