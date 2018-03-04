@@ -92,6 +92,34 @@
           <div class="col-md-4">
             <input type="text" class="form-control checkout-date" name="" placeholder="Check out" value="<?php echo (isset($_SESSION['to'])) ? $_SESSION['to'] : '';?>" id="to"> 
           </div>
+          <div class="col-md-2 col-xs-6">
+                <select class="form-control" name="check_out_time">
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '24:00' ? 'selected' : '') : '')?> value="24:00">12:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '01:00' ? 'selected' : '') : '')?> value="01:00">01:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '02:00' ? 'selected' : '') : '')?> value="02:00">02:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '03:00' ? 'selected' : '') : '')?> value="03:00">03:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '04:00' ? 'selected' : '') : '')?> value="04:00">04:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '05:00' ? 'selected' : '') : '')?> value="05:00">05:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '06:00' ? 'selected' : '') : '')?> value="06:00">06:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '07:00' ? 'selected' : '') : '')?> value="07:00">07:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '08:00' ? 'selected' : '') : '')?> value="08:00">08:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '09:00' ? 'selected' : '') : '')?> value="09:00">09:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '10:00' ? 'selected' : '') : '')?> value="10:00">10:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '11:00' ? 'selected' : '') : '')?> value="11:00">11:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '12:00' ? 'selected' : '') : '')?> value="12:00">12:00 NN</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '13:00' ? 'selected' : '') : '')?> value="13:00">01:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '14:00' ? 'selected' : '') : '')?> value="14:00">02:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '15:00' ? 'selected' : '') : '')?> value="15:00">03:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '16:00' ? 'selected' : '') : '')?> value="16:00">04:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '17:00' ? 'selected' : '') : '')?> value="17:00">05:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '18:00' ? 'selected' : '') : '')?> value="18:00">06:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '19:00' ? 'selected' : '') : '')?> value="19:00">07:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '20:00' ? 'selected' : '') : '')?> value="20:00">08:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '21:00' ? 'selected' : '') : '')?> value="21:00">09:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '22:00' ? 'selected' : '') : '')?> value="22:00">10:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '23:00' ? 'selected' : '') : '')?> value="23:00">11:00 PM</option>
+                </select>
+              </div>
         </div>
       </div>
     </div>
