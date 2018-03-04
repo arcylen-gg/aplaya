@@ -1,5 +1,5 @@
 <?php     
-    $con=mysqli_connect("localhost", "root","");
+    $con=mysqli_connect("localhost", "root","water123");
     mysqli_select_db("aplayadb", $con);
 
         $path = $_FILES['uploadedfile']['name'];

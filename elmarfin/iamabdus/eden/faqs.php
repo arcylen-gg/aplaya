@@ -3,7 +3,7 @@
 <html lang="en">
   <?php
   
-  $con=mysqli_connect("localhost", "root","");
+  $con=mysqli_connect("localhost", "root","water123");
   mysqli_select_db($con, "aplayadb");
   ?>
   <head>
@@ -96,7 +96,7 @@
                 <h3 class="headline">FREQUENTLY ASKED QUESTIONS</h3>
                 <div class="container">
                   <?php
-                  $con=mysqli_connect("localhost", "root","");
+                  $con=mysqli_connect("localhost", "root","water123");
                   mysqli_select_db($con, "aplayadb"); ?>
                   <?php $catcher=mysqli_query($con, "SELECT * FROM faqs WHERE archive = 0"); ?>
                   <?php while($get=mysqli_fetch_assoc($catcher)): ?>
