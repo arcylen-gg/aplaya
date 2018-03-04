@@ -157,10 +157,10 @@
                       <label>Estimated Budget Range</label>
                       <div class="form-group">
                         <div class="col-md-6 col-xs-12">
-                          <input type="text" class="form-control" id="from_budget" placeholder="from" name="from_budget" required>
+                          <input type="text" class="form-control" id="from_budget" placeholder="from" name="from_budget" >
                         </div>
                         <div class="col-md-6 col-xs-12">
-                          <input type="text" class="form-control" id="to_budget" placeholder="to" name="to_budget" required>
+                          <input type="text" class="form-control" id="to_budget" placeholder="to" name="to_budget" >
                         </div>
                       </div>
                     </div>
@@ -168,7 +168,7 @@
                       <label>Number of persons</label>
                       <div class="form-group">
                         <div class="col-md-6 col-xs-12">
-                          <input type="text" class="form-control" id="number_person" required placeholder="number of persons" name="number_person">
+                          <input type="text" class="form-control" id="number_person" placeholder="number of persons" name="number_person">
                         </div>
                       </div>
                     </div>

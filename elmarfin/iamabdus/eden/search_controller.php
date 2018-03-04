@@ -16,8 +16,8 @@ switch ($action)
 
 function doSearch()
 {
-	$from_budget = $_GET['from_budget'];
-	$to_budget = $_GET['to_budget'];
+	$from_budget = isset($_GET['from_budget']) ? $_GET['from_budget'] : null ;
+	$to_budget = isset($_GET['to_budget']) ? $_GET['to_budget'] : null ;
 
 	$_SESSION['from_budget'] = $from_budget; 
 	$_SESSION['to_budget'] = $to_budget; 
@@ -69,7 +69,6 @@ function doSearch()
 		}
 
 	}
-	
 	$amenity_type = $_GET['amenity_type'];
 
 	if(strtolower($amenity_type) == 'room')
