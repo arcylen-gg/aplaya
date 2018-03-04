@@ -1,6 +1,4 @@
- <?php 
-/**	header("Location: /elmarfin/iamabdus/eden/index.php");**/
-?> 
+
 <?php
 
 require_once("includes/initialize.php");
@@ -28,22 +26,17 @@ switch ($view) {
      case '5' :
 	    $title="Room Rates";	
 		$content='rates.php';
-		break;	
-
+		break;
 	case '7' :
 	    $title="My Reservation";	
 		$content ='sitemap.php';
-		break;
-	case '7' :
-	    $title="FAQs";	
-		$content ='faqs.php';
 		break;
 	case '8':
 	    $title="Home";	
 		$content ='home.php';		
 		break;
 	default :
-		header("Location: /elmarfin/iamabdus/eden/index.php");
+		redirect("/elmarfin/iamabdus/eden/index.php");
 }
 
 require_once 'theme/template.php';

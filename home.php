@@ -43,7 +43,7 @@ if (isset($_POST['btnlogin'])) {
         $guest = new Guest();
     $res = $guest->guest_login($email, $pass);
         if($res == true){
-            /*redirect("../../../../aplaya/index.php?page=5");*/
+            /*redirect("../../../../aplaya/index.php?page=7");*/
             redirect("/elmarfin/iamabdus/eden/search.php");
         }else{
               ?>

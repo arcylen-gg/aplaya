@@ -11,7 +11,7 @@ if(isset($_POST['login'])){
 	 if ($email == '' OR $pass == '') {
 
          	message("Invalid Username and Password!", "error");
-			redirect("../../../../index.php?page=5");
+			redirect("../../../../index.php?page=7");
          
     } else {
 	$guest = new Guest();
@@ -21,7 +21,7 @@ if(isset($_POST['login'])){
 		}else{
 
 			message("Username or Password Not Registered! Contact Your administrator.","error");
-			redirect("../../../../index.php?page=5");
+			redirect("../../../../index.php?page=7");
 		}
 	}
 

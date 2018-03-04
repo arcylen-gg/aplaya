@@ -47,7 +47,11 @@
 
 </body>
 </html>
-
+  <?php
+  
+  $con=mysqli_connect("localhost", "root","");
+  mysqli_select_db($con, "aplayadb");
+  ?>
 
   <!-- NAVBAR -->
       <nav class="navbar navbar-main navbar-default clearfix">
@@ -70,9 +74,9 @@
                 </ul>
               </li>
               <li class="dropdown">
-                <!-- <a href="../../../../index.php?page=5">Amenities/Event Booking</a> -->
+                <!-- <a href="../../../../index.php?page=7">Amenities/Event Booking</a> -->
                 
-                <!-- <a href="../../../../index.php?page=5">Amenities/Event Booking</a> -->
+                <!-- <a href="../../../../index.php?page=7">Amenities/Event Booking</a> -->
                <!--  <ul class="dropdown-menu">
                   <li>dffdf</li>
                   <li>dffdf</li>
@@ -95,9 +99,32 @@
               <li class="dropdown">
                 <a href="elmarfin/iamabdus/eden/faqs.php">FAQs</a>
               </li>
+              <?php if(isset($_SESSION['guest_id']))
+              {
 
+                  $iden = $_SESSION['guest_id'];
+                  $catcher=mysqli_query($con, "SELECT * FROM guest where guest_id = '$iden'");
+                  $get = mysqli_fetch_assoc($catcher);
+              ?>
+              <li class="dropdown">
+                <a href="javascrip:"><strong><?php echo strtoupper($get['firstname'] ." ".$get['lastname']);?></strong></a>
+                <div class="dropdown-content">
+                    <a href="logout.php">Logout</a>
+                </div>
+              </li>              
+              <?php 
+              }
+              else
+              {
+
+              ?>
+
+              <li class="dropdown">
+                <a href="index.php?page=8">Login </a>
+              </li>
+              <?php  } ?>
               <!-- <li class="book-online">
-                <a class="btn primary-btn" href="../../../../aplaya/index.php?page=5">
+                <a class="btn primary-btn" href="../../../../aplaya/index.php?page=7">
                   <span class="icomoon-booking"></span>Reserve Online
                 </a>
               </li> -->

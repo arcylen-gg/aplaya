@@ -73,8 +73,8 @@
                 </ul>
               </li>
               <li class="dropdown">
-                <!-- <a href="../../../../aplaya/index.php?page=5"> -->
-                  <!-- <a href="../../../../index.php?page=5">
+                <!-- <a href="../../../../aplaya/index.php?page=7"> -->
+                  <!-- <a href="../../../../index.php?page=7">
                 Amenities/Event Booking</a>
                 <ul class="dropdown-menu">
                 </ul> -->
@@ -85,7 +85,7 @@
                     <a href="../../../../view_pavilion.php">Pavilion</a>
                     <a href="../../../../view_pool.php">Pool</a>
                     <a href="search.php">Other Services</a>
-                    <a href="/booking/index.php?view=booking">Booking</a>
+                    <a href="/booking/">Booking</a>
                   </div>
               </li>
               <li class="dropdown">
@@ -97,8 +97,32 @@
               <li class="dropdown">
                 <a href="faqs.php">FAQs</a>
               </li>
+              <?php if(isset($_SESSION['guest_id']))
+              {
+
+                  $iden = $_SESSION['guest_id'];
+                  $catcher=mysqli_query($con, "SELECT * FROM guest where guest_id = '$iden'");
+                  $get = mysqli_fetch_assoc($catcher);
+              ?>
+              <li class="dropdown">
+                <a href="javascrip:"><strong><?php echo strtoupper($get['firstname'] ." ".$get['lastname']);?></strong></a>
+                <div class="dropdown-content">
+                    <a href="logout.php">Logout</a>
+                </div>
+              </li>              
+              <?php 
+              }
+              else
+              {
+
+              ?>
+
+              <li class="dropdown">
+                <a href="../../../index.php?page=8">Login </a>
+              </li>
+              <?php  } ?>
               <!-- <li class="book-online">
-                <a class="btn primary-btn" href="../../../../aplaya/index.php?page=5">
+                <a class="btn primary-btn" href="../../../../aplaya/index.php?page=7">
                   <span class="icomoon-booking"></span>Reserve Online
                 </a>
               </li> -->

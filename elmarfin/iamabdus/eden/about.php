@@ -46,7 +46,7 @@
       <!-- TOPBAR -->
       <div class="container clearfix">
         <div class="topbar">
-          <ul>
+          <ul class="hidden">
             <li class="phoneNo"><i class="fa fa-phone"></i>
             <?php $catcher=mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #1' "); ?>
                    <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
@@ -54,9 +54,9 @@
                    <?php endwhile; ?> 
                         or
                <?php $catcher=mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #2' "); ?>
-                   <?php while($getf222=mysqli_fetch_assoc($catcher)): ?>
-                      <?php echo $getf222['DESCRIPTION']?>
-                   <?php endwhile; ?> 
+                  <?php while($getf222=mysqli_fetch_assoc($catcher)): ?>
+                    <?php echo $getf222['DESCRIPTION']?>
+                  <?php endwhile; ?> 
             
             </li>
             <li class="dropdown language">

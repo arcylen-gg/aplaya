@@ -54,7 +54,7 @@
       <!-- TOPBAR -->
       <div class="container clearfix">
         <div class="topbar">
-          <ul>
+          <ul class="hidden">
             <li class="phoneNo"><i class="fa fa-phone"></i> <?php $catcher=mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #1' "); ?>
                    <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
                       <?php echo $getf22['DESCRIPTION']?>
