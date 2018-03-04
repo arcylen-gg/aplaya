@@ -66,12 +66,11 @@
           </ul>
         </div>
       </div>
-      <?php 
 
-    $con=mysqli_connect("localhost", "root","");
-    mysqli_select_db($con, "aplayadb"); 
-    ?>
-
+        
+  <?php     
+    $con=mysqli_connect("localhost", "root","water123");
+    mysqli_select_db($con, "aplayadb"); ?>
       <!-- NAVBAR -->
       <?php include "headernav.php" ?>      
 
@@ -96,10 +95,6 @@
         <div class="eb-border"></div>
         <div class="row featured popup-gallery">
 
-        
-  <?php     
-    $con=mysqli_connect("localhost", "root","water123");
-    mysqli_select_db($con, "aplayadb"); ?>
 
       <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE room.gallery_img = 1"); ?>
       <?php while($get=mysqli_fetch_assoc($catcher)): ?>

@@ -42,7 +42,7 @@ if (@$_SESSION['to']==""){
 
 <!--End of Header-->
 <div class="container">
-  <?php include'sidebar.php';?>
+  <?php include 'sidebar.php';?>
 
     <div class="col-xs-12 col-sm-9">
       <!--<div class="jumbotron">-->
@@ -76,8 +76,8 @@ if (@$_SESSION['to']==""){
              $arival   = $_SESSION['from']; 
               $departure = $_SESSION['to']; 
 
-              $arrival_time_in = $_SESSION['check_in_time'];
-              $departure_time_out = $_SESSION['check_out_time'];
+              $arrival_time_in = isset($_SESSION['check_in_time']) ? $_SESSION['check_in_time'] : null;
+              $departure_time_out = isset($_SESSION['check_out_time']) ? $_SESSION['check_out_time'] : null;
 
               $_SESSION['time_in'] = $arrival_time_in;
               $_SESSION['time_out'] = $departure_time_out;

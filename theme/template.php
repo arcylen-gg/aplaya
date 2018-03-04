@@ -1,4 +1,9 @@
-<?php
+
+     
+  <?php     
+    $con=mysqli_connect("localhost", "root","water123");
+    mysqli_select_db($con, "aplayadb"); ?>
+    <?php
     if(isset($_POST['avail'])){
     $_SESSION['from'] = $_POST['from'];
     $_SESSION['to']  = $_POST['to'];
