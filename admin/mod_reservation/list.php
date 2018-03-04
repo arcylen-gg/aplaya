@@ -44,7 +44,7 @@
 	</div>
 	<div class="col-md-3 col-xs-6">
 		<div class="form-group" align="right">
-			<a href="admin/mod_room_slot" class="btn btn-primary">View Room Slot</a>
+			<a href="../mod_room_slot" class="btn btn-primary">View Room Slot</a>
 		</div>
 	</div>
 </div>
