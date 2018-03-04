@@ -43,7 +43,7 @@ function doInsert(){
 			else{
 			move_uploaded_file($_FILES["image"]["tmp_name"],"rooms/".$_FILES["image"]["name"]);
 			
-			if ($_POST['name'] == "" OR $_POST['rmtype'] == "" OR $_POST['price'] == "") {
+			if ($_POST['name'] == "" OR $_POST['rmtype'] == "" OR $_POST['price'] == "" OR $_POST['price_per_hour'] == "") {
 				$messageStats = false;
 					message("All fields required!", "error");
 					redirect("index.php?view=add");
@@ -54,6 +54,7 @@ function doInsert(){
 				$rm_name		= $_POST['name'];
 				$rm_type	    = $_POST['rmtype'];
 				$rm_price 		= $_POST['price'];
+				$rm_price_per_hour = $_POST['price_per_hour'];
 
 				if($_POST['children'] == 0)
 				{
@@ -86,6 +87,7 @@ function doInsert(){
 					$room->typeID = $rm_type;
 					$room->roomName = $rm_name;
 					$room->price = $rm_price;
+					$room->price_per_hour = $rm_price_per_hour;
 
 					$room->Adults = $rm_adult;
 					$room->Children = $rm_children;
@@ -118,12 +120,14 @@ function doInsert(){
 				$rm_name		= $_POST['name'];
 				$rm_type	    = $_POST['rmtype'];
 				$rm_price 		= $_POST['price'];
+				$rm_price_per_hour = $_POST['price_per_hour'];
 				$rm_adult 		= $_POST['adult'];
 				$rm_children 	= $_POST['children'];
 				$rm_description 	= $_POST['description'];
 				$room->typeID = $rm_type;
 				$room->roomName = $rm_name;
 				$room->price = $rm_price;
+				$room->price_per_hour = $rm_price_per_hour;
 				$room->Adults = $rm_adult;
 				$room->Children = $rm_children;
 				$room->description = $rm_description;

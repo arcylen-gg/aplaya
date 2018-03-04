@@ -78,20 +78,23 @@ function product_exists($pid){
     }
     return $flag;
   }
- function addtocart($pid,$day, $price,$checkin,$checkout,$event = ''){
+ function addtocart($pid,$day,$hour,$price,$checkin,$checkout,$checkintime, $checkouttime,$event = ''){
+
 
     if($pid<1 or $day<1) return;
     if (!empty($_SESSION['magbanua_cart'])){
-
 
     if(is_array($_SESSION['magbanua_cart'])){
       if(product_exists($pid)) return;
       $max=count($_SESSION['magbanua_cart']);
       $_SESSION['magbanua_cart'][$max]['magbanuaroomid']=$pid; 
        $_SESSION['magbanua_cart'][$max]['magbanuaday']=$day; 
+       $_SESSION['magbanua_cart'][$max]['magbanuahour']=$hour; 
       $_SESSION['magbanua_cart'][$max]['magbanuaroomprice']=$price;
       $_SESSION['magbanua_cart'][$max]['magbanuacheckin']=$checkin;
       $_SESSION['magbanua_cart'][$max]['magbanuacheckout']=$checkout;
+      $_SESSION['magbanua_cart'][$max]['magbanuacheckintime']=$checkintime;
+      $_SESSION['magbanua_cart'][$max]['magbanuacheckouttime']=$checkouttime;
       $_SESSION['magbanua_cart'][$max]['magbanuaevent']=$event;
 
     }
@@ -99,18 +102,24 @@ function product_exists($pid){
      $_SESSION['magbanua_cart']=array();
       $_SESSION['magbanua_cart'][0]['magbanuaroomid']=$pid; 
        $_SESSION['magbanua_cart'][0]['magbanuaday']=$day; 
+       $_SESSION['magbanua_cart'][0]['magbanuahour']=$hour; 
       $_SESSION['magbanua_cart'][0]['magbanuaroomprice']=$price;
       $_SESSION['magbanua_cart'][0]['magbanuacheckin']=$checkin;
       $_SESSION['magbanua_cart'][0]['magbanuacheckout']=$checkout;
+      $_SESSION['magbanua_cart'][0]['magbanuacheckintime']=$checkintime;
+      $_SESSION['magbanua_cart'][0]['magbanuacheckouttime']=$checkouttime;
       $_SESSION['magbanua_cart'][0]['magbanuaevent']=$event;
     }
 }else{
      $_SESSION['magbanua_cart']=array();
       $_SESSION['magbanua_cart'][0]['magbanuaroomid']=$pid; 
        $_SESSION['magbanua_cart'][0]['magbanuaday']=$day; 
+       $_SESSION['magbanua_cart'][0]['magbanuahour']=$hour; 
       $_SESSION['magbanua_cart'][0]['magbanuaroomprice']=$price;
       $_SESSION['magbanua_cart'][0]['magbanuacheckin']=$checkin;
       $_SESSION['magbanua_cart'][0]['magbanuacheckout']=$checkout;
+      $_SESSION['magbanua_cart'][0]['magbanuacheckintime']=$checkintime;
+      $_SESSION['magbanua_cart'][0]['magbanuacheckouttime']=$checkouttime;
       $_SESSION['magbanua_cart'][0]['magbanuaevent']=$event;
 }
 //die(var_dump($_SESSION));

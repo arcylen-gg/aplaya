@@ -87,7 +87,7 @@
 
         
   <?php     
-    $con = mysqli_connect("localhost", "root","");
+    $con = mysqli_connect("localhost", "root","water123");
     mysqli_select_db($con, "aplayadb"); ?>
 
     
@@ -101,31 +101,31 @@
                 <input type="text" class="form-control checkin-date" name="" placeholder="Check In" value="<?php echo (isset($_SESSION['from'])) ? $_SESSION['from'] : ''; ?>" id="from"> 
               </div>
               <div class="col-md-2 col-xs-6">
-                <select class="form-control" name="check_in_time">
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '24:00' ? 'selected' : '') : '')?> value="24:00">12:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '01:00' ? 'selected' : '') : '')?> value="01:00">01:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '02:00' ? 'selected' : '') : '')?> value="02:00">02:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '03:00' ? 'selected' : '') : '')?> value="03:00">03:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '04:00' ? 'selected' : '') : '')?> value="04:00">04:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '05:00' ? 'selected' : '') : '')?> value="05:00">05:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '06:00' ? 'selected' : '') : '')?> value="06:00">06:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '07:00' ? 'selected' : '') : '')?> value="07:00">07:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '08:00' ? 'selected' : '') : '')?> value="08:00">08:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '09:00' ? 'selected' : '') : '')?> value="09:00">09:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '10:00' ? 'selected' : '') : '')?> value="10:00">10:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '11:00' ? 'selected' : '') : '')?> value="11:00">11:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '12:00' ? 'selected' : '') : '')?> value="12:00">12:00 NN</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '13:00' ? 'selected' : '') : '')?> value="13:00">01:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '14:00' ? 'selected' : '') : '')?> value="14:00">02:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '15:00' ? 'selected' : '') : '')?> value="15:00">03:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '16:00' ? 'selected' : '') : '')?> value="16:00">04:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '17:00' ? 'selected' : '') : '')?> value="17:00">05:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '18:00' ? 'selected' : '') : '')?> value="18:00">06:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '19:00' ? 'selected' : '') : '')?> value="19:00">07:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '20:00' ? 'selected' : '') : '')?> value="20:00">08:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '21:00' ? 'selected' : '') : '')?> value="21:00">09:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '22:00' ? 'selected' : '') : '')?> value="22:00">10:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '23:00' ? 'selected' : '') : '')?> value="23:00">11:00 PM</option>
+                <select class="form-control check_in_time-date" name="check_in_time">
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '24:00:00' ? 'selected' : '') : '')?> value="24:00:00">12:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '01:00:00' ? 'selected' : '') : '')?> value="01:00:00">01:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '02:00:00' ? 'selected' : '') : '')?> value="02:00:00">02:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '03:00:00' ? 'selected' : '') : '')?> value="03:00:00">03:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '04:00:00' ? 'selected' : '') : '')?> value="04:00:00">04:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '05:00:00' ? 'selected' : '') : '')?> value="05:00:00">05:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '06:00:00' ? 'selected' : '') : '')?> value="06:00:00">06:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '07:00:00' ? 'selected' : '') : '')?> value="07:00:00">07:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '08:00:00' ? 'selected' : '') : '')?> value="08:00:00">08:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '09:00:00' ? 'selected' : '') : '')?> value="09:00:00">09:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '10:00:00' ? 'selected' : '') : '')?> value="10:00:00">10:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '11:00:00' ? 'selected' : '') : '')?> value="11:00:00">11:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '12:00:00' ? 'selected' : '') : '')?> value="12:00:00">12:00 NN</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '13:00:00' ? 'selected' : '') : '')?> value="13:00:00">01:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '14:00:00' ? 'selected' : '') : '')?> value="14:00:00">02:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '15:00:00' ? 'selected' : '') : '')?> value="15:00:00">03:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '16:00:00' ? 'selected' : '') : '')?> value="16:00:00">04:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '17:00:00' ? 'selected' : '') : '')?> value="17:00:00">05:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '18:00:00' ? 'selected' : '') : '')?> value="18:00:00">06:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '19:00:00' ? 'selected' : '') : '')?> value="19:00:00">07:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '20:00:00' ? 'selected' : '') : '')?> value="20:00:00">08:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '21:00:00' ? 'selected' : '') : '')?> value="21:00:00">09:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '22:00:00' ? 'selected' : '') : '')?> value="22:00:00">10:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '23:00:00' ? 'selected' : '') : '')?> value="23:00:00">11:00 PM</option>
                 </select>
               </div>
             </div>
@@ -140,31 +140,31 @@
                  <input type="text" class="form-control checkout-date" name="" placeholder="Check out" value="<?php echo (isset($_SESSION['to'])) ? $_SESSION['to'] : ''; ?>" id="to"> 
               </div>
               <div class="col-md-2 col-xs-6">
-                <select class="form-control" name="check_out_time">
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '24:00' ? 'selected' : '') : '')?> value="24:00">12:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '01:00' ? 'selected' : '') : '')?> value="01:00">01:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '02:00' ? 'selected' : '') : '')?> value="02:00">02:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '03:00' ? 'selected' : '') : '')?> value="03:00">03:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '04:00' ? 'selected' : '') : '')?> value="04:00">04:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '05:00' ? 'selected' : '') : '')?> value="05:00">05:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '06:00' ? 'selected' : '') : '')?> value="06:00">06:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '07:00' ? 'selected' : '') : '')?> value="07:00">07:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '08:00' ? 'selected' : '') : '')?> value="08:00">08:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '09:00' ? 'selected' : '') : '')?> value="09:00">09:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '10:00' ? 'selected' : '') : '')?> value="10:00">10:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '11:00' ? 'selected' : '') : '')?> value="11:00">11:00 AM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '12:00' ? 'selected' : '') : '')?> value="12:00">12:00 NN</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '13:00' ? 'selected' : '') : '')?> value="13:00">01:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '14:00' ? 'selected' : '') : '')?> value="14:00">02:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '15:00' ? 'selected' : '') : '')?> value="15:00">03:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '16:00' ? 'selected' : '') : '')?> value="16:00">04:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '17:00' ? 'selected' : '') : '')?> value="17:00">05:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '18:00' ? 'selected' : '') : '')?> value="18:00">06:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '19:00' ? 'selected' : '') : '')?> value="19:00">07:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '20:00' ? 'selected' : '') : '')?> value="20:00">08:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '21:00' ? 'selected' : '') : '')?> value="21:00">09:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '22:00' ? 'selected' : '') : '')?> value="22:00">10:00 PM</option>
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '23:00' ? 'selected' : '') : '')?> value="23:00">11:00 PM</option>
+                <select class="form-control check_out_time-date" name="check_out_time">
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '24:00:00' ? 'selected' : '') : '')?> value="24:00:00">12:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '01:00:00' ? 'selected' : '') : '')?> value="01:00:00">01:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '02:00:00' ? 'selected' : '') : '')?> value="02:00:00">02:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '03:00:00' ? 'selected' : '') : '')?> value="03:00:00">03:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '04:00:00' ? 'selected' : '') : '')?> value="04:00:00">04:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '05:00:00' ? 'selected' : '') : '')?> value="05:00:00">05:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '06:00:00' ? 'selected' : '') : '')?> value="06:00:00">06:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '07:00:00' ? 'selected' : '') : '')?> value="07:00:00">07:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '08:00:00' ? 'selected' : '') : '')?> value="08:00:00">08:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '09:00:00' ? 'selected' : '') : '')?> value="09:00:00">09:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '10:00:00' ? 'selected' : '') : '')?> value="10:00:00">10:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '11:00:00' ? 'selected' : '') : '')?> value="11:00:00">11:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '12:00:00' ? 'selected' : '') : '')?> value="12:00:00">12:00 NN</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '13:00:00' ? 'selected' : '') : '')?> value="13:00:00">01:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '14:00:00' ? 'selected' : '') : '')?> value="14:00:00">02:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '15:00:00' ? 'selected' : '') : '')?> value="15:00:00">03:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '16:00:00' ? 'selected' : '') : '')?> value="16:00:00">04:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '17:00:00' ? 'selected' : '') : '')?> value="17:00:00">05:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '18:00:00' ? 'selected' : '') : '')?> value="18:00:00">06:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '19:00:00' ? 'selected' : '') : '')?> value="19:00:00">07:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '20:00:00' ? 'selected' : '') : '')?> value="20:00:00">08:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '21:00:00' ? 'selected' : '') : '')?> value="21:00:00">09:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '22:00:00' ? 'selected' : '') : '')?> value="22:00:00">10:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '23:00:00' ? 'selected' : '') : '')?> value="23:00:00">11:00 PM</option>
                 </select>
               </div>
             </div>
@@ -196,7 +196,7 @@
                 <div class="row">
                   <div class="col-md-6 align-center">
                     <p align="justify"><?php echo $get['description']?></p>
-                      <a class="btn bordered-btn " onclick="book_reservation(<?php echo $get['roomNo']; ?>,<?php echo $get['price']; ?>)">Book for Reservation</a>
+                      <a class="btn bordered-btn " onclick="book_reservation(<?php echo $get['roomNo']; ?>,<?php echo $get['price']; ?> ,<?php echo $get['price_per_hour']; ?>)">Book for Reservation</a>
                   </div>
                 </div>
               </div>
@@ -210,8 +210,11 @@
       <input type="hidden" name="action" value="bookreservation">
       <input type="hidden" name="checkin" class="checkin-class">
       <input type="hidden" name="checkout" class="checkout-class">
+      <input type="hidden" name="check_in_time" class="check_in_time-class">
+      <input type="hidden" name="check_out_time" class="check_out_time-class">
       <input type="hidden" name="roomNo" class="roomno-class">
       <input type="hidden" name="price" class="price-class">
+      <input type="hidden" name="price_per_hour" class="price_per_hour-class">
     </form>
 
     <!-- DARK SECTION -->
@@ -257,16 +260,21 @@
 </body>
 
 <script type="text/javascript">
-  function book_reservation(room_id, price)
+  function book_reservation(room_id, price, price_per_hour)
   {
     $checkin = $(".checkin-date").val();
     $checkout = $(".checkout-date").val();
+    $check_in_time = $(".check_in_time-date").val();
+    $check_out_time = $(".check_out_time-date").val();
     if($checkin && $checkout)
     {
       $(".checkin-class").val($checkin);
       $(".checkout-class").val($checkout);
+       $(".check_in_time-class").val($check_in_time);
+      $(".check_out_time-class").val($check_out_time);
       $(".roomno-class").val(room_id);
       $(".price-class").val(price);
+      $(".price_per_hour-class").val(price_per_hour);
 
       $(".reservation-submit").submit();
     }

@@ -61,13 +61,12 @@ if (@$_SESSION['to']==""){
               <th align="center" width="120">Check In</th>
               <th align="center" width="120">Check Out</th>
               <th align="center" width="120">Day/Night</th>
-              <th  width="120">Price starts</th>
+              <th  width="120">Price(day)</th>
+              <th align="center" width="120">Hours</th>
+              <th  width="120">Price(hour)</th>
                <th align="center" width="120">Room</th>
               <th align="center" width="90">Amount</th>
                 <th align="center" width="90">Action</th>
-               
- 
-              
          
             </tr> 
           </thead>
@@ -76,11 +75,32 @@ if (@$_SESSION['to']==""){
             <?php
              $arival   = $_SESSION['from']; 
               $departure = $_SESSION['to']; 
-              $days = dateDiff($arival,$departure);
 
+              $arrival_time_in = $_SESSION['check_in_time'];
+              $departure_time_out = $_SESSION['check_out_time'];
+
+              $_SESSION['time_in'] = $arrival_time_in;
+              $_SESSION['time_out'] = $departure_time_out;
+              $arrival_date = date("Y-m-d", strtotime($arrival));
+              $departure_date = date("Y-m-d", strtotime($departure));
+
+              $arr = $arrival_date."T". $arrival_time_in;
+              $dep = $departure_date."T". $departure_time_out;
+
+
+              $datetime1 = new DateTime($dep);
+              $datetime2 = new DateTime($arr);
+              $interval = $datetime1->diff($datetime2);
+
+
+              $diff_day = $interval->format('%a');
+              $diff_hour = $interval->format('%h');
+  //die(var_dump($diff_hour));
+
+              $days = dateDiff($arival,$departure);
+            $totalamount = 0;
             if (isset( $_SESSION['magbanua_cart']))
             {
-
 
              $count_cart = count($_SESSION['magbanua_cart']);
 
@@ -98,19 +118,28 @@ if (@$_SESSION['to']==""){
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuacheckout'].'</td>';
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuaday'].'</td>';
                 echo '<td > &#8369 '.number_format($result->price).'</td>';
+                echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuahour'].'</td>';
+                echo '<td > &#8369 '.number_format($result->price_per_hour).'</td>';
                 echo '<td >1</td>';
                 echo '<td > &#8369 '. number_format($_SESSION['magbanua_cart'][$i]['magbanuaroomprice']).'</td>';
                 echo '<td ><a href="index.php?view=processcart&id='.$result->roomNo.'">Remove</td>';
-                
-
+            
               
               echo '</tr>';
 
 
-            @$payable +=  $result->price   ;
-     
-             $_SESSION['pay'] = $payable * $days ;
-          
+            /*@$payable +=  $result->price   ;
+            $_SESSION['pay'] = $payable * $days ;*/
+
+              @$day +=  $result->price ;
+              @$pday = $day * $diff_day ;
+
+              @$hour +=  $result->price_per_hour ;
+              @$phour = $hour * $diff_hour ;
+            
+              @$pay = $pday+$phour;
+              //$_SESSION['pay'] = number_format($_SESSION['magbanua_cart'][$i]['magbanuaroomprice'];
+              $totalamount += $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'];
              } 
           
           }
@@ -119,7 +148,7 @@ if (@$_SESSION['to']==""){
           </tbody>
           <tfoot>
             <tr>
-              <td colspan="3"><h5><b> <?php  echo isset($_SESSION['pay']) ? 'Order Total: &#8369 '.number_format($_SESSION['pay']) :'Your booking cart is empty.';?></b></h5></td><td colspan="9"> 
+              <td colspan="3"><h5><b> <?php  echo isset($totalamount) ? 'Order Total: &#8369 '.number_format($totalamount,2) :'Your booking cart is empty.';?></b></h5></td><td colspan="9"> 
                             <div class="col-xs-10 col-sm-12" align="right">
                                <?php
                                if (isset($_SESSION['magbanua_cart'])){

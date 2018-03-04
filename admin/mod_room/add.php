@@ -40,11 +40,23 @@
            <div class="form-group">
             <div class="col-md-8">
               <label class="col-md-4 control-label" for=
-              "price">Rate per hour:</label>
+              "price">Rate per day:</label>
 
               <div class="col-md-8"> 
                 <input class="form-control input-sm" id="price" name="price" placeholder=
-									  "Rate per hour" type="text" value="" onkeyup="javascript:checkNumber(this);">
+									  "Rate per day" type="text" value="" onkeyup="javascript:checkNumber(this);">
+              </div>
+            </div>
+          </div>
+
+           <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for=
+              "price">Rate per hour:</label>
+
+              <div class="col-md-8"> 
+                <input class="form-control input-sm" id="price_per_hour" name="price_per_hour" placeholder=
+                    "Rate per hour" type="text" value="" onkeyup="javascript:checkNumber(this);">
               </div>
             </div>
           </div>

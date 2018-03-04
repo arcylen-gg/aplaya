@@ -70,7 +70,7 @@ $result=$guest->single_guest($guestid);*/
             <?php
 
 
-
+            $totalamount =0;
 
              $arival   = $_SESSION['from']; 
               $departure = $_SESSION['to']; 
@@ -99,15 +99,16 @@ $result=$guest->single_guest($guestid);*/
 
 
           }
-           $payable= $result->price *$days;
-           $_SESSION['pay']= $payable;
+           /*$payable= $result->price *$days;
+           $_SESSION['pay']= $payable;*/
+           $totalamount += $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'];
             ?>
           </tbody>
           <tfoot>
                <tr>
                    <td colspan="6"></td><td align="right"><h5><b>Order Total: </b></h5>
                    <td align="left">
-                  <h5><b> <?php echo ' &#8369 ' . $payable= $days*$result->price; ?></b></h5>
+                  <h5><b> <?php echo ' &#8369 ' .  $totalamount;?></b></h5>
                                    
                   </td>
           </tr>
