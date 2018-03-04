@@ -6,7 +6,7 @@ switch ($view) {
 	case 'booking' :
 	    $title="Booking";
 		$content    = 'booking.php';		
-		break;
+		break; 
 	case 'info' :
 	    $title="Booking";
 		$content    = 'personalinfo.php';		

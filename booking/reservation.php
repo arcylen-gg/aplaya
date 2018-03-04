@@ -57,7 +57,9 @@ $result=$guest->single_guest($guestid);*/
                <th align="center" width="120">Check In</th>
                 <th align="center" width="120">Check Out</th>
                  <th align="center" width="120">Nights</th>
-              <th  width="120">Price</th>
+              <th  width="120">Price(day)</th>
+              <th align="center" width="120">Hours</th>
+              <th  width="120">Price(hour)</th>
                <th align="center" width="120">Amenities</th>
               <th align="center" width="90">Amount</th>
            
@@ -89,19 +91,22 @@ $result=$guest->single_guest($guestid);*/
               echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuacheckout'].'</td>';
               echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuaday'].'</td>';
               echo '<td> &#8369 '. number_format($result->price).'</td>';
+                echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuahour'].'</td>';
+              echo '<td >  &#8369  '. number_format($result->price_per_hour).'</td>';
                echo '<td >1</td>';
                 echo '<td >'. $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'].'</td>';
         
 
               
               echo '</tr>';
+               $totalamount += $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'];
             } 
 
 
           }
            /*$payable= $result->price *$days;
            $_SESSION['pay']= $payable;*/
-           $totalamount += $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'];
+          
             ?>
           </tbody>
           <tfoot>

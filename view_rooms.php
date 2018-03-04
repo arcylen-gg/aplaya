@@ -87,7 +87,7 @@
 
         
   <?php     
-    $con = mysqli_connect("localhost", "root","water123");
+    $con = mysqli_connect("localhost", "root","");
     mysqli_select_db($con, "aplayadb"); ?>
 
     
@@ -177,10 +177,29 @@
         <h3>El Marfin Rooms </h3>
         <div class="eb-border"></div>
         <div class="row featured popup-gallery">
-          
-            <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName = 'Room'");
-            ?>
-            <?php while($get=mysqli_fetch_assoc($catcher)): ?>
+          <?php     
+            $con = mysqli_connect("localhost", "root","");
+            mysqli_select_db($con, "aplayadb"); ?>
+            <?php 
+
+          $select = "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID  WHERE roomtype.typeName = 'Room'";
+          //die(var_dump($catcher));
+            if(isset($_SESSION['from_budget']) && isset($_SESSION['to_budget']))
+            {
+              $select .= " and room.price >= '".$_SESSION['from_budget']."' and room.price <= '".$_SESSION['to_budget']."'";
+            }
+            else
+            {
+
+              $select .= "and roomtype.other_services = '0'";  
+            }
+            
+              $catcher = mysqli_query($con, $select);
+               
+              ?>
+
+             <?php while($get=mysqli_fetch_assoc($catcher)):?>
+
               <div class="row col-md-12">
                 <div class="col-md-5">
                     <figure class="ed-room ed-room-highlight featured-room">
@@ -201,7 +220,8 @@
                 </div>
               </div>
               <br>
-              <?php endwhile; ?>  
+              <?php 
+              endwhile; ?>  
         </div>
         <br>      
       </div>

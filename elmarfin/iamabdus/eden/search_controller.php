@@ -16,6 +16,13 @@ switch ($action)
 
 function doSearch()
 {
+	$from_budget = $_GET['from_budget'];
+	$to_budget = $_GET['to_budget'];
+
+	$_SESSION['from_budget'] = $from_budget; 
+	$_SESSION['to_budget'] = $to_budget; 
+
+	//die(var_dump($from_budget));
 	$event = isset($_GET['event_name']) ? $_GET['event_name'] : null;
 	$other_services = isset($_GET['other_services']) ? $_GET['other_services'] : null;
 

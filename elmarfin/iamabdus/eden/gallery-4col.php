@@ -69,7 +69,7 @@
 
         
   <?php     
-    $con=mysqli_connect("localhost", "root","water123");
+    $con=mysqli_connect("localhost", "root","");
     mysqli_select_db($con, "aplayadb"); ?>
       <!-- NAVBAR -->
       <?php include "headernav.php" ?>      
