@@ -20,13 +20,8 @@
 
 <td width="90"><strong>Room List</strong></td>
 <!--<td width="10"><strong>Confirmation</strong></td>-->
-<td width="80"><strong>Confirmation</strong></td>
-<td width="80"><strong>Arrival</strong></td>
-<td width="70"><strong>Departure</strong></td>
-<td width="80"><strong>Type</strong></td>
-<td width="80"><strong>Nights</strong></td>
-<td width="80"><strong>Status</strong></td>
-<td width="100"><strong>Action</strong></td>
+<td width="80"><strong>Availability</strong></td>
+<td width="1330"><strong>Next Check in</strong></td>
 </tr>
 </thead>
 <tbody>
@@ -129,7 +124,7 @@ foreach ($cur as $result) {
 		</div><!-- /.modal -->
 </table>
 <div class="btn-group">
-  <a href="index.php?view=add" class="btn btn-default">Walk in</a>
+  <a href="index.php?view=add" class="btn btn-default">New</a>
   <button type="submit" class="btn btn-default" name="delete"><span class="glyphicon glyphicon-trash"></span> Delete Selected</button>
 </div>
 </form>
