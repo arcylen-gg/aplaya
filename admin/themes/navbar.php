@@ -9,7 +9,7 @@ $current_page = isset($uri_segments[2]) ? $uri_segments[2] : '';
                 <li class=" <?php echo ($current_page == 'mod_room' ? 'active' : '')?>"><a href="<?php echo WEB_ROOT; ?>admin/mod_room/index.php">Amenities</a></li>
                 <li class="<?php echo ($current_page == 'mod_roomtype' ? 'active' : '')?>"><a href="<?php echo WEB_ROOT; ?>admin/mod_roomtype/index.php">Amenities Types</a></li>
                 <!-- <li class="<?php echo (currentpage() == 'booking') ? "active" : false;?>"><a href="<?php echo WEB_ROOT; ?>booking/index.php">Book</a></li> -->
-                <li class="<?php echo ($current_page == 'mod_reservation' ? 'active' : '')?>"><a href="<?php echo WEB_ROOT; ?>admin/mod_reservation/index.php">Reservation</a></li>
+                <li class="<?php echo ($current_page == 'mod_reservation' || $current_page == 'mod_room_slot'  ? 'active' : '')?>"><a href="<?php echo WEB_ROOT; ?>admin/mod_reservation/index.php">Reservation</a></li>
                 <li class="<?php echo ($current_page == 'mod_gallery' ? 'active' : '')?>"><a href="<?php echo WEB_ROOT; ?>admin/mod_gallery/index.php">Gallery</a></li>
                 
                 <li class="<?php echo ($current_page == 'mod_comments' ? 'active' : '')?>"><a href="<?php echo WEB_ROOT; ?>admin/mod_comments/index.php">Inquiries</a></li> 
