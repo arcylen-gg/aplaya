@@ -3,12 +3,12 @@
    
 if (@$_SESSION['from']==""){
   message("Please Choose check in Date and Check out Out date to continue reservation!", "error");
-  redirect(WEB_ROOT.'index.php?page=5');
+  redirect('../index.php?page=7');
  
 }   
 if (@$_SESSION['to']==""){
   message("Please Choose check in Date and Check out Out date to continue reservation!", "error");
-  redirect(WEB_ROOT.'index.php?page=5');
+  redirect('../index.php?page=7');
 }
 
 
@@ -78,7 +78,8 @@ if (@$_SESSION['to']==""){
               $departure = $_SESSION['to']; 
               $days = dateDiff($arival,$departure);
 
-            if (isset( $_SESSION['magbanua_cart'])){
+            if (isset( $_SESSION['magbanua_cart']))
+            {
 
 
              $count_cart = count($_SESSION['magbanua_cart']);
@@ -129,10 +130,10 @@ if (@$_SESSION['to']==""){
                                
                                 if (isset($_SESSION['guest_id'])){
                                   ?>
-                                  <a href="<?php echo WEB_ROOT; ?>booking/index.php?view=payment" class="btn btn-inverse" align="right"name="continue">Continue Booking</a>
+                                  <a href="index.php?view=payment" class="btn btn-inverse" align="right"name="continue">Continue Booking</a>
                                  <?php 
                                 }else{ ?>
-                                   <a href="<?php echo WEB_ROOT; ?>booking/index.php?view=info"class="btn btn-inverse" align="right"name="continue">Continue Booking</a>
+                                   <a href="index.php?view=info" class="btn btn-inverse" align="right"name="continue">Continue Booking</a>
                                <?php
                                 }
                               }else{

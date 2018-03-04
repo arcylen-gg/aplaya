@@ -3,7 +3,7 @@
     $_SESSION['from'] = $_POST['from'];
     $_SESSION['to']  = $_POST['to'];
     
-      redirect(WEB_ROOT. "index.php?page=5");
+      redirect(WEB_ROOT. "index.php?page=7");
     }
     
     ?>
@@ -113,7 +113,7 @@
                     <ul class="nav navbar-nav">
                         <!-- <li class="active"><a href="<?php echo WEB_ROOT; ?>index.php">Home</a></li>  -->
                         <!-- <li><a href="<?php echo WEB_ROOT; ?>index.php?page=2">Gallery</a></li> -->
-                        <!-- <li><a href="<?php echo WEB_ROOT; ?>index.php?page=5">Amenities/Event Rates</a></li> -->
+                        <!-- <li><a href="<?php echo WEB_ROOT; ?>index.php?page=7">Amenities/Event Rates</a></li> -->
                         <!-- 
                             <li><a href="<?php echo WEB_ROOT; ?>index.php?page=3">About us</a></li> 
                                  <li><a href="<?php echo WEB_ROOT; ?>index.php?page=4">Contact us</a></li> -->

@@ -19,13 +19,19 @@ function doSearch()
 	$arrival = $_GET['check_in'];
 	$departure = $_GET['check_out'];
 
-	
-	$event = isset($_GET['event_name']) ? $_GET['event_name'] : null;
+	$arrival_time_in = $_GET['check_in_time'];
+	$departure_time_out = $_GET['check_out_time'];
 
+	$event = isset($_GET['event_name']) ? $_GET['event_name'] : null;
 	$other_services = isset($_GET['other_services']) ? $_GET['other_services'] : null;
 	// echo "<pre>";
 	$_SESSION['from'] = $arrival;
 	$_SESSION['to'] = $departure;
+
+	$_SESSION['time_in'] = $arrival_time_in;
+	$_SESSION['time_out'] = $departure_time_out;
+
+	//die(var_dump($_SESSION['from']));
 	// die(var_dump($_SESSION));
 	$_SESSION['event'] = $event;
  	if(count($other_services) > 0)

@@ -1,3 +1,4 @@
+
 <?php
 $con=mysqli_connect("localhost", "root","water123");
 mysqli_select_db($con, "aplayadb");
@@ -101,269 +102,121 @@ mysqli_select_db($con, "aplayadb");
                       </div>
                       <br>
 
-                      <div class="col-xs-12 col-sm-12">
-                        <div class="form-group">
-                          <div class="col-md-8">
-                            <label class="col-md-4 control-label" for=
-                            "password">Status:</label>
-                            <div class="col-md-8">
-                              <select name="status" class="input-sm form-control">
-                                <option value="Checkedin">Check In</option>
-                                <option value="Reserved">Reserved</option>
-                              </select>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <br>
 
-                      <div class="col-xs-12 col-sm-12">
-                        <div class="form-group">
-                          <div class="col-md-8">
-                            <label class="col-md-4 control-label" for=
-                            "password">Pax:</label>
-                            <div class="col-md-8">
-                              <input type="number" class="input-sm form-control" name="adults" value="1">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <br>
+<link rel="stylesheet" type="text/css" href="../css/tinymce.css">
+<form class="form-horizontal well span6" action="controller.php?action=add" enctype="multipart/form-data" method="POST">
 
-                      <!-- <div class="col-xs-12 col-sm-12">
-                        <div class="form-group">
-                          <div class="col-md-8">
-                            <label class="col-md-4 control-label" for=
-                            "password">Child:</label>
-                            <div class="col-md-8">
-                              <input type="number" class="input-sm form-control" name="child" value="1">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <br> -->
+  <fieldset>
+    <legend>New Amenities</legend>
+          <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for=
+              "name">Name:</label>
 
-                      <div>
-                      <div class="col-xs-12 col-sm-12">
-                        <div class="form-group">
-                          <div class="col-md-8">
-                            <label class="col-md-4 control-label">Check In:</label>
-                            <div class="col-md-6">
-                              <input class="input-sm form-control" name="from" id="from" placeholder="date">
-                            </div>
-                            <div class="col-md-2">
-                              <input type="text" class="input-sm form-control" name="time_in" id="time_in" placeholder="time">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <br>
-
-                      <div>
-                      <div class="col-xs-12 col-sm-12">
-                        <div class="form-group">
-                          <div class="col-md-8">
-                            <label class="col-md-4 control-label">Check Out:</label>
-                            <div class="col-md-6">
-                              <input class="input-sm form-control" name="to" id="to" placeholder="date">
-                            </div>
-                            <div class="col-md-2">
-                              <input type="text" class="input-sm form-control" name="time_out" id="time_out" placeholder="time">
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <br>
-                      <br>
-
-
-                      <!-- <div class="row">
-                        <div class="col-xs-12 col-sm-12">
-                          <div class="form-group">
-                              <div class="col-md-4">
-                                <label class="control-label" for="from">Check In</label>
-                                <input class="form-control" size="11"
-                                value=""  name="from" id="from">
-                              </div>
-                              <div class="col-md-2">
-                                <label class="control-label" for="from">Check In</label>
-                                <input class="form-control" size="11"
-                                value=""  name="from" id="from">
-                              </div>
-                              <div class="col-md-4">
-                                <label class="control-label" for="to">Check Out</label>
-                                <input class="form-control" size="11" type="text" name="to" id="to">
-                              </div>
-                              <div class="col-md-2">
-                                <label class="control-label" for="to">Check Out</label>
-                                <input class="form-control" size="11" type="text" name="to" id="to">
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <br> -->
-                      <div class=" col-sm-2 col-xs-12 contact-content"></div>
-                      
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-3" role="navigation">
-                  <div class="panel panel-inverse">
-                    <div class="row">
-                      <div class=" col-sm-2 col-xs-12 contact-content"></div>
-                      <div class=" col-sm-8 col-xs-12 contact-content">
-                        <div class="comment-form">
-                          <div class="row text-center">
-                            <h3 class="headline">Rooms</h3>
-                            <div class="col-md-12 col-xs-12">
-                              <div class="form-group"  align="center">
-                                <?php $catcher=mysqli_query($con, "SELECT * FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName = 'Room' "); ?>
-                                <table>
-                                  <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
-                                  <tr>
-                                    <td>
-                                      <div class="checkbox">
-                                        <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
-                                        <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <?php endwhile; ?>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                          
-                        </div>
-                      </div>
-                    </div>
-                    
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-3" role="navigation">
-                  <div class="panel panel-inverse">
-                    <div class="row">
-                      <div class=" col-sm-2 col-xs-12 contact-content"></div>
-                      <div class=" col-sm-8 col-xs-12 contact-content">
-                        <div class="comment-form">
-                          <div class="row text-center">
-                            <h3 class="headline">Pavilion</h3>
-                            <div class="col-md-12 col-xs-12">
-                              <div class="form-group"  align="center">
-                                <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName IN ('Pavilion', 'Pavilion with Pool')");
-                                ?>
-                                <table>
-                                  <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
-                                  <tr>
-                                    <td>
-                                      <div class="checkbox">
-                                        <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
-                                        <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <?php endwhile; ?>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-3" role="navigation">
-                  <div class="panel panel-inverse">
-                    <div class="row">
-                      <div class=" col-sm-2 col-xs-12 contact-content"></div>
-                      <div class=" col-sm-8 col-xs-12 contact-content">
-                        <div class="comment-form">
-                          <div class="row text-center">
-                            <h3 class="headline">Pool</h3>
-                            <div class="col-md-12 col-xs-12">
-                              <div class="form-group"  align="center">
-                                <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName ='Pool'");
-                                ?>
-                                <table>
-                                  <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
-                                  <tr>
-                                    <td>
-                                      <div class="checkbox">
-                                        <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
-                                        <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <?php endwhile; ?>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                          
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-xs-12 col-sm-3" role="navigation">
-                  <div class="panel panel-inverse">
-                    <div class="row">
-                      <div class=" col-sm-2 col-xs-12 contact-content"></div>
-                      <div class=" col-sm-8 col-xs-12 contact-content">
-                        <div class="comment-form">
-                          <div class="row text-center">
-                            <h3 class="headline">Other Services</h3>
-                            <div class="col-md-12 col-xs-12">
-                              <div class="form-group"  align="center">
-                                <?php $catcher=mysqli_query($con, "SELECT * FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE other_services = 1 "); ?>
-                                <table>
-                                  <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
-                                  <tr>
-                                    <td>
-                                      <div class="checkbox">
-                                        <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
-                                        <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <?php endwhile; ?>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div class="col-md-8">
+                <input name="" type="hidden" value="">
+                 <input class="form-control input-sm" id="name" name="name" placeholder=
+                    "Amenities Name" type="text" value="">
               </div>
-              <div class="row text-center">
-                <div class="col-xs-12">
-                  <button type="submit" name="submit" id="submit" value="ADD" class="btn primary-btn">PROCEED </button>
-                </div>
-              </div>
-              <!--/span-->
-              <!--Sidebar-->
             </div>
-          </form>
-        </div>
-      </div>
-    </div>
-    <!--/row-->
-    <script type="text/javascript">
-    var dateToday = new Date();
-    var dates = $("#from, #to").datepicker({
-    defaultDate: "+1w",
-    changeMonth: true,
-    numberOfMonths: 1,
-    minDate: dateToday,
-    onSelect: function(selectedDate) {
-    var option = this.id == "from" ? "minDate" : "maxDate",
-    instance = $(this).data("datepicker"),
-    date = $.datepicker.parseDate(instance.settings.dateFormat || $.datepicker._defaults.dateFormat, selectedDate, instance.settings);
-    dates.not(this).datepicker("option", option, date);
-    }
-    });
-    </script>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for=
+              "rmtype">Amenities Type:</label>
+
+              <div class="col-md-8">
+              <select class="form-control input-sm" name="rmtype" id="rmtype"> 
+                    <option value="None">None</option>
+                    <?php
+                    $rm = new Roomtype();
+                    $cur= $rm->listOfroomtype();
+                    foreach ($cur  as $rmtype) {
+                      echo '<option value='.$rmtype->typeID.'>'.$rmtype->typename.'</OPTION>';
+                    }
+
+                    ?>
+                  </select> 
+              </div>
+            </div>
+          </div>
+
+           <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for=
+              "price">Rate per hour:</label>
+
+              <div class="col-md-8"> 
+                <input class="form-control input-sm" id="price" name="price" placeholder=
+                    "Rate per hour" type="text" value="" onkeyup="javascript:checkNumber(this);">
+              </div>
+            </div>
+          </div>
+          
+           <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for=
+              "adult">Pax:</label>
+
+              <div class="col-md-8">
+                <input class="form-control input-sm" id="adult" name="adult" placeholder=
+                    "Pax" type="text" value="" onkeyup="javascript:checkNumber(this);">
+              </div>
+            </div>
+          </div>
+
+          <!--  <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for=
+              "children">Children:</label>
+
+              <div class="col-md-8">
+                <input class="form-control input-sm" id="children" name="children" placeholder=
+                    "Children" type="text" value="" onkeyup="javascript:checkNumber(this);">
+              </div>
+            </div>
+          </div> -->
+
+          <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for="description">Description:</label>
+              <div class="col-md-8">
+                <textarea name="description" id="description" class="tinymce input-sm form-control"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for=
+              "image">Upload Image:</label>
+
+              <div class="col-md-8">
+              <input type="file" name="image" value="" id="image">
+              </div>
+            </div>
+          </div>
+
+    
+     <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for=
+              "idno"></label>
+
+              <div class="col-md-8">
+                <button class="btn btn-primary" name="save" type="submit" >Save</button>
+              </div> 
+            </div>
+          </div>
+
+      
+  </fieldset> 
+  
+</form>
+
+  <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+
+<script>tinymce.init({ selector:'.tinymce',menubar:false,height:200,theme:'modern', content_css : "../css/tinymce.css"});</script>
+</div><!--End of container-->
+      

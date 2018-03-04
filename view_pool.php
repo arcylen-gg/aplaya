@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -46,7 +47,7 @@
       <!-- TOPBAR -->
       <div class="container clearfix">
         <div class="topbar">
-          <ul>
+          <ul class="hidden">
             <li class="phoneNo"><i class="fa fa-phone"></i>0123 45678910</li>
             <li class="dropdown language">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

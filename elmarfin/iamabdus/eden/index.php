@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
         
@@ -47,9 +48,9 @@
       <!-- TOPBAR -->
       <div class="container clearfix">
         <div class="topbar">
-          <ul>
+          <ul class="hidden">
             <li><a href="../../../index.php?page=8">Login</a></li>
-            <li class="phoneNo"><i class="fa fa-phone"></i> <?php $catcher=mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #1' "); ?>
+            <li class="phoneNo"><i class="fa fa-phone"></i> <?php $catcher = mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #1' "); ?>
                    <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
                       <?php echo $getf22['DESCRIPTION']?>
                    <?php endwhile; ?> 
