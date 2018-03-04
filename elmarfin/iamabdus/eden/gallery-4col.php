@@ -1,3 +1,5 @@
+
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -64,6 +66,11 @@
           </ul>
         </div>
       </div>
+      <?php 
+
+    $con=mysqli_connect("localhost", "root","");
+    mysqli_select_db($con, "aplayadb"); 
+    ?>
 
       <!-- NAVBAR -->
       <?php include "headernav.php" ?>      
