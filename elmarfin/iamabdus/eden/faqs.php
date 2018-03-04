@@ -2,7 +2,7 @@
 <html lang="en">
   <?php
   
-  $con=mysqli_connect("localhost", "root","water123");
+  $con=mysqli_connect("localhost", "root","");
   mysqli_select_db($con, "aplayadb");
   ?>
   <head>
@@ -47,7 +47,7 @@
         
         <div class="container clearfix">
           <div class="topbar">
-            <ul>
+            <ul class="hidden">
               <li class="phoneNo"><i class="fa fa-phone"></i> <?php $catcher=mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #1' "); ?>
                 <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
                 <?php echo $getf22['DESCRIPTION']?>
@@ -95,7 +95,7 @@
                 <h3 class="headline">FREQUENTLY ASKED QUESTIONS</h3>
                 <div class="container">
                   <?php
-                  $con=mysqli_connect("localhost", "root","water123");
+                  $con=mysqli_connect("localhost", "root","");
                   mysqli_select_db($con, "aplayadb"); ?>
                   <?php $catcher=mysqli_query($con, "SELECT * FROM faqs WHERE archive = 0"); ?>
                   <?php while($get=mysqli_fetch_assoc($catcher)): ?>

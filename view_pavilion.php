@@ -47,7 +47,7 @@
       <!-- TOPBAR -->
       <div class="container clearfix">
         <div class="topbar">
-          <ul>
+          <ul class="hidden">
             <li class="phoneNo"><i class="fa fa-phone"></i>0123 45678910</li>
             <li class="dropdown language">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
@@ -133,7 +133,7 @@
       
 
   <?php     
-    $con = mysqli_connect("localhost", "root","water123");
+    $con = mysqli_connect("localhost", "root","");
     mysqli_select_db($con, "aplayadb"); ?>
 
       <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName IN ('Pavilion', 'Pavilion with Pool')");

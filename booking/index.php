@@ -11,12 +11,10 @@ switch ($view) {
 	    $title="Booking";
 		$content    = 'personalinfo.php';		
 		break;
-
 	case 'payment':
 	    $title="Booking";
    		$content    = 'payment.php';		
 		break;
-
 	case 'detail' :
 	    $title="Booking";
 		$content    = 'reservation.php';

@@ -6,7 +6,10 @@
     <div class="">
       <div class="panel panel-default">
         <div class="panel-body">
+
+              <?php if(isset($_SESSION['guest_id'])) { ?>
           <div class="pull-right"><button onclick="clear_reservation(<?php echo $_SESSION['guest_id']; ?>)" class="btn btn-primary">Clear Reservation List</button></div>
+          <?php } ?>
           <fieldset>
             <legend><h2 class="text-left">My Reservations</h2></legend>
             <table class="table table-condensed" border="0" style="width:95%">
@@ -24,7 +27,7 @@
                 <th class="text-center" scope="col" bgcolor="9eb2bb"></th>
                 
               </tr>
-              
+              <?php if(isset($_SESSION['guest_id'])) { ?>
               <?php
               $iden = $_SESSION['guest_id'];
               $catcher=mysqli_query($con, "SELECT * FROM reservation LEFT JOIN room ON room.roomNo = reservation.roomNo where guest_id = '$iden' and archived = 0");
@@ -64,7 +67,13 @@
                 
                 <?php endwhile; ?>
               </tr>
-              
+              <?php } else 
+              {
+                ?>
+                <tr><td colspan="11" class="text-center">NO TRANSACTION PLEASE LOGIN</td></tr>
+                <?php 
+              }
+                ?>
             </table>
             
             

@@ -10,7 +10,7 @@ if(isset($_POST['btnbook'])){
 
 	if (!isset($_SESSION['from']) || !isset($_SESSION['to'])){
 		message("Please Choose check in Date and Check out Out date to continue reservation!", "error");
-		redirect("index.php?page=5");
+		redirect("index.php?page=7");
 	}
 		 if(isset($_POST['roomid'])){ 
               $days = dateDiff($arrival,$departure); 
@@ -102,7 +102,7 @@ if(isset($_POST['btnbook'])){
 							echo '</div>';	
 				
 						echo '<div style="float:right; height:125px; width:180px; margin:0px; color:#000033;">';
-						echo '<form name="book"  method="POST" action="'.WEB_ROOT.'index.php?page=5">';
+						echo '<form name="book"  method="POST" action="'.WEB_ROOT.'index.php?page=7">';
 						//'. $result->typeName.'<br/>'. $result->price.'<br/>'. $result->Adults.'<br/>
 						echo '<input type="hidden" name="roomid" value="'.$result->roomNo.'"/>
 						<input type="hidden" name="roomprice" value="'.$result->price.'"/>';

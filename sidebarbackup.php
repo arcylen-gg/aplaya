@@ -12,11 +12,11 @@ if(isset($_POST['login'])){
 	$guest = new Guest();
 	$res = $guest->guest_login($email, $pass);
 		if($res == true){
-			redirect("../../../../index.php?page=5");
+			redirect("../../../../index.php?page=7");
 		}else{
 
 			message("Username or Password Not Registered! Contact Your administrator.","error");
-			redirect("../../../../index.php?page=5");
+			redirect("../../../../index.php?page=7");
 		}
 	}
 
