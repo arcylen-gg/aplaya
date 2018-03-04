@@ -169,7 +169,7 @@ if (isset($_POST['submit']))
 					 <small>I Agree with the <a class="toggle-modal" href="#logout"><b>TERMS AND CONDITION</b></a> of this Resort</small>
 			
 					 <br />
-						<img src="captcha_code_file.php?rand=<?php echo rand(); ?>" id='captchaimg' ><a href='javascript: refreshCaptcha();'><img src="<?php echo WEB_ROOT;?>images/refresh.png" alt="refresh" border="0" style="margin-top:5px; margin-left:5px;" /></a>
+						<img src="captcha_code_file.php?rand=<?php echo rand(); ?>" id='captchaimg' ><a href='javascript: refreshCaptcha();'><img src="<?php echo WEB_ROOT;?>images/refresh.png"  class="hidden" alt="refresh" border="0" style="margin-top:5px; margin-left:5px;" /></a>
 						<br /><small>If you are a Human Enter the code above here :</small><input id="6_letters_code" name="6_letters_code" type="text" class="form-control input-sm" width="20"></p><br/>
 						<div class="col-md-4">
 					    	<input name="submit" type="submit" value="Confirm"  class="btn btn-inverse" onclick="return personalInfo();"/>
