@@ -7,6 +7,10 @@
 
 
 <br>
+<?php
+		check_message();
+			
+		?>
 <div class="container">
 <!-- <div class="panel panel-primary"> -->
 			<div class="panel-body">
@@ -156,40 +160,7 @@ function nicetime($date)
           Extend Reservation
         </div>
         <div class="modal-body">
-          <div class="form-group">
-          	<label>Check In Date</label>
-                <input class="form-control" size="11" value="" required name="checkindate" id="from_1">
-          </div>
-          <div class="form-group">
-          	<label>Check In Time</label>
-	             <select class="form-control" required name="checkintime">
-	                <option value="" disabled selected>Select Time in</option>
-	                <option value="24:00:00">12:00 AM</option>
-	                <option value="01:00:00">01:00 AM</option>
-	                <option value="02:00:00">02:00 AM</option>
-	                <option value="03:00:00">03:00 AM</option>
-	                <option value="04:00:00">04:00 AM</option>
-	                <option value="05:00:00">05:00 AM</option>
-	                <option value="06:00:00">06:00 AM</option>
-	                <option value="07:00:00">07:00 AM</option>
-	                <option value="08:00:00">08:00 AM</option>
-	                <option value="09:00:00">09:00 AM</option>
-	                <option value="10:00:00">10:00 AM</option>
-	                <option value="11:00:00">11:00 AM</option>
-	                <option value="12:00:00">12:00 NN</option>
-	                <option value="13:00:00">01:00 PM</option>
-	                <option value="14:00:00">02:00 PM</option>
-	                <option value="15:00:00">03:00 PM</option>
-	                <option value="16:00:00">04:00 PM</option>
-	                <option value="17:00:00">05:00 PM</option>
-	                <option value="18:00:00">06:00 PM</option>
-	                <option value="19:00:00">07:00 PM</option>
-	                <option value="20:00:00">08:00 PM</option>
-	                <option value="21:00:00">09:00 PM</option>
-	                <option value="22:00:00">10:00 PM</option>
-	                <option value="23:00:00">11:00 PM</option>
-	              </select>
-          </div>
+          
           <div class="form-group">
           	<label>Check Out Date</label>
                 <input class="form-control" size="11" value="" required name="checkoutdate" id="to_1">
@@ -198,7 +169,7 @@ function nicetime($date)
           	<label>Check Out Time</label>
                 <select class="form-control" required name="checkouttime">
 	                <option value="" disabled selected>Select Time out</option>
-	                <option value="24:00:00">12:00 AM</option>
+	                <option value="00:00:00">12:00 AM</option>
 	                <option value="01:00:00">01:00 AM</option>
 	                <option value="02:00:00">02:00 AM</option>
 	                <option value="03:00:00">03:00 AM</option>
@@ -222,12 +193,8 @@ function nicetime($date)
 	                <option value="21:00:00">09:00 PM</option>
 	                <option value="22:00:00">10:00 PM</option>
 	                <option value="23:00:00">11:00 PM</option>
-	              </select>
+	            </select>
           </div>
-		    <div class="form-group">
-		      	<label>Amenities Rate</label>
-		        <input class="form-control" size="11" required name="amenetiesrate">
-		    </div>
         </div>
 
         <div class="modal-footer">
