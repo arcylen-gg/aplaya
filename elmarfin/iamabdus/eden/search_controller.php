@@ -89,7 +89,7 @@ function doBookreservation()
 	$roomNo = $_GET['roomNo'];
 	$price = $_GET['price'];
 	$price_per_hour = $_GET['price_per_hour'];
-	//die(var_dump($price_per_hour));
+
 	$_SESSION['from'] = $arrival;
 	$_SESSION['to'] = $departure;
 	$event = $_SESSION['event'];
