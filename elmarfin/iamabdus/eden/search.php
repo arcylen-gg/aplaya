@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
    <?php
@@ -174,22 +175,74 @@
                     <div class="row">
                       <label>Checked In</label>
                       <div class="form-group">
-                        <div class="col-md-6 col-xs-12">
-                          <input type="text" class="form-control" id="from" required placeholder="Date" name="check_in['checkin']">
+                        <div class="col-md-8 col-xs-12">
+                          <input type="text" class="form-control" id="from" required placeholder="Date" name="check_in">
                         </div>
-                        <div class="col-md-6 col-xs-12">
-                          <input type="text" class="form-control" id="check_in_time" required placeholder="Time" name="check_in_time">
+                        <div class="col-md-4 col-xs-12">
+                          <select class="form-control" name="check_in_time">
+                            <option value="" disabled selected>Select Time in</option>
+                            <option value="24:00">12:00 AM</option>
+                            <option value="01:00">01:00 AM</option>
+                            <option value="02:00">02:00 AM</option>
+                            <option value="03:00">03:00 AM</option>
+                            <option value="04:00">04:00 AM</option>
+                            <option value="05:00">05:00 AM</option>
+                            <option value="06:00">06:00 AM</option>
+                            <option value="07:00">07:00 AM</option>
+                            <option value="08:00">08:00 AM</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 NN</option>
+                            <option value="13:00">01:00 PM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                            <option value="17:00">05:00 PM</option>
+                            <option value="18:00">06:00 PM</option>
+                            <option value="19:00">07:00 PM</option>
+                            <option value="20:00">08:00 PM</option>
+                            <option value="21:00">09:00 PM</option>
+                            <option value="22:00">10:00 PM</option>
+                            <option value="23:00">11:00 PM</option>
+                          </select>
                         </div>
                       </div>
                     </div>
                     <div class="row">
                       <label>Checked Out</label>
                       <div class="form-group">
-                        <div class="col-md-6 col-xs-12">
-                          <input type="text" class="form-control" id="to" required placeholder="Date" name="check_out['checkout']">
+                        <div class="col-md-8 col-xs-12">
+                          <input type="text" class="form-control" id="to" required placeholder="Date" name="check_out">
                         </div>
-                        <div class="col-md-6 col-xs-12">
-                          <input type="text" class="form-control" id="check_out_time" required placeholder="Time" name="check_out_time">
+                        <div class="col-md-4 col-xs-12">
+                          <select class="form-control" name="check_out_time">
+                            <option value="" disabled selected>Select Time out</option>
+                            <option value="24:00">12:00 AM</option>
+                            <option value="01:00">01:00 AM</option>
+                            <option value="02:00">02:00 AM</option>
+                            <option value="03:00">03:00 AM</option>
+                            <option value="04:00">04:00 AM</option>
+                            <option value="05:00">05:00 AM</option>
+                            <option value="06:00">06:00 AM</option>
+                            <option value="07:00">07:00 AM</option>
+                            <option value="08:00">08:00 AM</option>
+                            <option value="09:00">09:00 AM</option>
+                            <option value="10:00">10:00 AM</option>
+                            <option value="11:00">11:00 AM</option>
+                            <option value="12:00">12:00 NN</option>
+                            <option value="13:00">01:00 PM</option>
+                            <option value="14:00">02:00 PM</option>
+                            <option value="15:00">03:00 PM</option>
+                            <option value="16:00">04:00 PM</option>
+                            <option value="17:00">05:00 PM</option>
+                            <option value="18:00">06:00 PM</option>
+                            <option value="19:00">07:00 PM</option>
+                            <option value="20:00">08:00 PM</option>
+                            <option value="21:00">09:00 PM</option>
+                            <option value="22:00">10:00 PM</option>
+                            <option value="23:00">11:00 PM</option>
+                          </select>
                         </div>
                       </div>
                     </div>

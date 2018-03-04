@@ -1,3 +1,5 @@
+<?php session_start() ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,54 +90,120 @@
     $con = mysqli_connect("localhost", "root","water123");
     mysqli_select_db($con, "aplayadb"); ?>
 
+    
     <div class="main-content clearfix" style="margin-top: 10px !important;">
       <div class="container">
-        <div class="row col-md-12">
-          <div class="col-md-4">
-            <input type="text" class="form-control checkin-date" name="" placeholder="Check In" value="<?php echo (isset($_SESSION['from'])) ? $_SESSION['from'] : ''; ?>" id="from"> 
-          </div>
-          <div class="col-md-4">
-            <input type="text" class="form-control checkout-date" name="" placeholder="Check out" value="<?php echo (isset($_SESSION['to'])) ? $_SESSION['to'] : ''; ?>" id="to"> 
-          </div>
+        <div class="row">
+            <label>Checked In</label>
+            <div class="form-group">
+              <div class="col-md-4 col-xs-6">
+                
+                <input type="text" class="form-control checkin-date" name="" placeholder="Check In" value="<?php echo (isset($_SESSION['from'])) ? $_SESSION['from'] : ''; ?>" id="from"> 
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <select class="form-control" name="check_in_time">
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '24:00' ? 'selected' : '') : '')?> value="24:00">12:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '01:00' ? 'selected' : '') : '')?> value="01:00">01:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '02:00' ? 'selected' : '') : '')?> value="02:00">02:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '03:00' ? 'selected' : '') : '')?> value="03:00">03:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '04:00' ? 'selected' : '') : '')?> value="04:00">04:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '05:00' ? 'selected' : '') : '')?> value="05:00">05:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '06:00' ? 'selected' : '') : '')?> value="06:00">06:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '07:00' ? 'selected' : '') : '')?> value="07:00">07:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '08:00' ? 'selected' : '') : '')?> value="08:00">08:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '09:00' ? 'selected' : '') : '')?> value="09:00">09:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '10:00' ? 'selected' : '') : '')?> value="10:00">10:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '11:00' ? 'selected' : '') : '')?> value="11:00">11:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '12:00' ? 'selected' : '') : '')?> value="12:00">12:00 NN</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '13:00' ? 'selected' : '') : '')?> value="13:00">01:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '14:00' ? 'selected' : '') : '')?> value="14:00">02:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '15:00' ? 'selected' : '') : '')?> value="15:00">03:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '16:00' ? 'selected' : '') : '')?> value="16:00">04:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '17:00' ? 'selected' : '') : '')?> value="17:00">05:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '18:00' ? 'selected' : '') : '')?> value="18:00">06:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '19:00' ? 'selected' : '') : '')?> value="19:00">07:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '20:00' ? 'selected' : '') : '')?> value="20:00">08:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '21:00' ? 'selected' : '') : '')?> value="21:00">09:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '22:00' ? 'selected' : '') : '')?> value="22:00">10:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '23:00' ? 'selected' : '') : '')?> value="23:00">11:00 PM</option>
+                </select>
+              </div>
+            </div>
+          </div>   
         </div>
-      </div>
-    </div>
+      </div>   
+      <div class="container">
+        <div class="row">
+            <label>Checked Out</label>
+            <div class="form-group">
+              <div class="col-md-4 col-xs-6">
+                 <input type="text" class="form-control checkout-date" name="" placeholder="Check out" value="<?php echo (isset($_SESSION['to'])) ? $_SESSION['to'] : ''; ?>" id="to"> 
+              </div>
+              <div class="col-md-2 col-xs-6">
+                <select class="form-control" name="check_out_time">
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '24:00' ? 'selected' : '') : '')?> value="24:00">12:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '01:00' ? 'selected' : '') : '')?> value="01:00">01:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '02:00' ? 'selected' : '') : '')?> value="02:00">02:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '03:00' ? 'selected' : '') : '')?> value="03:00">03:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '04:00' ? 'selected' : '') : '')?> value="04:00">04:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '05:00' ? 'selected' : '') : '')?> value="05:00">05:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '06:00' ? 'selected' : '') : '')?> value="06:00">06:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '07:00' ? 'selected' : '') : '')?> value="07:00">07:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '08:00' ? 'selected' : '') : '')?> value="08:00">08:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '09:00' ? 'selected' : '') : '')?> value="09:00">09:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '10:00' ? 'selected' : '') : '')?> value="10:00">10:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '11:00' ? 'selected' : '') : '')?> value="11:00">11:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '12:00' ? 'selected' : '') : '')?> value="12:00">12:00 NN</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '13:00' ? 'selected' : '') : '')?> value="13:00">01:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '14:00' ? 'selected' : '') : '')?> value="14:00">02:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '15:00' ? 'selected' : '') : '')?> value="15:00">03:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '16:00' ? 'selected' : '') : '')?> value="16:00">04:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '17:00' ? 'selected' : '') : '')?> value="17:00">05:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '18:00' ? 'selected' : '') : '')?> value="18:00">06:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '19:00' ? 'selected' : '') : '')?> value="19:00">07:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '20:00' ? 'selected' : '') : '')?> value="20:00">08:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '21:00' ? 'selected' : '') : '')?> value="21:00">09:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '22:00' ? 'selected' : '') : '')?> value="22:00">10:00 PM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '23:00' ? 'selected' : '') : '')?> value="23:00">11:00 PM</option>
+                </select>
+              </div>
+            </div>
+          </div>   
+        </div>
+      </div>         
     <!-- MAIN CONTENT -->
     <div class="main-content common-padding grid-four ed-gallery clearfix">
       <div class="container">
         <h3>El Marfin Rooms </h3>
         <div class="eb-border"></div>
         <div class="row featured popup-gallery">
-
-
-      <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName = 'Room'");
-      ?>
-      <?php while($get=mysqli_fetch_assoc($catcher)): ?>
-        <div class="row col-md-12">
-          <div class="col-md-5">
-              <figure class="ed-room ed-room-highlight featured-room">
-                <a href="../../../admin/mod_room/<?php echo $get['roomImage']?>" title="Photo 1">
-                  <img src=" ../../../admin/mod_room/<?php echo $get['roomImage']?>" alt="image" class="img-responsive">
-                  <figcaption>
-                    <h2 class="headline"><?php echo $get['roomName'] ?></h2>
-                    <span class="ed-zoom"><i class="fa fa-search"></i></span>
-                  </figcaption>
-                </a>     
-              </figure>
-          </div>
-          <div class="row">
-            <div class="col-md-6 align-center">
-              <p align="justify"><?php echo $get['description']?></p>
-                <a class="btn bordered-btn " onclick="book_reservation(<?php echo $get['roomNo']; ?>,<?php echo $get['price']; ?>)">Book for Reservation</a>
-            </div>
-          </div>
-        </div>
-        <br>
-        
-        <?php endwhile; ?>  
           
+            <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName = 'Room'");
+            ?>
+            <?php while($get=mysqli_fetch_assoc($catcher)): ?>
+              <div class="row col-md-12">
+                <div class="col-md-5">
+                    <figure class="ed-room ed-room-highlight featured-room">
+                      <a href="../../../admin/mod_room/<?php echo $get['roomImage']?>" title="Photo 1">
+                        <img src=" ../../../admin/mod_room/<?php echo $get['roomImage']?>" alt="image" class="img-responsive">
+                        <figcaption>
+                          <h2 class="headline"><?php echo $get['roomName'] ?></h2>
+                          <span class="ed-zoom"><i class="fa fa-search"></i></span>
+                        </figcaption>
+                      </a>     
+                    </figure>
+                </div>
+                <div class="row">
+                  <div class="col-md-6 align-center">
+                    <p align="justify"><?php echo $get['description']?></p>
+                      <a class="btn bordered-btn " onclick="book_reservation(<?php echo $get['roomNo']; ?>,<?php echo $get['price']; ?>)">Book for Reservation</a>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <?php endwhile; ?>  
         </div>
-        
+        <br>      
       </div>
     </div>
     <form action="/elmarfin/iamabdus/eden/search_controller.php" class="reservation-submit" method="GET">
@@ -188,9 +256,6 @@
   <script type="text/javascript" language="javascript" src="jquery/jquery-ui.js"></script>
 </body>
 
-
-<!-- Mirrored from demo.themefisher.com/iamabdus/eden/gallery-4col.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jan 2018 05:18:06 GMT -->
-</html>
 <script type="text/javascript">
   function book_reservation(room_id, price)
   {
@@ -211,6 +276,9 @@
     }
   }
 </script>
+
+<!-- Mirrored from demo.themefisher.com/iamabdus/eden/gallery-4col.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jan 2018 05:18:06 GMT -->
+</html>
 
   <script type="text/javascript">
       var dateToday = new Date();

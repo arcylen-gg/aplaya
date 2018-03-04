@@ -55,43 +55,9 @@ foreach ($cur as $result) {
 ?>
 <tr>
 <td width="5%" align="center"></td>
-<td><?php echo $result->firstname." ".$result->lastname; ?></td>
-<td><?php echo $result->confirmation; ?></td>
-<td><?php echo $result->arrival; ?></td>
-<td><?php echo $result->departure; ?></td>
-<!--<td><?php echo $result->roomName; ?></td>-->
-<td><?php echo $result->typename; ?></td>
-<td><?php echo dateDiff($result->arrival,$result->departure); ?></td>
-<td><?php echo $result->status; ?></td> 
-<!--<td><a class="btn btn-default toggle-modal-reserve" href="#reservationr<?php echo $result->reservation_id; ?>" role="button" >View</a></td>-->
-<td >
-	<?php 
-		if($result->status == 'Confirmed'){ ?>
-		<!-- <a class="cls_btn" id="<?php echo $result->reservation_id; ?>" data-toggle='modal' href="#profile" title="Click here to Change Image." ><i class="icon-edit">test</a> -->
-			<a href="index.php?view=view&id=<?php echo $result->reservation_id; ?>" class="btn btn-primary btn-xs" ><i class="icon-edit">View</a>
-            <a href="controller.php?action=checkin&id=<?php echo $result->reservation_id; ?>" class="btn btn-success btn-xs" ><i class="icon-edit">Check in</a>
-			<a href="controller.php?action=cancel&id=<?php echo $result->reservation_id; ?>" class="btn btn-primary btn-xs" ><i class="icon-edit">Void</a>
-		<?php
-		}elseif($result->status == 'Checkedin'){
-	?>
-			<a href="index.php?view=view&id=<?php echo $result->reservation_id; ?>" class="btn btn-primary btn-xs" ><i class="icon-edit">View</a>
-			<a href="controller.php?action=checkout&id=<?php echo $result->reservation_id; ?>" class="btn btn-danger btn-xs" ><i class="icon-edit">Check out</a>
-	        <a href="controller.php?action=cancel&id=<?php echo $result->reservation_id; ?>" class="btn btn-primary btn-xs" ><i class="icon-edit">Void</a>
-        
-    <?php
-		}else{
-			?>
-			<a href="index.php?view=view&id=<?php echo $result->reservation_id; ?>" class="btn btn-primary btn-xs" ><i class="icon-edit">View</a>
-			<a href="index.php?view=view&id=<?php echo $result->reservation_id; ?>" class="btn btn-success btn-xs" disabled="disabled"><i class="icon-edit">Check in</a>
-	        <a href="controller.php?action=cancel&id=<?php echo $result->reservation_id; ?>" class="btn btn-primary btn-xs" ><i class="icon-edit">Void</a>
-        
-    <?php
-		}
-
-	?>
-	
-	
-</td>
+<td>Room 1</td>
+<td>Available in</td>
+<td>Next check in</td>
 
 <?php }
 ?>
