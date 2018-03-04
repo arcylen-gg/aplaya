@@ -115,6 +115,21 @@ if(isset($_POST['btnsubmitbooking']))
       //die(var_dump($mydb));
       $res = $mydb->executeQuery();
     }
+
+    $msg = "<p>
+            Good Day <?php echo $name.' '.$last;?>, 
+            <br>
+            <br>
+            Your reservation for El Marfin Pavilion has been confirmed.
+            <br>
+            <br>
+            Thank you,
+            <br>
+            <strong>Admin</strong>
+            </p>";
+    $emailsender = new Sendemail();
+    $emailsender->send($email, $msg);
+
       $mydb->setQuery("INSERT INTO `comments` (`firstname`, `lastname`, `email`, `comment`) VALUES('$name','$last','$email','$message')");
       $msg = $mydb->executeQuery();
       message("New [". $name ."] created successfully!", "success");
