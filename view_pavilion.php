@@ -208,29 +208,31 @@
                 </a>     
               </figure>
           </div>
-           <?php $catcher2 = mysqli_query($con, "SELECT STATUS FROM reservation
-                      WHERE ((
-                      '".date('Y-m-d',strtotime($_SESSION['from']))."' >= arrival
-                      AND  '".date('Y-m-d',strtotime($_SESSION['from']))."'  <= departure
-                                              
-                      )
-                      OR (
-                      '".date('Y-m-d',strtotime($_SESSION['to']))."'  >= arrival
-                      AND  '".date('Y-m-d',strtotime($_SESSION['to']))."' <= departure
-                      )
-                      OR (
-                      arrival >=  '".date('Y-m-d',strtotime($_SESSION['from']))."' 
-                      AND arrival <= '".date('Y-m-d',strtotime($_SESSION['to']))."' 
-                      )
-                      )
-                      AND roomNo =".$get['roomNo']);
-                      $statuss = mysqli_fetch_assoc($catcher2);
-                      $checkstatus = null;
-                      if(isset($statuss['STATUS']))
-                      {
-                        $checkstatus = $statuss['STATUS'];
-                      }
-
+           <?php   $checkstatus = null;
+              if(isset($_SESSION['from']) && isset($_SESSION['to']))
+              {
+                $catcher2 = mysqli_query($con, "SELECT STATUS FROM reservation
+                WHERE ((
+                '".date('Y-m-d',strtotime($_SESSION['from']))."' >= arrival
+                AND  '".date('Y-m-d',strtotime($_SESSION['from']))."'  <= departure
+                                        
+                )
+                OR (
+                '".date('Y-m-d',strtotime($_SESSION['to']))."'  >= arrival
+                AND  '".date('Y-m-d',strtotime($_SESSION['to']))."' <= departure
+                )
+                OR (
+                arrival >=  '".date('Y-m-d',strtotime($_SESSION['from']))."' 
+                AND arrival <= '".date('Y-m-d',strtotime($_SESSION['to']))."' 
+                )
+                )
+                AND roomNo =".$get['roomNo']);
+                $statuss = mysqli_fetch_assoc($catcher2);
+                if(isset($statuss['STATUS']))
+                {
+                  $checkstatus = $statuss['STATUS'];
+                }
+              }
                        ?>
           <div class="row">
             <div class="col-md-6 align-center">
