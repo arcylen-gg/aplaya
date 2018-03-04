@@ -104,7 +104,7 @@
 
         
   <?php     
-    $con = mysqli_connect("localhost", "root","water123");
+    $con = mysqli_connect("localhost", "root","");
     mysqli_select_db($con, "aplayadb"); ?>
 
       <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName = 'Other Services'");
