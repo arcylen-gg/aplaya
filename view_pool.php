@@ -9,7 +9,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>El Marfin Resort</title>  
-  
+   
   <!-- PLUGINS CSS STYLE -->
   <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -210,10 +210,38 @@
                 </a>     
               </figure>
           </div>
+           <?php $catcher2 = mysqli_query($con, "SELECT STATUS FROM reservation
+                      WHERE ((
+                      '".date('Y-m-d',strtotime($_SESSION['from']))."' >= arrival
+                      AND  '".date('Y-m-d',strtotime($_SESSION['from']))."'  <= departure
+                                              
+                      )
+                      OR (
+                      '".date('Y-m-d',strtotime($_SESSION['to']))."'  >= arrival
+                      AND  '".date('Y-m-d',strtotime($_SESSION['to']))."' <= departure
+                      )
+                      OR (
+                      arrival >=  '".date('Y-m-d',strtotime($_SESSION['from']))."' 
+                      AND arrival <= '".date('Y-m-d',strtotime($_SESSION['to']))."' 
+                      )
+                      )
+                      AND roomNo =".$get['roomNo']);
+                      $statuss = mysqli_fetch_assoc($catcher2);
+                      $checkstatus = null;
+                      if(isset($statuss['STATUS']))
+                      {
+                        $checkstatus = $statuss['STATUS'];
+                      }
+
+                       ?>
           <div class="row">
             <div class="col-md-6 align-center">
               <p align="justify"><?php echo $get['description']?></p>
-                <a class="btn bordered-btn " onclick="book_reservation(<?php echo $get['roomNo']; ?>,<?php echo $get['price']; ?> ,<?php echo $get['price_per_hour']; ?>)">Book for Reservation</a>
+                <?php if($checkstatus == "Checkedin") {?>
+                <a class="btn bordered-btn ">RESERVED</a>
+                <?php }else { ?>
+                <a class="btn bordered-btn " onclick="book_reservation(<?php echo $get['roomNo']; ?>,<?php echo $get['price']; ?> ,<?php echo $get['price_per_hour']; ?>)">Book for Reservation </a>
+                <?php } ?>
             </div>
           </div>
         </div>

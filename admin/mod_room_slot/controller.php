@@ -12,7 +12,7 @@ switch ($action)
 function doExtend()
 {
 	$reservation_id = $_GET['reservation_id'];
-	$outdate = $_GET['checkoutdate'];
+	$outdate = date("Y-m-d",strtotime($_GET['checkoutdate']));
 	$outtime = $_GET['checkouttime'];
 
 	$getreserve = new Reservation;
