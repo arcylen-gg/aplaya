@@ -69,8 +69,8 @@
 
         
   <?php     
-    $con=mysqli_connect("localhost", "root","water123");
-    mysqli_select_db($con, "aplayadb"); ?>
+    $con=mysqli_connect("localhost", "root","digima2018");
+    mysqli_select_db($con, "aplayadb");  ?>
       <!-- NAVBAR -->
       <?php include "headernav.php" ?>      
 
