@@ -1,6 +1,6 @@
 <?php 
-        $con=mysqli_connect("localhost", "root","water123");
-        mysqli_select_db($con, "aplayadb"); 
+        $con=mysqli_connect("localhost", "id4830367_root","water123");
+        mysqli_select_db($con, "id4830367_elmarfinresort");  
 
 $arival    = $_SESSION['from']; 
 $departure = $_SESSION['to'];

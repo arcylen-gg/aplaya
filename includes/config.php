@@ -8,9 +8,9 @@
 /*BEFORE PUSH "localhost", "root","" => "localhost", "root","" */
 //Database Constants
 defined('DB_SERVER') ? null : define("DB_SERVER","localhost");//define our database server
-defined('DB_USER') ? null : define("DB_USER","root");		  //define our database user	
+defined('DB_USER') ? null : define("DB_USER","id4830367_root");		  //define our database user	
 defined('DB_PASS') ? null : define("DB_PASS","water123");			  //define our database Password	
-defined('DB_NAME') ? null : define("DB_NAME","aplayadb"); //define our database Name
+defined('DB_NAME') ? null : define("DB_NAME","id4830367_elmarfinresort"); //define our database Name
 
 $thisFile = str_replace('\\', '/', __FILE__);
 $docRoot =$_SERVER['DOCUMENT_ROOT'];

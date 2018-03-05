@@ -3,8 +3,8 @@
 <html lang="en">
   <?php
   
-  $con=mysqli_connect("localhost", "root","water123");
-  mysqli_select_db($con, "aplayadb");
+  $con=mysqli_connect("localhost", "id4830367_root","water123");
+  mysqli_select_db($con, "id4830367_elmarfinresort"); 
   ?>
   <head>
     <!-- SITE TITTLE -->
@@ -96,8 +96,8 @@
                 <h3 class="headline">FREQUENTLY ASKED QUESTIONS</h3>
                 <div class="container">
                   <?php
-                  $con=mysqli_connect("localhost", "root","water123");
-                  mysqli_select_db($con, "aplayadb"); ?>
+                  $con=mysqli_connect("localhost", "id4830367_root","water123");
+                  mysqli_select_db($con, "id4830367_elmarfinresort");  ?>
                   <?php $catcher=mysqli_query($con, "SELECT * FROM faqs WHERE archive = 0"); ?>
                   <?php while($get=mysqli_fetch_assoc($catcher)): ?>
                   <div class="panel panel-default" >
