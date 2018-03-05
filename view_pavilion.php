@@ -85,7 +85,7 @@
       </div>
     </section>
   <?php     
-    $con = mysqli_connect("localhost", "root","digima2018");
+    $con = mysqli_connect("localhost", "root","water123");
     mysqli_select_db($con, "aplayadb");  ?>
 
     
@@ -177,7 +177,7 @@
         <div class="row featured popup-gallery">
 
       <?php     
-        $con = mysqli_connect("localhost", "root","digima2018");
+        $con = mysqli_connect("localhost", "root","water123");
         mysqli_select_db($con, "aplayadb");  ?>
 
         <?php $select = "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName IN ('Pavilion', 'Pavilion with Pool')";
