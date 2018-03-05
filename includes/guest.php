@@ -26,6 +26,12 @@ class Guest{
 			$cur = $mydb->loadSingleResult();
 			return $cur;
 	}
+	function check_email($email){
+			global $mydb;
+			$mydb->setQuery("SELECT * FROM ".self::$tbl_name." Where `email`= '{$email}' LIMIT 1");
+			$cur = $mydb->loadSingleResult();
+			return $cur;
+	}
 	function find_all_guest($phone="", $email=""){
 			global $mydb;
 			$mydb->setQuery("SELECT * 

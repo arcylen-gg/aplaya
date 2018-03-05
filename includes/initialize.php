@@ -23,6 +23,7 @@ require_once(LIB_PATH.DS."config.php");
 require_once(LIB_PATH.DS."functions.php");
 //later here where we are going to put our class session
 require_once(LIB_PATH.DS."session.php");
+require_once(LIB_PATH.DS."mycaptcha.php");
 require_once(LIB_PATH.DS."member.php");
 require_once(LIB_PATH.DS."pagination.php");
 require_once(LIB_PATH.DS."paginsubject.php");

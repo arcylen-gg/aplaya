@@ -36,7 +36,7 @@ if(isset($_POST['login'])){
 		   <div class="panel panel-inverse">
 		
 			 <div class="hidden panel-heading">Book a Room</div>
-			  <div class="panel-body">	
+			  <div class="panel-body hidden">	
 						   <form  method="POST" action="#.php">
 								<div class="col-xs-12 col-sm-12">
 								

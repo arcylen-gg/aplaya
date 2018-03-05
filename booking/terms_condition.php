@@ -62,6 +62,10 @@ Aplaya Beach Resort
 </p>
 </div>
 </body>
+</div>
+ <div class="modal-footer">
+  <button type="button" class="btn btn-defualt" data-dismiss="modal">Cancel</button>
+</div>
 </html>
 
 </div>

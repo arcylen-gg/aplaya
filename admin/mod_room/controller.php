@@ -55,15 +55,8 @@ function doInsert(){
 				$rm_type	    = $_POST['rmtype'];
 				$rm_price 		= $_POST['price'];
 				$rm_price_per_hour = $_POST['price_per_hour'];
-
-				if($_POST['children'] == 0)
-				{
-					$rm_children 	= 0;
-				}else
-				{
-					$rm_children 	= $_POST['children'];
-				}
-
+				$rm_children 	= 0;
+				
 				if($_POST['adult'] == 0)
 				{
 					$rm_adult 	= 0;

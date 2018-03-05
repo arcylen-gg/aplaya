@@ -120,7 +120,7 @@
             $qry = mysqli_query($con,"INSERT INTO comments(email,firstname,lastname,phone,comment) VALUES('$from','$first_name','$last_name','$phone','$message')")or die (mysqli_error($con));
             
             
-            echo "Inquiry Sent. Thank you " . $first_name . ", we will contact you shortly."; 
+            echo "<div class='alert alert-success'>Inquiry Sent. Thank you " . $first_name . ", we will contact you shortly.</div>"; 
               
         }
     ?>
@@ -132,7 +132,7 @@
                       <input type="text" class="form-control" placeholder="First Name" id="first_name" name="first_name">
                     </div>
                     <div class="form-group">
-                      <input type="phone" class="form-control" placeholder="Phone No" id="phone" name="phone">
+                      <input type="number" class="form-control" placeholder="Phone No" id="phone" name="phone">
                     </div>
                   </div>
                   <div class="col-md-6 col-xs-12">
