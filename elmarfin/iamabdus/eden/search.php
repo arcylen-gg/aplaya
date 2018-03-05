@@ -3,7 +3,7 @@
 <html lang="en">
    <?php
     
-        $con=mysqli_connect("localhost", "root","water123");
+        $con=mysqli_connect("localhost", "root","");
         mysqli_select_db($con, "aplayadb");  
 ?>
 <head>
@@ -157,10 +157,10 @@
                       <label>Estimated Budget Range</label>
                       <div class="form-group">
                         <div class="col-md-6 col-xs-12">
-                          <input type="text" class="form-control" id="from_budget" placeholder="from" name="from_budget" >
+                          <input type="text" class="form-control" id="from_budget" placeholder="from" name="from_budget">
                         </div>
                         <div class="col-md-6 col-xs-12">
-                          <input type="text" class="form-control" id="to_budget" placeholder="to" name="to_budget" >
+                          <input type="text" class="form-control" id="to_budget" placeholder="to" name="to_budget">
                         </div>
                       </div>
                     </div>
@@ -181,7 +181,7 @@
                         <div class="col-md-4 col-xs-12">
                           <select class="form-control" name="check_in_time">
                             <option value="" disabled selected>Select Time in</option>
-                            <option value="24:00:00">12:00 AM</option>
+                            <option value="00:00:00">12:00 AM</option>
                             <option value="01:00:00">01:00 AM</option>
                             <option value="02:00:00">02:00 AM</option>
                             <option value="03:00:00">03:00 AM</option>
@@ -218,7 +218,7 @@
                         <div class="col-md-4 col-xs-12">
                           <select class="form-control" name="check_out_time">
                             <option value="" disabled selected>Select Time out</option>
-                            <option value="24:00:00">12:00 AM</option>
+                            <option value="00:00:00">12:00 AM</option>
                             <option value="01:00:00">01:00 AM</option>
                             <option value="02:00:00">02:00 AM</option>
                             <option value="03:00:00">03:00 AM</option>

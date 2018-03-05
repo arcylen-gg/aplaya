@@ -80,9 +80,11 @@ function product_exists($pid){
   }
  function addtocart($pid,$day,$hour,$price,$checkin,$checkout,$checkintime, $checkouttime,$event = '')
  {
+ 	//die(var_dump($pid." ".$day." ".$diff_hour." ".$totalprice." ".$arrival." ".$departure." ".$arrival_time_in." ".$departure_time_out." ".$event));
 
-    if($pid<1 or $day<1) return;
+    if($pid<1) return;
     if (!empty($_SESSION['magbanua_cart']))
+
     {
 	    if(is_array($_SESSION['magbanua_cart']))
 	    {
@@ -97,6 +99,7 @@ function product_exists($pid){
 		      $_SESSION['magbanua_cart'][$max]['magbanuacheckintime']=$checkintime;
 		      $_SESSION['magbanua_cart'][$max]['magbanuacheckouttime']=$checkouttime;
 		      $_SESSION['magbanua_cart'][$max]['magbanuaevent']=$event;
+		      //die(var_dump($_SESSION));
 
 	    }
 	    else

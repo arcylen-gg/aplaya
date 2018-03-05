@@ -91,6 +91,7 @@ function doSearch()
 function doBookreservation()
 {
 	echo "<pre>";
+
 	// die(var_dump($_GET));
 	$arrival = $_GET['checkin'];
 	$departure = $_GET['checkout'];
@@ -110,7 +111,7 @@ function doBookreservation()
 	$arrival_date = date("Y-m-d", strtotime($arrival));
 	$departure_date = date("Y-m-d", strtotime($departure));
 
-	$arr = $arrival_date." ". $arrival_time_in;
+	/*$arr = $arrival_date." ". $arrival_time_in;
 	$dep = $departure_date." ". $departure_time_out;
 
 	$datetime1 = new DateTime($dep);
@@ -129,8 +130,33 @@ function doBookreservation()
 	else
 	{
 		$totalprice = $diff_hour * $price_per_hour;
-	}
- 	addtocart($roomNo,$diff_day,$diff_hour, $totalprice,$arrival,$departure, $arrival_time_in, $departure_time_out, $event);
+	}*/
+
+	$arr = $arrival_date."T". $arrival_time_in;
+	  $dep = $departure_date."T". $departure_time_out;
+
+	  $datetime1 = new DateTime($dep);
+	  $datetime2 = new DateTime($arr);
+
+	  $interval = $datetime1->diff($datetime2);
+
+	//$daydiff = dateDiff($arrival_date, $departure_date);
+	  $diff_day = $interval->format('%a');
+	  $diff_hour = $interval->format('%h');
+
+	  if($diff_day > 0 and $diff_hour > 0)
+		{
+			$totalprice = ($diff_day * $price) + ($diff_hour * $price_per_hour);
+
+		}
+		else
+		{
+			$totalprice = $diff_hour * $price_per_hour;
+
+		}
+	  
+//die(var_dump($roomNo." ".$diff_day." ".$diff_hour." ".$totalprice." ".$arrival." ".$departure." ".$arrival_time_in." ".$departure_time_out." ".$event));
+ 	addtocart($roomNo,$diff_day,$diff_hour,$totalprice,$arrival,$departure, $arrival_time_in, $departure_time_out, $event);
 
 	redirect("/booking/index.php");
 }

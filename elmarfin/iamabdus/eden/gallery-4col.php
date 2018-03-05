@@ -69,7 +69,7 @@
 
         
   <?php     
-    $con=mysqli_connect("localhost", "root","water123");
+    $con=mysqli_connect("localhost", "root","");
     mysqli_select_db($con, "aplayadb");  ?>
       <!-- NAVBAR -->
       <?php include "headernav.php" ?>      
@@ -97,6 +97,7 @@
 
 
       <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE room.gallery_img = 1"); ?>
+      
       <?php while($get=mysqli_fetch_assoc($catcher)): ?>
 
         <div class="col-md-3 col-sm-4 col-xs-12">
@@ -104,7 +105,7 @@
               <a href="../../../admin/mod_gallery/<?php echo $get['roomImage']?>" title="Photo 1">
                 <img src=" ../../../admin/mod_gallery/<?php echo $get['roomImage']?>" alt="image" class="img-responsive">
                 <figcaption>
-                  <h2 class="headline">IMAGE NAME</h2>
+                  <h2 class="headline"><?php echo $get['roomName']?></h2>
                   <span class="ed-zoom"><i class="fa fa-search"></i></span>
                 </figcaption>
               </a>     
