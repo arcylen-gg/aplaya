@@ -74,6 +74,7 @@ function doInsert(){
 				
 				if ($res >=1) {
 					message("Room name already exist!", "error");
+					//die(var_dump(123));
 					redirect("index.php?view=add");
 				}else{
 				
@@ -91,6 +92,7 @@ function doInsert(){
 					 $istrue = $room->create(); 
 					 if ($istrue == 1){
 					 	message("New [". $rm_name ."] created successfully!", "success");
+					//die(var_dump(456));
 					 	redirect('index.php');
 					 	
 					 }
@@ -126,7 +128,7 @@ function doInsert(){
 				$room->description = $rm_description;
 				
 				$room->update($rm_no); 
-				
+				//die(var_dump(123));
 			 	message("New [". $rm_name ."] Upadated successfully!", "success");
 			 	unset($_SESSION['id']);
 			 	redirect('index.php');

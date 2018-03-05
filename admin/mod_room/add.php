@@ -14,6 +14,7 @@
 									  "Amenities Name" type="text" value="">
               </div>
             </div>
+            
           </div>
 
           <div class="form-group">

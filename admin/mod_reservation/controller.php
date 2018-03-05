@@ -90,8 +90,8 @@ function doInsert()
 	$arrival = $_GET['from'];
 	$departure = $_GET['to'];
 
-	$checkin = $_GET['check_in'];
-	$checkout = $_GET['check_out'];
+	//$checkin = $_GET['check_in'];
+	//$checkout = $_GET['check_out'];
 
 	//dd($checkin);
 	$guest = new Guest;
@@ -105,33 +105,75 @@ function doInsert()
 	$guest->email = $_GET['email'];
 	$guest->password = $_GET['password'];
 
+	$timein = $_GET['time_in'];
+	$timeout = $_GET['time_out'];
+
 	// $mydb->setQuery("INSERT INTO guest (firstname,lastname,country,city,address,zip,phone,email,password)
  //      VALUES (".$_GET['fname'].",".$_GET['lname'].",'Philippines','PH city',".$_GET['address'].",'PHzip',".$_GET['phone'].",".$_GET['email']).")";
  //    $res = $mydb->executeQuery();
  //    $lastguest=mysqli_insert_id();
+
 	$guest_id = $guest->create(true);
 	foreach ($reserved as $key => $value) 
 	{
+		
+		 $getroom = new Room;
+
+		 $roomdata = $getroom->single_room($value); 
+		 $roomdata->price;
+		 $roomdata->price_per_hour;
+
+		// die(var_dump($roomdata));
 		if($value)
 		{
-			//datediff * 24 / timein-timeoute
-	        $days = dateDiff($arrival,$departure); 
-		    $totalprice = $reserved_price[$key] * $days;
+	     	$arrival_time_in = $_GET['time_in'];
+			$departure_time_out = $_GET['time_out'];
+
+			$arrival_date = date("Y-m-d", strtotime($arrival));
+			$departure_date = date("Y-m-d", strtotime($departure));
+
+			$arr = $arrival_date."T". $arrival_time_in;
+			$dep = $departure_date."T". $departure_time_out;
+
+			$datetime1 = new DateTime($dep);
+			  $datetime2 = new DateTime($arr);
+
+			  $interval = $datetime1->diff($datetime2);
+
+			  $diff_day = $interval->format('%a');
+			  $diff_hour = $interval->format('%h');
+
+			 $daydiff = dateDiff($arrival_date, $departure_date);
+			if($daydiff > 0 || $diff_hour > 0)
+			{
+				$totalprice = ($daydiff * $roomdata->price) + ($diff_hour * $roomdata->price_per_hour);
+
+			}
+			else
+			{
+				$totalprice = $diff_hour * $roomdata->price_per_hour;
+
+			}
 
 		    $reserve = new Reservation;
 		    $reserve->roomNo = $value;
 		    $reserve->guest_id = $guest_id;
-		    $reserve->arrival = $arrival;
-		    $reserve->departure = $departure;
+		    $reserve->arrival = date("Y-m-d", strtotime($arrival));
+		    $reserve->departure = date("Y-m-d", strtotime($departure));
 		    $reserve->adults = $_GET['adults'];
-		    $reserve->child = $_GET['child'];
+		    $reserve->child = 0;
 		    $reserve->payable = $totalprice;
 		    $reserve->status = $_GET['status'];
 		    $reserve->booked = "0000-00-00";
 		    $reserve->confirmation = createRandomPassword();
 		    $reserve->reason = ".";
+		    $reserve->event_name = "No Event";
+		    $reserve->archived = 0;
+		    $reserve->time_in = $_GET['time_in'];
+		    $reserve->time_out = $_GET['time_out'];
 
 		    $reserve->create();
+
 		}
 	}
 	message("Reservation Created successfully!", "success");

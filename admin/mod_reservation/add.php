@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost", "root","water123");
+$con=mysqli_connect("localhost", "root","digima2018");
 mysqli_select_db($con, "aplayadb"); 
 ?>
 <!--End of Header-->
@@ -148,16 +148,16 @@ mysqli_select_db($con, "aplayadb");
                         <div class="form-group">
                           <div class="col-md-8">
                             <label class="col-md-4 control-label">Check In:</label>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                               <input class="input-sm form-control" name="from" id="from" placeholder="date">
                             </div>
                             <!-- <div class="col-md-2">
                               <input type="text" class="input-sm form-control" name="time_in" id="time_in" placeholder="time">
 
                             </div> -->
-                            <div class="col-md-2">
+                            <div class="col-xs-4">
                               <select class="form-control" name="time_in">
-                                <option value="" disabled selected>Select Time in</option>
+                                <option value="" disabled selected>Time In</option>
                                 <option value="00:00:00">12:00 AM</option>
                                 <option value="01:00:00">01:00 AM</option>
                                 <option value="02:00:00">02:00 AM</option>
@@ -194,15 +194,15 @@ mysqli_select_db($con, "aplayadb");
                         <div class="form-group">
                           <div class="col-md-8">
                             <label class="col-md-4 control-label">Check Out:</label>
-                            <div class="col-md-6">
+                            <div class="col-md-4">
                               <input class="input-sm form-control" name="to" id="to" placeholder="date">
                             </div>
                             <!-- <div class="col-md-2">
                               <input type="text" class="input-sm form-control" name="time_out" id="time_out" placeholder="time">
                             </div> -->
-                            <div class="col-md-2">
+                            <div class="col-xs-4">
                               <select class="form-control" name="time_out">
-                                <option value="" disabled selected>Select Time out</option>
+                                <option value="" disabled selected>Time Out</option>
                                 <option value="00:00:00">12:00 AM</option>
                                 <option value="01:00:00">01:00 AM</option>
                                 <option value="02:00:00">02:00 AM</option>
@@ -267,139 +267,99 @@ mysqli_select_db($con, "aplayadb");
                     </div>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-3" role="navigation">
-                  <div class="panel panel-inverse">
-                    <div class="row">
-                      <div class=" col-sm-2 col-xs-12 contact-content"></div>
-                      <div class=" col-sm-8 col-xs-12 contact-content">
-                        <div class="comment-form">
-                          <div class="row text-center">
-                            <h3 class="headline">Rooms</h3>
-                            <div class="col-md-12 col-xs-12">
-                              <div class="form-group"  align="center">
-                                <?php $catcher=mysqli_query($con, "SELECT * FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName = 'Room' "); ?>
-                                <table>
-                                  <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
-                                  <tr>
-                                    <td>
-                                      <div class="checkbox">
-                                        <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
-                                        <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <?php endwhile; ?>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
-                          
+                <div class="col-md-3 col-sm-3 match-height" role="navigation">
+                    <div class="row text-center">
+                      <h3 class="headline">Rooms</h3>
+                      <div class="col-md-12 col-xs-12">
+                        <div class="form-group"  align="center">
+                          <?php $catcher=mysqli_query($con, "SELECT * FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName = 'Room' "); ?>
+                          <table>
+                            <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
+                            <tr>
+                              <td>
+                                <div class="checkbox">
+                                  <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
+                                  <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
+                                </div>
+                              </td>
+                            </tr>
+                            <?php endwhile; ?>
+                          </table>
                         </div>
                       </div>
                     </div>
-                    
-                  </div>
                 </div>
-                <div class="col-xs-12 col-sm-3" role="navigation">
-                  <div class="panel panel-inverse">
-                    <div class="row">
-                      <div class=" col-sm-2 col-xs-12 contact-content"></div>
-                      <div class=" col-sm-8 col-xs-12 contact-content">
-                        <div class="comment-form">
-                          <div class="row text-center">
-                            <h3 class="headline">Pavilion</h3>
-                            <div class="col-md-12 col-xs-12">
-                              <div class="form-group"  align="center">
-                                <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName IN ('Pavilion', 'Pavilion with Pool')");
-                                ?>
-                                <table>
-                                  <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
-                                  <tr>
-                                    <td>
-                                      <div class="checkbox">
-                                        <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
-                                        <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <?php endwhile; ?>
-                                </table>
-                              </div>
-                            </div>
+                <div class="col-md-3 col-sm-3 match-height" role="navigation">
+                      <div class="row text-center">
+                        <h3 class="headline">Pavilion</h3>
+                        <div class="col-md-12 col-xs-12">
+                          <div class="form-group"  align="center">
+                            <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName IN ('Pavilion', 'Pavilion with Pool')");
+                            ?>
+                            <table>
+                              <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
+                              <tr>
+                                <td>
+                                  <div class="checkbox">
+                                    <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
+                                    <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
+                                  </div>
+                                </td>
+                              </tr>
+                              <?php endwhile; ?>
+                            </table>
                           </div>
-                          
                         </div>
                       </div>
-                    </div>
-                  </div>
                 </div>
-                <div class="col-xs-12 col-sm-3" role="navigation">
-                  <div class="panel panel-inverse">
-                    <div class="row">
-                      <div class=" col-sm-2 col-xs-12 contact-content"></div>
-                      <div class=" col-sm-8 col-xs-12 contact-content">
-                        <div class="comment-form">
-                          <div class="row text-center">
-                            <h3 class="headline">Pool</h3>
-                            <div class="col-md-12 col-xs-12">
-                              <div class="form-group"  align="center">
-                                <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName ='Pool'");
-                                ?>
-                                <table>
-                                  <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
-                                  <tr>
-                                    <td>
-                                      <div class="checkbox">
-                                        <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
-                                        <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <?php endwhile; ?>
-                                </table>
+                <div class="col-md-3 col-sm-3 match-height" role="navigation">
+                  <div class="row text-center">
+                    <h3 class="headline">Pool</h3>
+                    <div class="col-md-12 col-xs-12">
+                      <div class="form-group"  align="center">
+                        <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName ='Pool'");
+                        ?>
+                        <table>
+                          <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
+                          <tr>
+                            <td>
+                              <div class="checkbox">
+                                <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
+                                <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
                               </div>
-                            </div>
-                          </div>
-                          
-                        </div>
+                            </td>
+                          </tr>
+                          <?php endwhile; ?>
+                        </table>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-xs-12 col-sm-3" role="navigation">
-                  <div class="panel panel-inverse">
-                    <div class="row">
-                      <div class=" col-sm-2 col-xs-12 contact-content"></div>
-                      <div class=" col-sm-8 col-xs-12 contact-content">
-                        <div class="comment-form">
-                          <div class="row text-center">
-                            <h3 class="headline">Other Services</h3>
-                            <div class="col-md-12 col-xs-12">
-                              <div class="form-group"  align="center">
-                                <?php $catcher=mysqli_query($con, "SELECT * FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE other_services = 1 "); ?>
-                                <table>
-                                  <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
-                                  <tr>
-                                    <td>
-                                      <div class="checkbox">
-                                        <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
-                                        <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
-                                      </div>
-                                    </td>
-                                  </tr>
-                                  <?php endwhile; ?>
-                                </table>
-                              </div>
-                            </div>
-                          </div>
+                <div class="col-md-3 col-sm-3 match-height" role="navigation">
+                    <div class="row text-center">
+                      <h3 class="headline">Other Services</h3>
+                      <div class="col-md-12 col-xs-12">
+                        <div class="form-group"  align="center">
+                          <?php $catcher=mysqli_query($con, "SELECT * FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE other_services = 1 "); ?>
+                          <table>
+                            <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
+                            <tr>
+                              <td>
+                                <div class="checkbox">
+                                  <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="reserved[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
+                                  <input type="hidden" name="reserved_price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
+                                </div>
+                              </td>
+                            </tr>
+                            <?php endwhile; ?>
+                          </table>
                         </div>
                       </div>
                     </div>
-                  </div>
                 </div>
-              </div>
-              <div class="row text-center">
-                <div class="col-xs-12">
+                <br>
+                <br>
+                <div class="col-md-12 col-sm-3 text-center" role="navigation">
                   <button type="submit" name="submit" id="submit" value="ADD" class="btn primary-btn">PROCEED </button>
                 </div>
               </div>
@@ -425,4 +385,5 @@ mysqli_select_db($con, "aplayadb");
     dates.not(this).datepicker("option", option, date);
     }
     });
+
     </script>

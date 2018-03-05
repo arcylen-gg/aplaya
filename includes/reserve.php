@@ -89,6 +89,7 @@ class Reservation{
 	
 	public function create() {
 		global $mydb;
+
 		// Don't forget your SQL syntax and good habits:
 		// - INSERT INTO table (key, key) VALUES ('value', 'value')
 		// - single-quotes around all values
@@ -99,7 +100,9 @@ class Reservation{
 		$sql .= ") VALUES ('";
 		$sql .= join("', '", array_values($attributes));
 		$sql .= "')";
-	echo $mydb->setQuery($sql);
+		//die(var_dump($sql));
+	// echo 
+$mydb->setQuery($sql);
 	
 	 if($mydb->executeQuery()) {
 	    $this->id = $mydb->insert_id();

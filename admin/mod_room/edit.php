@@ -7,6 +7,7 @@ $result = $rm->single_room($_SESSION['id']);
 ?>
 <form class="form-horizontal well span6" action="controller.php?action=edit" enctype="multipart/form-data" method="POST">
 
+
 	<fieldset>
 		<legend>Edit Service</legend>
 											
@@ -53,6 +54,18 @@ $result = $rm->single_room($_SESSION['id']);
               <div class="col-md-8"> 
                 <input class="form-control input-sm" id="price" name="price" placeholder=
 									  "Price" type="text" value="<?php echo $result->price; ?>" onkeyup="javascript:checkNumber(this);">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for=
+              "price">Rate per hour:</label>
+
+              <div class="col-md-8"> 
+                <input class="form-control input-sm" id="price_per_hour" name="price_per_hour" placeholder=
+                    "Rate per hour" type="text" value="" onkeyup="javascript:checkNumber(this);">
               </div>
             </div>
           </div>

@@ -1,7 +1,6 @@
-
 <?php 
-        $con=mysqli_connect("localhost", "root","water123");
-        mysqli_select_db($con, "aplayadb");  
+$con=mysqli_connect("localhost", "root","digima2018");
+mysqli_select_db($con, "aplayadb");  
 
 $arival    = $_SESSION['from']; 
 $departure = $_SESSION['to'];
@@ -132,7 +131,7 @@ if(isset($_POST['btnsubmitbooking']))
             <strong>Admin</strong>
             </p>";
     $emailsender = new Sendemail();
-    $emailsender->send($email, $msg);
+    $emailsender->send($email, htmlentities($msg));
       $mydb->setQuery("INSERT INTO `comments` (`firstname`, `lastname`, `email`, `comment`) VALUES('$name','$last','$email','$message')");
       $msg = $mydb->executeQuery();
         $guest = new Guest();
