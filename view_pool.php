@@ -85,7 +85,7 @@
     </section>
 
   <?php     
-    $con = mysqli_connect("localhost", "root","digima2018");
+    $con = mysqli_connect("localhost", "root","water123");
     mysqli_select_db($con, "aplayadb");  ?>
 
     
@@ -179,7 +179,7 @@
 
         
       <?php     
-        $con = mysqli_connect("localhost", "root","digima2018");
+        $con = mysqli_connect("localhost", "root","water123");
         mysqli_select_db($con, "aplayadb");  ?>
 
         <?php $select = "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName = 'Pool'"; 
@@ -203,7 +203,7 @@
               <figure class="ed-room ed-room-highlight featured-room">
                 <a href="../../../admin/mod_room/<?php echo $get['roomImage']?>" title="Photo 1">
                   <img src=" ../../../admin/mod_room/<?php echo $get['roomImage']?>" alt="image" class="img-responsive">
-                  <figcaption>
+                  <figcaption class="hidden">
                     <h2 class="headline"><?php echo $get['roomName']; ?></h2>
                     <span class="ed-zoom"><i class="fa fa-search"></i></span>
                   </figcaption>

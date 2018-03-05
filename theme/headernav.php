@@ -98,6 +98,7 @@
               <li class="dropdown">
                 <a href="javascrip:"><strong><?php echo strtoupper($get['firstname'] ." ".$get['lastname']);?></strong></a>
                 <div class="dropdown-content">
+                    <a href="">My Account</a>
                     <a href="logout.php">Logout</a>
                 </div>
               </li>              

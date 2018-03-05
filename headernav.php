@@ -49,7 +49,7 @@
 </html>
   <?php
   
-  $con=mysqli_connect("localhost", "root","digima2018");
+  $con=mysqli_connect("localhost", "root","water123");
   mysqli_select_db($con, "aplayadb"); 
   ?>
 
@@ -109,6 +109,7 @@
               <li class="dropdown">
                 <a href="javascrip:"><strong><?php echo strtoupper($get['firstname'] ." ".$get['lastname']);?></strong></a>
                 <div class="dropdown-content">
+                    <a href="/booking">My Account</a>
                     <a href="logout.php">Logout</a>
                 </div>
               </li>              

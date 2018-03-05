@@ -87,7 +87,7 @@
 
         
   <?php     
-    $con = mysqli_connect("localhost", "root","digima2018");
+    $con = mysqli_connect("localhost", "root","water123");
     mysqli_select_db($con, "aplayadb");  ?>
 
     
@@ -178,7 +178,7 @@
         <div class="eb-border"></div>
         <div class="row featured popup-gallery">
           <?php     
-            $con = mysqli_connect("localhost", "root","digima2018");
+            $con = mysqli_connect("localhost", "root","water123");
             mysqli_select_db($con, "aplayadb");  ?>
             <?php 
 
@@ -205,7 +205,7 @@
                     <figure class="ed-room ed-room-highlight featured-room">
                       <a href="../../../admin/mod_room/<?php echo $get['roomImage']?>" title="Photo 1">
                         <img src=" ../../../admin/mod_room/<?php echo $get['roomImage']?>" alt="image" class="img-responsive">
-                        <figcaption>
+                        <figcaption class="hidden">
                           <h2 class="headline"><?php echo $get['roomName'] ?></h2>
                           <span class="ed-zoom"><i class="fa fa-search"></i></span>
                         </figcaption>

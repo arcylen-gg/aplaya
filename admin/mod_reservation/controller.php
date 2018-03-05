@@ -25,6 +25,9 @@ switch ($action) {
 	case 'cancel' :
 	doCancel();
 	break;
+	case 'void' :
+	doVoid();
+	break;
 	case 'checkin' :
 	doCheckin();
 	break;
@@ -144,6 +147,18 @@ $id = $_GET['id'];
 
 $res = new Reservation();
 $res->status = 'Cancelled';
+$res->update($id); 
+				
+message("Reservation Updated successfully!", "success");
+redirect('index.php');
+
+}
+
+function doVoid(){
+$id = $_GET['id'];
+
+$res = new Reservation();
+$res->status = 'Void';
 $res->update($id); 
 				
 message("Reservation Updated successfully!", "success");

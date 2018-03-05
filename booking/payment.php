@@ -1,5 +1,5 @@
 <?php 
-        $con=mysqli_connect("localhost", "root","digima2018");
+        $con=mysqli_connect("localhost", "root","water123");
         mysqli_select_db($con, "aplayadb");  
 
 $arival    = $_SESSION['from']; 
@@ -88,7 +88,7 @@ if(isset($_POST['btnsubmitbooking']))
     $mydb->setQuery("INSERT INTO guest (firstname,lastname,country,city,address,zip,phone,email,password)
       VALUES ('$name','$last','$country','$city','$address','$zip','$phone','$email','$password')");
     $res = $mydb->executeQuery();
-    $lastguest=mysqli_insert_id(); 
+    $lastguest=mysqli_insert_id($res); 
     
    }
    //echo "<pre>";
@@ -132,14 +132,13 @@ if(isset($_POST['btnsubmitbooking']))
             </p>";
     $emailsender = new Sendemail();
     $emailsender->send($email, $msg);
-
       $mydb->setQuery("INSERT INTO `comments` (`firstname`, `lastname`, `email`, `comment`) VALUES('$name','$last','$email','$message')");
       $msg = $mydb->executeQuery();
+        $guest = new Guest();
+       $guest->guest_login($email, $password);
       message("New [". $name ."] created successfully!", "success");
 
   //  unsetSessions();
-
-     
     redirect("index.php?view=detail");
 }
 ?>

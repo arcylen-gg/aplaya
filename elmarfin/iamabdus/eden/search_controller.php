@@ -23,7 +23,7 @@ function doSearch()
 	$_SESSION['to_budget'] = $to_budget; 
 
 	//die(var_dump($from_budget));
-	$event = isset($_GET['event_name']) ? $_GET['event_name'] : null;
+	$event = isset($_GET['event_name']) ? $_GET['event_name'] : "No Event";
 	$other_services = isset($_GET['other_services']) ? $_GET['other_services'] : null;
 
 	$arrival = $_GET['check_in'];
@@ -90,6 +90,8 @@ function doSearch()
 }
 function doBookreservation()
 {
+	echo "<pre>";
+	// die(var_dump($_GET));
 	$arrival = $_GET['checkin'];
 	$departure = $_GET['checkout'];
 	$roomNo = $_GET['roomNo'];
@@ -98,7 +100,7 @@ function doBookreservation()
 
 	$_SESSION['from'] = $arrival;
 	$_SESSION['to'] = $departure;
-	$event = $_SESSION['event'];
+	$event = isset($_SESSION['event']) != null ? $_SESSION['event'] : 'No Event';
 
 	$arrival_time_in = $_GET['check_in_time'];
 	$departure_time_out = $_GET['check_out_time'];
@@ -108,22 +110,21 @@ function doBookreservation()
 	$arrival_date = date("Y-m-d", strtotime($arrival));
 	$departure_date = date("Y-m-d", strtotime($departure));
 
-	$arr = $arrival_date."T". $arrival_time_in;
-	$dep = $departure_date."T". $departure_time_out;
-
+	$arr = $arrival_date." ". $arrival_time_in;
+	$dep = $departure_date." ". $departure_time_out;
 
 	$datetime1 = new DateTime($dep);
 	$datetime2 = new DateTime($arr);
 	$interval = $datetime1->diff($datetime2);
-
+	$daydiff = dateDiff($arrival_date, $departure_date);
 
 	$diff_day =	$interval->format('%a');
 	$diff_hour = $interval->format('%h');
 
-
-	if($diff_day >= 1 and $diff_hour >= 1)
+	// die(var_dump($price_per_hour));
+	if($daydiff > 0 and $diff_hour > 0)
 	{
-		$totalprice = ($diff_day * $price) + ($diff_hour * $price_per_hour);
+		$totalprice = ($daydiff * $price) + ($diff_hour * $price_per_hour);
 	}
 	else
 	{

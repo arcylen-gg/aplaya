@@ -1,7 +1,7 @@
 
 <?php
     
-        $con=mysqli_connect("localhost", "root","digima2018");
+        $con=mysqli_connect("localhost", "root","water123");
         mysqli_select_db($con, "aplayadb");  
 ?> 
 
@@ -121,7 +121,7 @@ if(isset($_POST['login'])){
                             $catcher=mysqli_query($con, "SELECT * FROM guest where guest_id = '$iden'");
                             $get = mysqli_fetch_assoc($catcher);
                         ?>
-                         <form method="POST" action="update_guest.php">
+                         <form method="POST" action="../update_guest.php">
                     <div class="panel-heading">Guest Information</div>
                     
                    <center> <a href="../../../../../index.php?page=7" class="btn btn-primary">View my Reservation/s</a>   </center>

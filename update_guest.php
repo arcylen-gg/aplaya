@@ -1,6 +1,8 @@
+  
   <?php
-        $con=mysqli_connect("localhost", "root","digima2018");
-        mysqli_select_db("aplayadb", $con);
+  require_once("includes/initialize.php");
+        $con=mysqli_connect("localhost", "root","water123");
+  mysqli_select_db($con, "aplayadb"); 
 ?>
 
 <?php
@@ -31,26 +33,28 @@
           //echo $email;
           //echo $guest_id;
           
-             if($oldpass != $check_pass)
+          if($oldpass != $check_pass)
           {
-              echo 'Wrong Password/Pass did not match.' ; 
+              message('Wrong Password/Pass did not match.','error' ); 
               header("location: ../../../../index.php?page=7");        
           }
           elseif ($newpass1 != $newpass2)
           {
-              echo 'Password did not match.' ; 
+              message('Password did not match.','error' ); 
               header("location: ../../../../index.php?page=7");        
           }
           else
           {
-             $qry = mysqli_query ("UPDATE guest SET 
+             $qry = mysqli_query ($con,"UPDATE guest SET 
                firstname= '$fname', 
                lastname= '$lname' ,  
                phone= '$phone' ,  
                email= '$email',
                password = '$newpass1'  
             
-               WHERE guest_id = '$guest_id'")or die (mysql_error());  
+               WHERE guest_id = '$guest_id'") or die (mysql_error());
+
+              message('Information updated successfully.','success'); 
               header("location: ../../../../index.php?page=7");       
           }
           
