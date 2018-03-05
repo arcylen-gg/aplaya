@@ -102,7 +102,7 @@
               </div>
               <div class="col-md-2 col-xs-6">
                 <select class="form-control check_in_time-date" name="check_in_time">
-                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '24:00:00' ? 'selected' : '') : '')?> value="24:00:00">12:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '00:00:00' ? 'selected' : '') : '')?> value="00:00:00">12:00 AM</option>
                   <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '01:00:00' ? 'selected' : '') : '')?> value="01:00:00">01:00 AM</option>
                   <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '02:00:00' ? 'selected' : '') : '')?> value="02:00:00">02:00 AM</option>
                   <option <?php echo (isset($_SESSION['time_in']) ? ($_SESSION['time_in'] == '03:00:00' ? 'selected' : '') : '')?> value="03:00:00">03:00 AM</option>
@@ -141,7 +141,7 @@
               </div>
               <div class="col-md-2 col-xs-6">
                 <select class="form-control check_out_time-date" name="check_out_time">
-                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '24:00:00' ? 'selected' : '') : '')?> value="24:00:00">12:00 AM</option>
+                  <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '00:00:00' ? 'selected' : '') : '')?> value="00:00:00">12:00 AM</option>
                   <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '01:00:00' ? 'selected' : '') : '')?> value="01:00:00">01:00 AM</option>
                   <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '02:00:00' ? 'selected' : '') : '')?> value="02:00:00">02:00 AM</option>
                   <option <?php echo (isset($_SESSION['time_out']) ? ($_SESSION['time_out'] == '03:00:00' ? 'selected' : '') : '')?> value="03:00:00">03:00 AM</option>
