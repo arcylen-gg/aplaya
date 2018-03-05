@@ -74,28 +74,9 @@ if (@$_SESSION['to']==""){
              $arival   = $_SESSION['from']; 
               $departure = $_SESSION['to']; 
 
-              $arrival_time_in = isset($_SESSION['check_in_time']) ? $_SESSION['check_in_time'] : null;
-              $departure_time_out = isset($_SESSION['check_out_time']) ? $_SESSION['check_out_time'] : null;
+             
 
-              $_SESSION['time_in'] = $arrival_time_in;
-              $_SESSION['time_out'] = $departure_time_out;
-              $arrival_date = date("Y-m-d", strtotime($arrival));
-              $departure_date = date("Y-m-d", strtotime($departure));
-
-              $arr = $arrival_date."T". $arrival_time_in;
-              $dep = $departure_date."T". $departure_time_out;
-
-
-              $datetime1 = new DateTime($dep);
-              $datetime2 = new DateTime($arr);
-              $interval = $datetime1->diff($datetime2);
-
-
-              $diff_day = $interval->format('%a');
-              $diff_hour = $interval->format('%h');
-  //die(var_dump($diff_hour));
-
-              $days = dateDiff($arival,$departure);
+              //$days = dateDiff($arival,$departure);
             $totalamount = 0;
             if (isset( $_SESSION['magbanua_cart']))
             {

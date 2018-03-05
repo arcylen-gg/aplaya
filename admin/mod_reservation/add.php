@@ -151,8 +151,38 @@ mysqli_select_db($con, "aplayadb");
                             <div class="col-md-6">
                               <input class="input-sm form-control" name="from" id="from" placeholder="date">
                             </div>
-                            <div class="col-md-2">
+                            <!-- <div class="col-md-2">
                               <input type="text" class="input-sm form-control" name="time_in" id="time_in" placeholder="time">
+
+                            </div> -->
+                            <div class="col-md-2">
+                              <select class="form-control" name="time_in">
+                                <option value="" disabled selected>Select Time in</option>
+                                <option value="00:00:00">12:00 AM</option>
+                                <option value="01:00:00">01:00 AM</option>
+                                <option value="02:00:00">02:00 AM</option>
+                                <option value="03:00:00">03:00 AM</option>
+                                <option value="04:00:00">04:00 AM</option>
+                                <option value="05:00:00">05:00 AM</option>
+                                <option value="06:00:00">06:00 AM</option>
+                                <option value="07:00:00">07:00 AM</option>
+                                <option value="08:00:00">08:00 AM</option>
+                                <option value="09:00:00">09:00 AM</option>
+                                <option value="10:00:00">10:00 AM</option>
+                                <option value="11:00:00">11:00 AM</option>
+                                <option value="12:00:00">12:00 NN</option>
+                                <option value="13:00:00">01:00 PM</option>
+                                <option value="14:00:00">02:00 PM</option>
+                                <option value="15:00:00">03:00 PM</option>
+                                <option value="16:00:00">04:00 PM</option>
+                                <option value="17:00:00">05:00 PM</option>
+                                <option value="18:00:00">06:00 PM</option>
+                                <option value="19:00:00">07:00 PM</option>
+                                <option value="20:00:00">08:00 PM</option>
+                                <option value="21:00:00">09:00 PM</option>
+                                <option value="22:00:00">10:00 PM</option>
+                                <option value="23:00:00">11:00 PM</option>
+                              </select>
                             </div>
                           </div>
                         </div>
@@ -167,8 +197,37 @@ mysqli_select_db($con, "aplayadb");
                             <div class="col-md-6">
                               <input class="input-sm form-control" name="to" id="to" placeholder="date">
                             </div>
-                            <div class="col-md-2">
+                            <!-- <div class="col-md-2">
                               <input type="text" class="input-sm form-control" name="time_out" id="time_out" placeholder="time">
+                            </div> -->
+                            <div class="col-md-2">
+                              <select class="form-control" name="time_out">
+                                <option value="" disabled selected>Select Time out</option>
+                                <option value="00:00:00">12:00 AM</option>
+                                <option value="01:00:00">01:00 AM</option>
+                                <option value="02:00:00">02:00 AM</option>
+                                <option value="03:00:00">03:00 AM</option>
+                                <option value="04:00:00">04:00 AM</option>
+                                <option value="05:00:00">05:00 AM</option>
+                                <option value="06:00:00">06:00 AM</option>
+                                <option value="07:00:00">07:00 AM</option>
+                                <option value="08:00:00">08:00 AM</option>
+                                <option value="09:00:00">09:00 AM</option>
+                                <option value="10:00:00">10:00 AM</option>
+                                <option value="11:00:00">11:00 AM</option>
+                                <option value="12:00:00">12:00 NN</option>
+                                <option value="13:00:00">01:00 PM</option>
+                                <option value="14:00:00">02:00 PM</option>
+                                <option value="15:00:00">03:00 PM</option>
+                                <option value="16:00:00">04:00 PM</option>
+                                <option value="17:00:00">05:00 PM</option>
+                                <option value="18:00:00">06:00 PM</option>
+                                <option value="19:00:00">07:00 PM</option>
+                                <option value="20:00:00">08:00 PM</option>
+                                <option value="21:00:00">09:00 PM</option>
+                                <option value="22:00:00">10:00 PM</option>
+                                <option value="23:00:00">11:00 PM</option>
+                              </select>
                             </div>
                           </div>
                         </div>

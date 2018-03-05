@@ -182,17 +182,30 @@
             mysqli_select_db($con, "aplayadb");  ?>
             <?php 
 
-          $select = "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID  WHERE roomtype.typeName = 'Room'";
+          $select = "SELECT *, typeName FROM room INNER JOIN roomtype ON room.typeID = roomtype.typeID  WHERE roomtype.typeName = 'Room'";
+
+          /*if($_SESSION['from_budget'] == 0 && $_SESSION['to_budget'] == 0)
+          {
+            $select = "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID  WHERE roomtype.typeName = 'Room'";
+          }
+          else
+          {
+            $select = "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID  WHERE roomtype.typeName = 'Room' BETWEEN".$_SESSION['from_budget']."and".$_SESSION['to_budget'];
+          }*/
+
           //die(var_dump($catcher));
             if(isset($_SESSION['from_budget']) && isset($_SESSION['to_budget']))
             {
-              $select .= " and room.price >= '".$_SESSION['from_budget']."' and room.price <= '".$_SESSION['to_budget']."'";
-            }
-            else
-            {
 
-              $select .= "and roomtype.other_services = '0'";  
+              $select .= " BETWEEN ".$_SESSION['from_budget']." and ".$_SESSION['to_budget']." and roomtype.other_services = 0";
+              //die(var_dump($select));
+
             }
+           /* else
+            {
+              $select .= "and roomtype.other_services=0";  
+              
+            }*/
             
               $catcher = mysqli_query($con, $select);
                
@@ -290,6 +303,7 @@
 
   </div>
 
+
   <script src="../../../ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="plugins/bootstrap/js/bootstrap.min.js"></script>
   <script src="plugins/bx-slider/jquery.bxslider.min.js"></script><!-- bx-slider js -->
@@ -308,6 +322,7 @@
   <script type="text/javascript" language="javascript" src="jquery/jquery-1.9.1.js"></script>
   <script type="text/javascript" language="javascript" src="jquery/jquery-ui.js"></script>
 </body>
+</html>
 
 <script type="text/javascript">
   function book_reservation(room_id, price, price_per_hour)
@@ -336,7 +351,7 @@
 </script>
 
 <!-- Mirrored from demo.themefisher.com/iamabdus/eden/gallery-4col.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jan 2018 05:18:06 GMT -->
-</html>
+
 
   <script type="text/javascript">
       var dateToday = new Date();

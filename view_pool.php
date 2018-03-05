@@ -186,17 +186,22 @@
 
             if(isset($_SESSION['from_budget']) && isset($_SESSION['to_budget']))
             {
-              $select .= " and room.price >= '".$_SESSION['from_budget']."' and room.price <= '".$_SESSION['to_budget']."'";
+
+              $select .= " BETWEEN ".$_SESSION['from_budget']." and ".$_SESSION['to_budget']." and roomtype.other_services = 0";
+              //die(var_dump($select));
+
             }
-            else
+           /* else
             {
-              $select .= "and roomtype.other_services = '0'";  
-            }
-
+              $select .= "and roomtype.other_services=0";  
+              
+            }*/
+            
               $catcher = mysqli_query($con, $select);
+               
+              ?>
 
-      ?>
-      <?php while($get=mysqli_fetch_assoc($catcher)): ?>
+             <?php while($get=mysqli_fetch_assoc($catcher)):?>
                    
         <div class="row col-md-12">
           <div class="col-md-5">

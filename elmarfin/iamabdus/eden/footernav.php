@@ -50,7 +50,7 @@
             <ul class="bxslider" id="footerSlider"> 
               <?php $catcher=mysqli_query($con, "SELECT * FROM room WHERE gallery_img = '1' "); ?>
               <?php while($get=mysqli_fetch_assoc($catcher)): ?>
-                <li><a href="gallery-3col.html"><img src=" ../../../admin/mod_gallery/<?php echo $get['roomImage']?>" alt="image" /></a></li>    
+                <li><a href="#"><img src=" ../../../admin/mod_gallery/<?php echo $get['roomImage']?>" alt="image" width=150 height=150"/></a></li>    
               <?php endwhile; ?>        
              
             
