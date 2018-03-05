@@ -157,10 +157,10 @@
                       <label>Estimated Budget Range</label>
                       <div class="form-group">
                         <div class="col-md-6 col-xs-12">
-                          <input type="text" class="form-control" id="from_budget" placeholder="from" name="from_budget">
+                          <input type="text" class="form-control" id="from_budget" placeholder="from" name="from_budget" value="100">
                         </div>
                         <div class="col-md-6 col-xs-12">
-                          <input type="text" class="form-control" id="to_budget" placeholder="to" name="to_budget">
+                          <input type="text" class="form-control" id="to_budget" placeholder="to" name="to_budget" value="10000">
                         </div>
                       </div>
                     </div>
