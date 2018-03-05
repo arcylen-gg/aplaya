@@ -85,8 +85,8 @@
     </section>
 
   <?php     
-    $con = mysqli_connect("localhost", "id4830367_root","water123");
-    mysqli_select_db($con, "id4830367_elmarfinresort");  ?>
+    $con = mysqli_connect("localhost", "root","water123");
+    mysqli_select_db($con, "aplayadb");  ?>
 
     
     <div class="main-content clearfix" style="margin-top: 10px !important;">
@@ -179,8 +179,8 @@
 
         
       <?php     
-        $con = mysqli_connect("localhost", "id4830367_root","water123");
-        mysqli_select_db($con, "id4830367_elmarfinresort");  ?>
+        $con = mysqli_connect("localhost", "root","water123");
+        mysqli_select_db($con, "aplayadb");  ?>
 
         <?php $select = "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName = 'Pool'"; 
 

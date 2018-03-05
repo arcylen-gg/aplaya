@@ -49,8 +49,8 @@
 </html>
   <?php
   
-  $con=mysqli_connect("localhost", "id4830367_root","water123");
-  mysqli_select_db($con, "id4830367_elmarfinresort"); 
+  $con=mysqli_connect("localhost", "root","water123");
+  mysqli_select_db($con, "aplayadb"); 
   ?>
 
   <!-- NAVBAR -->
