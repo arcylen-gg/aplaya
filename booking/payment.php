@@ -109,8 +109,8 @@ if(isset($_POST['btnsubmitbooking']))
       $insdata['confirmation'] = $confirmation;
       $insdata['reason'] = ".";
       $insdata['event_name'] = $_SESSION['magbanua_cart'][$i]['magbanuaevent'];
-      $insdata['time_in'] = date("Y-m-d", strtotime($_SESSION['magbanua_cart'][$i]['magbanuacheckintime']));
-      $insdata['time_out'] = date("Y-m-d", strtotime($_SESSION['magbanua_cart'][$i]['magbanuacheckouttime']));
+      $insdata['time_in'] = $_SESSION['magbanua_cart'][$i]['magbanuacheckintime'];
+      $insdata['time_out'] = $_SESSION['magbanua_cart'][$i]['magbanuacheckouttime'];
 
       //die(var_dump($insdata['event_name']));
       $mydb->setQuery("INSERT INTO reservation (roomNo,guest_id,arrival,departure,adults,child,payable,status,booked,confirmation,reason,event_name,time_in, time_out)
