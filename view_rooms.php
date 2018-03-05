@@ -87,7 +87,7 @@
 
         
   <?php     
-    $con = mysqli_connect("localhost", "root","water123");
+    $con = mysqli_connect("localhost", "root","digima2018");
     mysqli_select_db($con, "aplayadb");  ?>
 
     
@@ -178,7 +178,7 @@
         <div class="eb-border"></div>
         <div class="row featured popup-gallery">
           <?php     
-            $con = mysqli_connect("localhost", "root","water123");
+            $con = mysqli_connect("localhost", "root","digima2018");
             mysqli_select_db($con, "aplayadb");  ?>
             <?php 
 
