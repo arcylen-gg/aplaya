@@ -119,16 +119,18 @@ if(isset($_POST['btnsubmitbooking']))
       $res = $mydb->executeQuery();
     }
 
-    $msg = "<p>
-            Good Day <?php echo $name.' '.$last;?>, 
-            <br>
-            <br>
+    $msg = "
+            Good Day ".$name.' '.$last.", 
+            
+            
             Your reservation for El Marfin Pavilion has been confirmed.
-            <br>
-            <br>
+            
+            
             Thank you,
-            <br>
-            <strong>Admin</strong> <br>
+            
+            Admin
+
+
             © ".date('Y')." Copyright El Marfin Hotel
             </p>";
     $emailsender = new Sendemail();
