@@ -36,7 +36,7 @@
 
 $sql_query = "SELECT * FROM reservation LEFT JOIN room ON reservation.roomNo = room.roomNo
 LEFT JOIN guest ON reservation.guest_id = guest.guest_id
-LEFT JOIN roomtype ON room.typeID = roomtype.typeID";
+LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE archived = 0";
 $sql_query = "SELECT * FROM room";
 
 // $sql_query = "SELECT * , roomName, firstname, lastname
