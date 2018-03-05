@@ -2,12 +2,10 @@
 <?php
    
 if (@$_SESSION['from']==""){
-  message("Please Choose check in Date and Check out Out date to continue reservation!", "error");
   redirect('../index.php?page=7');
  
 }   
 if (@$_SESSION['to']==""){
-  message("Please Choose check in Date and Check out Out date to continue reservation!", "error");
   redirect('../index.php?page=7');
 }
 

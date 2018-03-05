@@ -24,6 +24,12 @@ require_once("initialize.php");
   <body>
 
 <?php 
+
+if(isset($_SESSION['guest_id']))
+{
+  message("Already logged in","info");
+ redirect("booking"); 
+}
 if (isset($_POST['btnlogin'])) {
     //form has been submitted1
     
@@ -64,7 +70,7 @@ if (isset($_POST['btnlogin'])) {
 ?>
     <div class="container">
   <form class="form-signin" method="POST">
-   <center> <h5> <font color="red">The email you are using to use already exists. Please login first. </font></h5></center> 
+   <center> <h5 class=" hidden"> <font color="red">The email you are using to use already exists. Please login first. </font></h5></center> 
       
         <h2 class="form-signin-heading">Sign in as guest.</h2>
          <input type="text" class="form-control" placeholder="Email address" name="email" autofocus>
@@ -72,6 +78,7 @@ if (isset($_POST['btnlogin'])) {
         <label class="checkbox">
           <input type="checkbox" value="remember-me"> Remember me
         </label>
+        <label>No Account ? Register <a href="/elmarfin/iamabdus/eden/register.php">here</a></label>
         <button class="btn btn-lg btn-primary btn-block" type="submit" name="btnlogin">Sign in</button>
       </form>
 

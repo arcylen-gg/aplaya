@@ -3,7 +3,7 @@
 <html lang="en">
    <?php
     
-        $con=mysqli_connect("localhost", "root","water123");
+        $con=mysqli_connect("localhost", "root","digima2018");
         mysqli_select_db($con, "aplayadb");  
 ?>
 <head>
@@ -111,7 +111,7 @@
     <!-- MAIN CONTENT -->
     <div class="main-content common-padding clearfix">
       <div class="container">
-        <form class="" method="GET" action="search_controller.php?">
+        <form class="" method="GET" action="search_controller.php">
           <input type="hidden" name="action" value="search">
         <div class="row">
           <div class=" col-sm-2 col-xs-12 contact-content"></div>

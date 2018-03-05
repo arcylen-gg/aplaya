@@ -35,13 +35,12 @@ $captcha_noice_color = "0x142864";
 
 $code = '';
 
-
 $i = 0;
 while ($i < $characters_on_image) { 
 $code .= substr($possible_letters, mt_rand(0, strlen($possible_letters)-1), 1);
 $i++;
 }
-
+$_SESSION['session_captcha'] = $code;
 
 $font_size = $image_height * 0.75;
 $image = @imagecreate($image_width, $image_height);
@@ -79,12 +78,11 @@ $x = ($image_width - $textbox[4])/2;
 $y = ($image_height - $textbox[5])/2;
 imagettftext($image, $font_size, 0, $x, $y, $text_color, $font , $code);
 
-
 /* Show captcha image in the page html page */
 header('Content-Type: image/jpeg');// defining the image type to be shown in browser window
 imagejpeg($image);//showing the image
 imagedestroy($image);//destroying the image instance
-$_SESSION['6_letters_code'] = $code;
+
 
 function hexrgb ($hexstr)
 {

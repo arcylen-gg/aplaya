@@ -13,7 +13,7 @@ switch ($action) {
 	break;
 
 	case 'delete' :
-	dbDELETE();
+	doDELETE();
 	break;
 	
 	case 'deleteOne' :
@@ -154,6 +154,22 @@ redirect('index.php');
 
 }
 
+function doDelete()
+{
+	$id=$_POST['selector'];
+		  $key = count($id);
+		//multi delete using checkbox as a selector
+	for($i=0;$i<$key;$i++)
+	{	 
+		$rm = new Reservation();
+		$rm->archived = 1;
+		$rm->update($id[$i]);
+	}
+
+		message("Reservation already Deleted!","info");
+		redirect('index.php');
+ }
+ 
 function doVoid(){
 $id = $_GET['id'];
 

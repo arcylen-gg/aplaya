@@ -1,5 +1,6 @@
 
 <?php
+
 if (isset($_POST['submit']))
 { 
   $arival   = $_SESSION['from']; 
@@ -20,6 +21,7 @@ if (isset($_POST['submit']))
  $_SESSION['email']= $_POST['email'];
  $_SESSION['pass']  = $_POST['pass'];
  $_SESSION['pending']  = 'pending';
+ $_SESSION['captcha_input']  = $_POST['captcha_input'];
 
   $name   = $_SESSION['name']; 
   $last   = $_SESSION['last'];
@@ -34,18 +36,28 @@ if (isset($_POST['submit']))
   $days = dateDiff($arival,$departure);
   
   
-    $mydb->setQuery("SELECT * 
-                FROM  guest 
-                WHERE email='{$email}'");
-  $cur = $mydb->executeQuery();
-  $row_count = $mydb->num_rows($cur);
-  if ($row_count >=1 ) 
+  //   $mydb->setQuery("SELECT * 
+  //               FROM  guest 
+  //               WHERE email='{$email}'");
+  // $cur = $mydb->executeQuery();
+  // $row_count = $mydb->num_rows($cur);
+  $row = new Guest;
+  $chck = $row->check_email($email);
+
+  if($_SESSION['session_captcha'] != $_POST['captcha_input'])
   {
-      message("Email already exists. Please login first", "Error"); 
-      redirect('../index.php'); 
-  }else{
+      message("Captcha not equal", "error"); 
+      redirect('index.php?view=info'); 
+  }
+  if ($chck) 
+  {
+      message("Email already exists. Please login first", "error"); 
+      redirect('index.php?view=info'); 
+  }
+  else
+  {
     redirect('index.php?view=payment');  
-   } 
+  } 
 
  }
 
@@ -134,7 +146,7 @@ if (isset($_POST['submit']))
 			              "email">Email Address:</label>
 
 			              <div class="col-md-8">
-			                <input name="email" type="text" class="form-control input-sm" id="email" required="required" placeholder="Valid Email Address"/>
+			                <input name="email" type="email" class="form-control input-sm" id="email" required="required" placeholder="Valid Email Address"/>
 			              </div>
 			            </div>
 			       		 </div>
@@ -145,7 +157,7 @@ if (isset($_POST['submit']))
 			              "cemail">Confirm Email Address:</label>
 
 			              <div class="col-md-8">
-			                <input name="cemail" type="text" class="form-control input-sm" id="cemail" required="required" placeholder="Confirm Email Address"/>
+			                <input name="cemail" type="email" class="form-control input-sm" id="cemail" required="required" placeholder="Confirm Email Address"/>
 			              </div>
 			            </div>
 			          </div>
@@ -160,6 +172,16 @@ if (isset($_POST['submit']))
 			            </div>
 			          </div>
 
+			          <div class="form-group">
+			            <div class="col-md-8">
+			              <label class="col-md-4 control-label" for=
+			              "password">Confirm Password:</label>
+
+			              <div class="col-md-8">
+			                <input name="conpass" type="password" class="form-control input-sm" id="confirm_password" required="required" placeholder="Password"/>
+			              </div>
+			            </div>
+			          </div>
 					 </fieldset>
 					 &nbsp; &nbsp;
 				 <div class="form-group">
@@ -170,7 +192,7 @@ if (isset($_POST['submit']))
 			
 					 <br />
 						<img src="captcha_code_file.php?rand=<?php echo rand(); ?>" id='captchaimg' ><a href='javascript: refreshCaptcha();'><img src="<?php echo WEB_ROOT;?>images/refresh.png"  class="hidden" alt="refresh" border="0" style="margin-top:5px; margin-left:5px;" /></a>
-						<br /><small>If you are a Human Enter the code above here :</small><input id="6_letters_code" name="6_letters_code" type="text" class="form-control input-sm" width="20"></p><br/>
+						<br /><small>If you are a Human Enter the code above here :</small><input id="6_letters_code" required name="captcha_input" type="text" class="form-control input-sm" width="20"></p><br/>
 						<div class="col-md-4">
 					    	<input name="submit" type="submit" value="Confirm"  class="btn btn-inverse" onclick="return personalInfo();"/>
 					    </div>
@@ -200,3 +222,17 @@ if (isset($_POST['submit']))
 	<?php require_once 'terms_condition.php';?>
 
 
+<script type="text/javascript">
+  $('#password, #confirm_password').on('keyup', function () {
+  if ($('#password').val() == $('#confirm_password').val()) {
+    $('#confirm_password').css('border-color', 'green');
+  } else 
+    $('#confirm_password').css('border-color', 'red');
+});
+    $('#email, #cemail').on('keyup', function () {
+  if ($('#email').val() == $('#cemail').val()) {
+    $('#cemail').css('border-color', 'green');
+  } else 
+    $('#cemail').css('border-color', 'red');
+});
+</script>

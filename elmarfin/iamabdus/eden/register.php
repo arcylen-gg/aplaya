@@ -1,15 +1,26 @@
 
-<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="en">
+      <?php     
 
+require_once("../../../includes/initialize.php");
+    $con=mysqli_connect("localhost", "root","digima2018");
+    mysqli_select_db($con, "aplayadb");  
+
+if(isset($_SESSION['guest_id']))
+{
+  message("Already registered","info");
+ redirect("../../../booking"); 
+}
+    ?>
+<!-- Mirrored from demo.themefisher.com/iamabdus/eden/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jan 2018 05:17:17 GMT -->
 <head>
 
   <!-- SITE TITTLE -->
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>El Marfin Resort</title>  
+  <title>El Marfin Resort</title>
   
   <!-- PLUGINS CSS STYLE -->
   <link href="plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -33,11 +44,9 @@
   <link href="css/style.css" rel="stylesheet">
   <link rel="stylesheet" href="css/colors/default.css" id="option_color">
 
-
-
 </head>
 
-<body class="page gallery-page">
+<body class="page">
 
   <div class="main-wrapper">
 
@@ -47,8 +56,19 @@
       <!-- TOPBAR -->
       <div class="container clearfix">
         <div class="topbar">
-          <ul>
-            <li class="phoneNo"><i class="fa fa-phone"></i>0123 45678910</li>
+          <ul class="hidden">
+            <li class="phoneNo"><i class="fa fa-phone"></i>
+            <?php $catcher=mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #1' "); ?>
+                   <?php while($getf22=mysqli_fetch_assoc($catcher)): ?>
+                      <?php echo $getf22['DESCRIPTION']?>
+                   <?php endwhile; ?> 
+                        or
+               <?php $catcher=mysqli_query($con, "SELECT * FROM tblsettings WHERE TYPE = 'Phone #2' "); ?>
+                  <?php while($getf222=mysqli_fetch_assoc($catcher)): ?>
+                    <?php echo $getf222['DESCRIPTION']?>
+                  <?php endwhile; ?> 
+            
+            </li>
             <li class="dropdown language">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
               <i class="fa fa-globe"></i>EN
@@ -58,87 +78,85 @@
                 <li class="active">
                       <a href="#">English </a> 
                 </li>
-                <li><a href="#">Spanish</a></li>
-                <li><a href="#">Russian</a></li>
-                <li><a href="#">German</a></li>
+              
               </ul>
             </li>
           </ul>
         </div>
       </div>
 
-        
-  <?php     
-    $con=mysqli_connect("localhost", "root","digima2018");
-    mysqli_select_db($con, "aplayadb");  ?>
       <!-- NAVBAR -->
-      <?php include "headernav.php" ?>      
+       <?php include "headernav.php" ?>      
 
     </div>
 
-    <!-- PAGE BANNER -->
+     <!-- PAGE BANNER -->
     <section class="page-banner clearfix">
       <img src="images/room/banner-room3.jpg" alt="Banner Image" class="img-responsive">
       <div class="overlay"></div>
       <div class="container">
         <div class="banner-inner">
-          <h1 class="top-headline">Image gallery</h1>
-          
+          <h1 class="top-headline">Registration, Fill up the information below</h1>
         </div>
       </div>
     </section>
 
-    <!-- MAIN CONTENT -->
-    <div class="main-content common-padding grid-four ed-gallery clearfix">
+    <!-- WHITE SECTION -->
+    <form method="GET" action="register_controller.php">
+     <div class="main-content common-padding clearfix">
+      <input type="hidden" name="action" value="register">
       <div class="container">
-        <h3>El Marfin Pavilion</h3>
-        <div class="eb-border"></div>
-        <div class="row featured popup-gallery">
-
-
-      <?php $catcher=mysqli_query($con, "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE room.gallery_img = 1"); ?>
-      
-      <?php while($get=mysqli_fetch_assoc($catcher)): ?>
-
-        <div class="col-md-3 col-sm-4 col-xs-12">
-            <figure class="ed-room ed-room-highlight featured-room">
-              <a href="../../../admin/mod_gallery/<?php echo $get['roomImage']?>" title="Photo 1">
-                <img src=" ../../../admin/mod_gallery/<?php echo $get['roomImage']?>" alt="image" class="img-responsive">
-                <figcaption>
-                  <h2 class="headline"><?php echo $get['roomName']?></h2>
-                  <span class="ed-zoom"><i class="fa fa-search"></i></span>
-                </figcaption>
-              </a>     
-            </figure>
+        <div class="row">
+          <?php check_message(); ?>
         </div>
-        
-        <?php endwhile; ?>  
-          
-        </div>
-        
-      </div>
-    </div>
-
-    <!-- DARK SECTION -->
-    <section class="dark-section common-padding clearfix">
-      <div class="weather-newsletter">
-        <div class="container">
-          <div class="row">
-           
-            <div class="col-sm-8 col-xs-12">
-              <div class="newsletter">
-               
-               
-              </div>
+        <div class="row">
+          <div class="col-md-6 col-sm-5 col-xs-12">
+            <div class="col-md-6 col-sm-5 col-xs-12">
+              <label>Firstname</label>
+              <input type="text" class="form-control" required name="fname">
             </div>
+            <div class="col-md-6 col-sm-5 col-xs-12">
+              <label>Lastname</label>
+              <input type="text" class="form-control" required name="lname">
+            </div>
+            <div class="col-md-12">
+              <label>Phone</label>
+              <input type="text" class="form-control" required name="phone">
+            </div>
+            <div class="col-md-12">
+              <label>Address</label>
+              <textarea class="form-control" name="address"></textarea>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-sm-5 col-xs-12">
+            <div class="col-md-12">
+              <label>Email Address</label>
+              <input type="email" class="form-control" required name="email">
+            </div>
+            <div class="col-md-12">
+              <label>Password</label>
+              <input type="password" class="form-control"  id="password" required name="pass">
+            </div>
+            <div class="col-md-12">
+              <label>Confirm Password</label>
+              <input type="password" class="form-control" id="confirm_password"  required name="con_pass">
+            </div>
+          </div>
+
+        </div>   
+        </div>
+        <div class="row">             
+          <div class="col-md-12 col-xs-12 text-center">
+              <button type="submit" name="submit" id="submit" class="btn primary-btn">Register </button>
           </div>
         </div>
       </div>
-    </section>
-
-     <?php
+  </form>
+    <!-- LIGHT SECTION -->
+          <?php
         include "footernav.php"        
-    ?>
+         ?>
 
   </div>
 
@@ -156,9 +174,16 @@
   <script src="plugins/dropdown/js/navbar.js"></script>
   <script src="plugins/star-Rating/js/star-rating.min.js" type="text/javascript"></script>
   <script src="js/custom.js"></script>
-
+<script type="text/javascript">
+  $('#password, #confirm_password').on('keyup', function () {
+  if ($('#password').val() == $('#confirm_password').val()) {
+    $('#confirm_password').css('border-color', 'green');
+  } else 
+    $('#confirm_password').css('border-color', 'red');
+});
+</script>
 </body>
 
 
-<!-- Mirrored from demo.themefisher.com/iamabdus/eden/gallery-4col.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jan 2018 05:18:06 GMT -->
+<!-- Mirrored from demo.themefisher.com/iamabdus/eden/about.html by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 26 Jan 2018 05:17:30 GMT -->
 </html>
