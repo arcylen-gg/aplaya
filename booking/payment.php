@@ -128,7 +128,8 @@ if(isset($_POST['btnsubmitbooking']))
             <br>
             Thank you,
             <br>
-            <strong>Admin</strong>
+            <strong>Admin</strong> <br>
+            © ".date('Y')." Copyright El Marfin Hotel
             </p>";
     $emailsender = new Sendemail();
     $emailsender->send($email, htmlentities($msg));
