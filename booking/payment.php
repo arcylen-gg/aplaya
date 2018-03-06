@@ -200,7 +200,7 @@ if(isset($_POST['btnsubmitbooking']))
                 for ($i=0; $i < $count_cart  ; $i++) {     
               $mydb->setQuery("SELECT *,typeName FROM room ro, roomtype rt WHERE ro.typeID = rt.typeID and roomNo =". $_SESSION['magbanua_cart'][$i]['magbanuaroomid']);
               $cur = $mydb->loadResultList();
-              die(var_dump($_SESSION['magbanua_cart']));
+              // die(var_dump($_SESSION['magbanua_cart']));
             foreach ($cur as $result) {
               echo '<tr>'; 
               echo '<td></td>';
