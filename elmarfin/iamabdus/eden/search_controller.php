@@ -46,6 +46,7 @@ function doSearch()
 
 	//die(var_dump($diff_hour = $interval->format('%h')));
 	$_SESSION['event'] = $event;
+	$lesstime = 0;
  	if(count($other_services) > 0)
 	{
 		foreach ($other_services as $key => $value) 
@@ -58,16 +59,29 @@ function doSearch()
 				$interval = $datetime1->diff($datetime2);
 
 				$diff_day =	$interval->format('%a');
+				$diff_hour = $interval->format('%h');
 				
 
 		        $total_diff_hour = ($diff_day * 24) + $diff_hour;
 		 
 			    $totalprice = $_GET['price'][$key] * $total_diff_hour;
 			    //die(var_dump($totalprice));
-			 	addtocart($value,$days, $totalprice,$arrival,$departure,$event);
+			    if($totalprice != 0)
+			    {
+			 		addtocart($value, $diff_day, $totalprice, $arrival, $departure, $arrival_time_in, $departure_time_out, $event);
+			    }
+			    else
+			    {
+			    	$lesstime++;
+			    }
 			}
 		}
 
+	}
+	if($lesstime != 0 && count($other_services) > 0)
+	{
+		message("Make sure your checked in date, time & checked out date, time are correct ","error");
+	  	redirect("search.php");
 	}
 	$amenity_type = $_GET['amenity_type'];
 
@@ -155,8 +169,16 @@ function doBookreservation()
 
 	}
 	  
+	  if($totalprice != 0)
+	  {
+ 		addtocart($roomNo,$daydiff,$diff_hour,$totalprice,$arrival,$departure, $arrival_time_in, $departure_time_out, $event);
+		redirect("/booking/index.php");
+	  }
+	  else
+	  {
+		message("Make sure your checked in date, time & checked out date, time are correct ","error");
+	  	redirect("search.php");
+	  }
 // die(var_dump($roomNo." ".$diff_day." ".$diff_hour." ".$totalprice." ".$arrival." ".$departure." ".$arrival_time_in." ".$departure_time_out." ".$event));
- 	addtocart($roomNo,$daydiff,$diff_hour,$totalprice,$arrival,$departure, $arrival_time_in, $departure_time_out, $event);
 
-	redirect("/booking/index.php");
 }

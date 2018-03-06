@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php require_once("includes/initialize.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,6 +89,9 @@
     mysqli_select_db($con, "aplayadb");  ?>
 
     
+    <div class="row">
+      <?php check_message(); ?> 
+    </div>
     <div class="main-content clearfix" style="margin-top: 10px !important;">
       <div class="container">
         <div class="row">
@@ -187,7 +190,7 @@
             if(isset($_SESSION['from_budget']) && isset($_SESSION['to_budget']))
             {
 
-              $select .= " BETWEEN ".$_SESSION['from_budget']." and ".$_SESSION['to_budget']." and roomtype.other_services = 0";
+              $select .= " And (room.price BETWEEN ".$_SESSION['from_budget']." and ".$_SESSION['to_budget'].") and roomtype.other_services = 0";
               //die(var_dump($select));
 
             }

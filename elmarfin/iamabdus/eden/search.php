@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php require_once("../../../includes/initialize.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
    <?php
@@ -118,6 +118,9 @@
           <div class=" col-sm-8 col-xs-12 contact-content">
             <div class="comment-form">
               <h3 class="headline">Let us know by filling up below.</h3>
+                <div class="row">
+                  <?php check_message(); ?> 
+                </div>
                 <div class="row">
                   <label>Event Type</label>
                   <div class="col-md-12 col-xs-12">

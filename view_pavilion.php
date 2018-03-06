@@ -1,4 +1,4 @@
-<?php session_start() ?>
+<?php require_once("includes/initialize.php"); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -170,6 +170,10 @@
         </div>
       </div>
     <!-- MAIN CONTENT -->
+
+    <div class="row">
+      <?php check_message(); ?> 
+    </div>
     <div class="main-content common-padding grid-four ed-gallery clearfix">
       <div class="container">
         <h3>El Marfin Pavilion</h3>
@@ -185,7 +189,7 @@
             if(isset($_SESSION['from_budget']) && isset($_SESSION['to_budget']))
             {
 
-              $select .= " BETWEEN ".$_SESSION['from_budget']." and ".$_SESSION['to_budget']." and roomtype.other_services = 0";
+              $select .= " And (room.price BETWEEN ".$_SESSION['from_budget']." and ".$_SESSION['to_budget'].") and roomtype.other_services = 0";
               //die(var_dump($select));
 
             }
@@ -198,61 +202,61 @@
               $catcher = mysqli_query($con, $select);
                
               ?>
-
+            
              <?php while($get=mysqli_fetch_assoc($catcher)):?>
 
-        <div class="row col-md-12">
-          <div class="col-md-5">
-              <figure class="ed-room ed-room-highlight featured-room">
-                <a href="../../../admin/mod_room/<?php echo $get['roomImage']?>" title="Photo 1">
-                  <img src=" ../../../admin/mod_room/<?php echo $get['roomImage']?>" alt="image" class="img-responsive">
-                  <figcaption class="hidden"> 
-                    <h2 class="headline"><?php echo $get['roomName'] ?></h2>
-                    <span class="ed-zoom"><i class="fa fa-search"></i></span>
-                  </figcaption>
-                </a>     
-              </figure>
-          </div>
-           <?php   $checkstatus = null;
-              if(isset($_SESSION['from']) && isset($_SESSION['to']))
-              {
-                $catcher2 = mysqli_query($con, "SELECT STATUS FROM reservation
-                WHERE ((
-                '".date('Y-m-d',strtotime($_SESSION['from']))."' >= arrival
-                AND  '".date('Y-m-d',strtotime($_SESSION['from']))."'  <= departure
-                                        
-                )
-                OR (
-                '".date('Y-m-d',strtotime($_SESSION['to']))."'  >= arrival
-                AND  '".date('Y-m-d',strtotime($_SESSION['to']))."' <= departure
-                )
-                OR (
-                arrival >=  '".date('Y-m-d',strtotime($_SESSION['from']))."' 
-                AND arrival <= '".date('Y-m-d',strtotime($_SESSION['to']))."' 
-                )
-                )
-                AND roomNo =".$get['roomNo']);
-                $statuss = mysqli_fetch_assoc($catcher2);
-                if(isset($statuss['STATUS']))
-                {
-                  $checkstatus = $statuss['STATUS'];
-                }
-              }
-                       ?>
-          <div class="row">
-            <div class="col-md-6 align-center">
-              <p align="justify"><?php echo $get['description']?></p>
-               <?php if($checkstatus == "Checkedin") {?>
-                <a class="btn bordered-btn ">RESERVED</a>
-                <?php }else { ?>
-                <a class="btn bordered-btn " onclick="book_reservation(<?php echo $get['roomNo']; ?>,<?php echo $get['price']; ?> ,<?php echo $get['price_per_hour']; ?>)">Book for Reservation </a>
-                <?php } ?>
-            </div>
-          </div>
-        </div>
-        <br>
-        
-        <?php endwhile; ?>  
+              <div class="row col-md-12">
+                <div class="col-md-5">
+                    <figure class="ed-room ed-room-highlight featured-room">
+                      <a href="../../../admin/mod_room/<?php echo $get['roomImage']?>" title="Photo 1">
+                        <img src=" ../../../admin/mod_room/<?php echo $get['roomImage']?>" alt="image" class="img-responsive">
+                        <figcaption class="hidden"> 
+                          <h2 class="headline"><?php echo $get['roomName'] ?></h2>
+                          <span class="ed-zoom"><i class="fa fa-search"></i></span>
+                        </figcaption>
+                      </a>     
+                    </figure>
+                </div>
+                 <?php   $checkstatus = null;
+                    if(isset($_SESSION['from']) && isset($_SESSION['to']))
+                    {
+                      $catcher2 = mysqli_query($con, "SELECT STATUS FROM reservation
+                      WHERE ((
+                      '".date('Y-m-d',strtotime($_SESSION['from']))."' >= arrival
+                      AND  '".date('Y-m-d',strtotime($_SESSION['from']))."'  <= departure
+                                              
+                      )
+                      OR (
+                      '".date('Y-m-d',strtotime($_SESSION['to']))."'  >= arrival
+                      AND  '".date('Y-m-d',strtotime($_SESSION['to']))."' <= departure
+                      )
+                      OR (
+                      arrival >=  '".date('Y-m-d',strtotime($_SESSION['from']))."' 
+                      AND arrival <= '".date('Y-m-d',strtotime($_SESSION['to']))."' 
+                      )
+                      )
+                      AND roomNo =".$get['roomNo']);
+                      $statuss = mysqli_fetch_assoc($catcher2);
+                      if(isset($statuss['STATUS']))
+                      {
+                        $checkstatus = $statuss['STATUS'];
+                      }
+                    }
+                             ?>
+                <div class="row">
+                  <div class="col-md-6 align-center">
+                    <p align="justify"><?php echo $get['description']?></p>
+                     <?php if($checkstatus == "Checkedin") {?>
+                      <a class="btn bordered-btn ">RESERVED</a>
+                      <?php }else { ?>
+                      <a class="btn bordered-btn " onclick="book_reservation(<?php echo $get['roomNo']; ?>,<?php echo $get['price']; ?> ,<?php echo $get['price_per_hour']; ?>)">Book for Reservation </a>
+                      <?php } ?>
+                  </div>
+                </div>
+              </div>
+              <br>
+              
+              <?php endwhile; ?>  
           
         </div>
         
