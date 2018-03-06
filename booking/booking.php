@@ -60,9 +60,12 @@ if (@$_SESSION['to']==""){
               <th align="center" width="120">Check Out</th>
               <th align="center" width="120">Day/Night</th>
               <th  width="120">Price(day)</th>
+              <!-- <th align="center" width="120">12/Hrs</th>
+              <th  width="120">Price(12hrs)</th> -->
               <th align="center" width="120">Hours</th>
-              <th  width="120">Price(hour)</th>
-               <th align="center" width="120">Room</th>
+              <th  width="120">Price(hr)</th>
+              <th  width="120">Price(12hr)</th>
+               <!-- <th align="center" width="120">Room</th> -->
               <th align="center" width="90">Amount</th>
                 <th align="center" width="90">Action</th>
          
@@ -77,6 +80,8 @@ if (@$_SESSION['to']==""){
              
 
               //$days = dateDiff($arival,$departure);
+              $total_price = 0;
+               $total =0;
             $totalamount = 0;
             if (isset( $_SESSION['magbanua_cart']))
             {
@@ -89,6 +94,7 @@ if (@$_SESSION['to']==""){
               $cur = $mydb->loadResultList();
 
             foreach ($cur as $result) {
+              //die(var_dump($result));
                 echo '<tr>'; 
                 echo '<td></td>';
                 echo '<td>'. $result->roomName.'</td>';
@@ -97,9 +103,15 @@ if (@$_SESSION['to']==""){
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuacheckout'].'</td>';
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuaday'].'</td>';
                 echo '<td > &#8369 '.number_format($result->price).'</td>';
-                echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuahour'].'</td>';
+               /* echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuahour12'].'</td>';
+                echo '<td > &#8369 '.number_format($result->price_per_12_hour).'</td>';*/
+                echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuathour'].'</td>';
+                $total = $_SESSION['magbanua_cart'][$i]['magbanuahour'] - 12;
+                
+                $total_price = ($result->price_per_hour * $total) + $result->price_per_12_hour;
                 echo '<td > &#8369 '.number_format(str_replace(",", "",$result->price_per_hour)).'</td>';
-                echo '<td >1</td>';
+                echo '<td > &#8369 '.number_format(str_replace(",", "",$result->price_per_12_hour)).'</td>';
+                /*echo '<td >1</td>';*/
                 echo '<td > &#8369 '. number_format(str_replace(",", "", $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'])).'</td>';
                 echo '<td ><a href="index.php?view=processcart&id='.$result->roomNo.'">Remove</td>';
             

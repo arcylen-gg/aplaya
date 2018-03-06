@@ -61,11 +61,23 @@ $result = $rm->single_room($_SESSION['id']);
           <div class="form-group">
             <div class="col-md-8">
               <label class="col-md-4 control-label" for=
+              "price">Rate per 12 hrs:</label>
+
+              <div class="col-md-8"> 
+                <input class="form-control input-sm" id="price_per_12_hour" name="price_per_12_hour" placeholder=
+                    "Rate per 12 hrs" type="text" value="<?php echo $result->price_per_12_hour; ?>" onkeyup="javascript:checkNumber(this);">
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for=
               "price">Rate per hour:</label>
 
               <div class="col-md-8"> 
                 <input class="form-control input-sm" id="price_per_hour" name="price_per_hour" placeholder=
-                    "Rate per hour" type="text" value="" onkeyup="javascript:checkNumber(this);">
+                    "Rate per hour" type="text" value="<?php echo $result->price_per_hour; ?>" onkeyup="javascript:checkNumber(this);">
               </div>
             </div>
           </div>

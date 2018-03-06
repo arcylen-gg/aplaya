@@ -4,7 +4,7 @@
       <?php     
 
 require_once("../../../includes/initialize.php");
-    $con=mysqli_connect("localhost", "root","digima2018");
+    $con=mysqli_connect("localhost", "root","water123");
     mysqli_select_db($con, "aplayadb");  
 
 if(isset($_SESSION['guest_id']))

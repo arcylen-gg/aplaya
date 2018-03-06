@@ -1,5 +1,5 @@
 <?php 
-$con=mysqli_connect("localhost", "root","digima2018");
+$con=mysqli_connect("localhost", "root","water123");
 mysqli_select_db($con, "aplayadb");  
 
 $arival    = $_SESSION['from']; 
@@ -184,8 +184,9 @@ if(isset($_POST['btnsubmitbooking']))
               <th align="center" width="120">Day/Night</th>
               <th  width="120">Price(day)</th>
               <th align="center" width="120">Hours</th>
-              <th  width="120">Price(hour)</th>
-              <th align="center" width="120">Room</th>
+              <th  width="120">Price(hr)</th>
+              <th  width="120">Price(12hr)</th>
+              <!-- <th align="center" width="120">Room</th> -->
               <th align="center" width="90">Amount</th>
            
               
@@ -196,6 +197,8 @@ if(isset($_POST['btnsubmitbooking']))
               
             <?php
             $totalamount = 0;
+            $total_price = 0;
+               $total =0;
                $count_cart = count($_SESSION['magbanua_cart']);
                 for ($i=0; $i < $count_cart  ; $i++) {     
               $mydb->setQuery("SELECT *,typeName FROM room ro, roomtype rt WHERE ro.typeID = rt.typeID and roomNo =". $_SESSION['magbanua_cart'][$i]['magbanuaroomid']);
@@ -209,9 +212,10 @@ if(isset($_POST['btnsubmitbooking']))
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuacheckout'].'</td>';
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuaday'].'</td>';
               echo '<td >  &#8369  '. number_format(str_replace(",", "",$result->price)).'</td>';
-                echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuahour'].'</td>';
+                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuathour'].'</td>';
               echo '<td >  &#8369  '. number_format(str_replace(",", "",$result->price_per_hour)).'</td>';
-               echo '<td >1</td>';
+                echo '<td > &#8369 '.number_format(str_replace(",", "",$result->price_per_12_hour)).'</td>';
+              /* echo '<td >1</td>';*/
                 /*echo '<td > &#8369'. $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'].'</td>';*/
                 echo '<td > &#8369 '. number_format(str_replace(",", "",$_SESSION['magbanua_cart'][$i]['magbanuaroomprice'])).'</td>';
         

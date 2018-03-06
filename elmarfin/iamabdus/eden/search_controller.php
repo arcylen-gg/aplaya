@@ -122,6 +122,9 @@ function doBookreservation()
 	$roomNo = $_GET['roomNo'];
 	$price = $_GET['price'];
 	$price_per_hour = isset($_GET['price_per_hour']) ? $_GET['price_per_hour'] : 0;
+	$price_per_12_hour = isset($_GET['price_per_12_hour']) ? $_GET['price_per_12_hour'] : 0;
+
+	//die(var_dump($price_per_12_hour));
 
 	$_SESSION['from'] = $arrival;
 	$_SESSION['to'] = $departure;
@@ -135,53 +138,45 @@ function doBookreservation()
 	$arrival_date = date("Y-m-d", strtotime($arrival));
 	$departure_date = date("Y-m-d", strtotime($departure));
 
-	/*$arr = $arrival_date." ". $arrival_time_in;
-	$dep = $departure_date." ". $departure_time_out;
-
-	$datetime1 = new DateTime($dep);
-	$datetime2 = new DateTime($arr);
-	$interval = $datetime1->diff($datetime2);
-	$daydiff = dateDiff($arrival_date, $departure_date);
-
-	$diff_day =	$interval->format('%a');
-	$diff_hour = $interval->format('%h');
-
-	// die(var_dump($price_per_hour));
-	if($daydiff > 0 and $diff_hour > 0)
-	{
-		$totalprice = ($daydiff * $price) + ($diff_hour * $price_per_hour);
-	}
-	else
-	{
-		$totalprice = $diff_hour * $price_per_hour;
-	}*/
-
 	$arr = $arrival_date."T". $arrival_time_in;
-	  $dep = $departure_date."T". $departure_time_out;
+  	$dep = $departure_date."T". $departure_time_out;
 
-	  $datetime1 = new DateTime($dep);
-	  $datetime2 = new DateTime($arr);
+  $datetime1 = new DateTime($dep);
+  $datetime2 = new DateTime($arr);
 
-	  $interval = $datetime1->diff($datetime2);
+  $interval = $datetime1->diff($datetime2);
 
 	$daydiff = dateDiff($arrival_date, $departure_date);
 	  $diff_day = $interval->format('%a');
 	  $diff_hour = $interval->format('%h');
 
-	if($daydiff > 0 || $diff_hour > 0)
+	if($diff_hour > 12)
 	{
-		$totalprice = ($daydiff * $price) + ($diff_hour * $price_per_hour);
+		$new_diff_hr = $diff_hour - 12;
+		$diff_12_hour = 1;
+	}
+	else
+	{
+		$new_diff_hr = $diff_hour;
+		$diff_12_hour = 0;
+	}
+	//die(var_dump(expression));
+	if($daydiff > 0 || $new_diff_hr > 0 || $diff_12_hour > 0)
+	{
+		$totalprice = ($daydiff * $price) + ($new_diff_hr * $price_per_hour) + ($diff_12_hour * $price_per_12_hour);
 
 	}
 	else
 	{
-		$totalprice = $diff_hour * $price_per_hour;
+		$totalprice = $new_diff_hr * $price_per_hour;
 
 	}
-	  
+	$total_hr = $new_diff_hr + $diff_12_hour;
+
 	  if($totalprice != 0)
 	  {
- 		addtocart($roomNo,$daydiff,$diff_hour,$totalprice,$arrival,$departure, $arrival_time_in, $departure_time_out, $event);
+	  	//die(var_dump($totalprice));
+ 		addtocart($roomNo,$daydiff,$diff_hour,$new_diff_hr,$diff_12_hour,$totalprice,$arrival,$departure, $arrival_time_in, $departure_time_out, $event);
 		redirect("/booking/index.php");
 	  }
 	  else
@@ -189,6 +184,6 @@ function doBookreservation()
 		message("Make sure your checked in date, time & checked out date, time are correct ","error");
 	  	redirect("search.php");
 	  }
-// die(var_dump($roomNo." ".$diff_day." ".$diff_hour." ".$totalprice." ".$arrival." ".$departure." ".$arrival_time_in." ".$departure_time_out." ".$event));
+
 
 }

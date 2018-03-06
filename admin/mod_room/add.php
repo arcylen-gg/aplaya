@@ -50,6 +50,18 @@
             </div>
           </div>
 
+          <div class="form-group">
+            <div class="col-md-8">
+              <label class="col-md-4 control-label" for=
+              "price">Rate per 12 hrs:</label>
+
+              <div class="col-md-8"> 
+                <input class="form-control input-sm" id="price_per_12_hour" name="price_per_12_hour" placeholder=
+                    "Rate per 12 hrs" type="text" value="" onkeyup="javascript:checkNumber(this);">
+              </div>
+            </div>
+          </div>
+
            <div class="form-group">
             <div class="col-md-8">
               <label class="col-md-4 control-label" for=

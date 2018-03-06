@@ -85,7 +85,7 @@
     </section>
 
   <?php     
-    $con = mysqli_connect("localhost", "root","digima2018");
+    $con = mysqli_connect("localhost", "root","water123");
     mysqli_select_db($con, "aplayadb");  ?>
 
     
@@ -182,7 +182,7 @@
 
         
       <?php     
-        $con = mysqli_connect("localhost", "root","digima2018");
+        $con = mysqli_connect("localhost", "root","water123");
         mysqli_select_db($con, "aplayadb");  ?>
 
         <?php $select = "SELECT *, typeName FROM room LEFT JOIN roomtype ON room.typeID = roomtype.typeID WHERE roomtype.typeName = 'Pool'"; 
@@ -251,7 +251,7 @@
                 <?php if($checkstatus == "Checkedin") {?>
                 <a class="btn bordered-btn ">RESERVED</a>
                 <?php }else { ?>
-                <a class="btn bordered-btn " onclick="book_reservation(<?php echo $get['roomNo']; ?>,<?php echo $get['price']; ?> ,<?php echo $get['price_per_hour']; ?>)">Book for Reservation </a>
+                <a class="btn bordered-btn " onclick="book_reservation(<?php echo $get['roomNo']; ?>,<?php echo $get['price']; ?> ,<?php echo $get['price_per_hour']; ?>,<?php echo $get['price_per_12_hour']; ?>)">Book for Reservation </a>
                 <?php } ?>
             </div>
           </div>
@@ -305,6 +305,7 @@
       <input type="hidden" name="roomNo" class="roomno-class">
       <input type="hidden" name="price" class="price-class">
       <input type="hidden" name="price_per_hour" class="price_per_hour-class">
+      <input type="hidden" name="price_per_12_hour" class="price_per_12_hour-class">
     </form>
   </div>
 
@@ -330,7 +331,7 @@
 </html>
 
 <script type="text/javascript">
-  function book_reservation(room_id, price, price_per_hour)
+  function book_reservation(room_id, price, price_per_hour, price_per_12_hour)
   {
     $checkin = $(".checkin-date").val();
     $checkout = $(".checkout-date").val();
@@ -345,6 +346,7 @@
       $(".roomno-class").val(room_id);
       $(".price-class").val(price);
       $(".price_per_hour-class").val(price_per_hour);
+      $(".price_per_12_hour-class").val(price_per_12_hour);
 
       $(".reservation-submit").submit();
     }

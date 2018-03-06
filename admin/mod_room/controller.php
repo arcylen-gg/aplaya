@@ -43,7 +43,7 @@ function doInsert(){
 			else{
 			move_uploaded_file($_FILES["image"]["tmp_name"],"rooms/".$_FILES["image"]["name"]);
 			
-			if ($_POST['name'] == "" OR $_POST['rmtype'] == "" OR $_POST['price'] == "" OR $_POST['price_per_hour'] == "") {
+			if ($_POST['name'] == "" OR $_POST['rmtype'] == "" OR $_POST['price'] == "" OR $_POST['price_per_hour'] == "" OR $_POST['price_per_12_hour'] == ""){
 				$messageStats = false;
 					message("All fields required!", "error");
 					redirect("index.php?view=add");
@@ -55,6 +55,8 @@ function doInsert(){
 				$rm_type	    = $_POST['rmtype'];
 				$rm_price 		= $_POST['price'];
 				$rm_price_per_hour = $_POST['price_per_hour'];
+
+				$rm_price_per_12_hour = $_POST['price_per_12_hour'];
 				$rm_children 	= 0;
 				
 				if($_POST['adult'] == 0)
@@ -82,6 +84,8 @@ function doInsert(){
 					$room->roomName = $rm_name;
 					$room->price = $rm_price;
 					$room->price_per_hour = $rm_price_per_hour;
+
+					$room->price_per_12_hour = $rm_price_per_12_hour;
 
 					$room->Adults = $rm_adult;
 					$room->Children = $rm_children;
@@ -116,6 +120,8 @@ function doInsert(){
 				$rm_type	    = $_POST['rmtype'];
 				$rm_price 		= $_POST['price'];
 				$rm_price_per_hour = $_POST['price_per_hour'];
+				$rm_price_per_12_hour = $_POST['price_per_12_hour'];
+				//die(var_dump($rm_price_per_12_hour));
 				$rm_adult 		= $_POST['adult'];
 				$rm_children 	= $_POST['children'];
 				$rm_description 	= $_POST['description'];
@@ -123,12 +129,13 @@ function doInsert(){
 				$room->roomName = $rm_name;
 				$room->price = $rm_price;
 				$room->price_per_hour = $rm_price_per_hour;
+				$room->price_per_12_hour = $rm_price_per_12_hour;
 				$room->Adults = $rm_adult;
-				$room->Children = $rm_children;
+				$room->Children = 0;
 				$room->description = $rm_description;
 				
 				$room->update($rm_no); 
-				//die(var_dump(123));
+				//die(var_dump($room));
 			 	message("New [". $rm_name ."] Upadated successfully!", "success");
 			 	unset($_SESSION['id']);
 			 	redirect('index.php');
