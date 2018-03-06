@@ -68,7 +68,7 @@ function doSearch()
 			    //die(var_dump($totalprice));
 			    if($totalprice != 0)
 			    {
-			 		addtocart($value, $diff_day, $totalprice, $arrival, $departure, $arrival_time_in, $departure_time_out, $event);
+			 		addtocart($value, $diff_day,$diff_hour, $totalprice, $arrival, $departure, $arrival_time_in, $departure_time_out, $event);
 			    }
 			    else
 			    {
