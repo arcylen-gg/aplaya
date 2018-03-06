@@ -265,7 +265,8 @@ ss<?php require_once("../../../includes/initialize.php"); ?>
                             <div class="checkbox">
                               <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="other_services[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
                               <input type="hidden" name="price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
-                                <input type="hidden" name="priceperhour[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price_per_hour'] ?>">
+                                <input type="hidden" name="price_per_hour[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price_per_hour'] ?>">
+                                <input type="hidden" name="price_per_12_hour[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price_per_12_hour'] ?>">
                             </div>
                           </td>
                         </tr>

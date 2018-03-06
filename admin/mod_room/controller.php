@@ -88,7 +88,7 @@ function doInsert(){
 					$room->price_per_12_hour = $rm_price_per_12_hour;
 
 					$room->Adults = $rm_adult;
-					$room->Children = $rm_children;
+					$room->Children =0;
 					$room->roomImage = $rm_image;
 					$room->description = $rm_description;
 	                $room->gallery_img = $gallery_img;
@@ -123,7 +123,7 @@ function doInsert(){
 				$rm_price_per_12_hour = $_POST['price_per_12_hour'];
 				//die(var_dump($rm_price_per_12_hour));
 				$rm_adult 		= $_POST['adult'];
-				$rm_children 	= $_POST['children'];
+				$rm_children 	= 0;
 				$rm_description 	= $_POST['description'];
 				$room->typeID = $rm_type;
 				$room->roomName = $rm_name;

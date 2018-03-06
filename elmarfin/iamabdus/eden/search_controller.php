@@ -54,7 +54,7 @@ function doSearch()
 
 			if($value)
 			{
-				$datetime1 = new DateTime($dep);
+				/*$datetime1 = new DateTime($dep);
 				$datetime2 = new DateTime($arr);
 				$interval = $datetime1->diff($datetime2);
 
@@ -74,11 +74,46 @@ function doSearch()
 				else
 				{
 					$totalprice = $diff_hour * $price_per_hour;
-				}
+				}*/
+				$datetime1 = new DateTime($dep);
+				  $datetime2 = new DateTime($arr);
+
+				  $interval = $datetime1->diff($datetime2);
+
+					$daydiff = dateDiff($arrival_date, $departure_date);
+					  $diff_day = $interval->format('%a');
+					  $diff_hour = $interval->format('%h');
+
+					if($diff_hour > 12)
+					{
+						$new_diff_hr = $diff_hour - 12;
+						$diff_12_hour = 1;
+					}
+					else
+					{
+						$new_diff_hr = $diff_hour;
+						$diff_12_hour = 0;
+					}
+					$price = $_GET['price'][$key];
+					$price_per_hour = $_GET['price_per_hour'][$key];
+					$price_per_12_hour = $_GET['price_per_12_hour'][$key];
+					//echo '<pre>';
+					//die(var_dump($price_per_12_hour));
+					if($daydiff > 0 || $new_diff_hr > 0 || $diff_12_hour > 0)
+					{
+						$totalprice = ($daydiff * $price) + ($new_diff_hr * $price_per_hour) + ($diff_12_hour * $price_per_12_hour);
+
+					}
+					else
+					{
+						$totalprice = $new_diff_hr * $price_per_hour;
+
+					}
 			    //die(var_dump($totalprice));
 			    if($totalprice != 0)
 			    {
-			 		addtocart($value, $diff_day,$diff_hour, $totalprice, $arrival, $departure, $arrival_time_in, $departure_time_out, $event);
+			 		/*addtocart($value, $diff_day,$diff_hour,                         $totalprice, $arrival, $departure, $arrival_time_in, $departure_time_out, $event);*/
+			 		addtocart($value,$daydiff,$diff_hour,$new_diff_hr,$diff_12_hour,$totalprice,$arrival,$departure, $arrival_time_in, $departure_time_out, $event);
 			    }
 			    else
 			    {
@@ -88,13 +123,14 @@ function doSearch()
 		}
 
 	}
+	//die(var_dump('op'));
 	if($lesstime != 0 && count($other_services) > 0)
 	{
 		message("Make sure your checked in date, time & checked out date, time are correct ","error");
 	  	redirect("search.php");
 	}
 	$amenity_type = $_GET['amenity_type'];
-
+		
 	if(strtolower($amenity_type) == 'room')
 	{
 		redirect("/view_rooms.php");
@@ -175,7 +211,7 @@ function doBookreservation()
 
 	  if($totalprice != 0)
 	  {
-	  	//die(var_dump($totalprice));
+	  	
  		addtocart($roomNo,$daydiff,$diff_hour,$new_diff_hr,$diff_12_hour,$totalprice,$arrival,$departure, $arrival_time_in, $departure_time_out, $event);
 		redirect("/booking/index.php");
 	  }
