@@ -208,18 +208,18 @@ if(isset($_POST['btnsubmitbooking']))
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuacheckin'].'</td>';
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuacheckout'].'</td>';
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuaday'].'</td>';
-              echo '<td >  &#8369  '. number_format($result->price).'</td>';
+              echo '<td >  &#8369  '. number_format(str_replace(",", "",$result->price)).'</td>';
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuahour'].'</td>';
-              echo '<td >  &#8369  '. number_format($result->price_per_hour).'</td>';
+              echo '<td >  &#8369  '. number_format(str_replace(",", "",$result->price_per_hour)).'</td>';
                echo '<td >1</td>';
                 /*echo '<td > &#8369'. $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'].'</td>';*/
-                echo '<td > &#8369 '. number_format($_SESSION['magbanua_cart'][$i]['magbanuaroomprice']).'</td>';
+                echo '<td > &#8369 '. number_format(str_replace(",", "",$_SESSION['magbanua_cart'][$i]['magbanuaroomprice'])).'</td>';
         
 
               
               echo '</tr>';
 
-               $totalamount += $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'];
+               $totalamount += str_replace(",", "",$_SESSION['magbanua_cart'][$i]['magbanuaroomprice']);
              //   @$payable +=  $result->price   ;
      
              // $_SESSION['pay'] = $payable * $days ;

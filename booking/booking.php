@@ -98,9 +98,9 @@ if (@$_SESSION['to']==""){
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuaday'].'</td>';
                 echo '<td > &#8369 '.number_format($result->price).'</td>';
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuahour'].'</td>';
-                echo '<td > &#8369 '.number_format($result->price_per_hour).'</td>';
+                echo '<td > &#8369 '.number_format(str_replace(",", "",$result->price_per_hour)).'</td>';
                 echo '<td >1</td>';
-                echo '<td > &#8369 '. number_format($_SESSION['magbanua_cart'][$i]['magbanuaroomprice']).'</td>';
+                echo '<td > &#8369 '. number_format(str_replace(",", "", $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'])).'</td>';
                 echo '<td ><a href="index.php?view=processcart&id='.$result->roomNo.'">Remove</td>';
             
               
@@ -110,15 +110,15 @@ if (@$_SESSION['to']==""){
             /*@$payable +=  $result->price   ;
             $_SESSION['pay'] = $payable * $days ;*/
 
-              @$day +=  $result->price ;
+              @$day +=  str_replace(",", "",$result->price);
               @$pday = $day * $diff_day ;
 
-              @$hour +=  $result->price_per_hour ;
+              @$hour +=  str_replace(",", "",$result->price_per_hour );
               @$phour = $hour * $diff_hour ;
             
               @$pay = $pday+$phour;
               //$_SESSION['pay'] = number_format($_SESSION['magbanua_cart'][$i]['magbanuaroomprice'];
-              $totalamount += $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'];
+              $totalamount +=str_replace(",", "", $_SESSION['magbanua_cart'][$i]['magbanuaroomprice']);
              } 
           
           }
