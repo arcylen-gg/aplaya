@@ -265,6 +265,7 @@
                             <div class="checkbox">
                               <label><input type="checkbox" value="<?php echo $getf22['roomNo']?>" name="other_services[<?php echo $getf22['roomNo']?>]"><?php echo $getf22['roomName']?> </label>
                               <input type="hidden" name="price[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price'] ?>">
+                                <input type="hidden" name="priceperhour[<?php echo $getf22['roomNo']?>]" value="<?php echo $getf22['price_per_hour'] ?>">
                             </div>
                           </td>
                         </tr>

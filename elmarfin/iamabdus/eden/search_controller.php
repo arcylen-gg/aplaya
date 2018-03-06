@@ -64,7 +64,17 @@ function doSearch()
 
 		        $total_diff_hour = ($diff_day * 24) + $diff_hour;
 		 
-			    $totalprice = $_GET['price'][$key] * $total_diff_hour;
+			    $price = $_GET['price'][$key];
+			    $price_per_hour = $_GET['priceperhour'][$key];
+
+			    if($diff_day > 0 || $diff_hour > 0)
+				{
+					$totalprice = ($diff_day * $price) + ($diff_hour * $price_per_hour);
+				}
+				else
+				{
+					$totalprice = $diff_hour * $price_per_hour;
+				}
 			    //die(var_dump($totalprice));
 			    if($totalprice != 0)
 			    {
