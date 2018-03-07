@@ -84,7 +84,7 @@ function doSearch()
 					  $diff_day = $interval->format('%a');
 					  $diff_hour = $interval->format('%h');
 
-					if($diff_hour > 12)
+					if($diff_hour >= 12)
 					{
 						$new_diff_hr = $diff_hour - 12;
 						$diff_12_hour = 1;
@@ -99,10 +99,11 @@ function doSearch()
 					$price_per_12_hour = $_GET['price_per_12_hour'][$key];
 					//echo '<pre>';
 					//die(var_dump($price_per_12_hour));
-					if($daydiff > 0 || $new_diff_hr > 0 || $diff_12_hour > 0)
+					if($daydiff > 0 || $new_diff_hr > 0 || $diff_12_hour > 0 || $diff_12_hour = 12)
 					{
-						$totalprice = ($daydiff * $price) + ($new_diff_hr * $price_per_hour) + ($diff_12_hour * $price_per_12_hour);
 
+						$totalprice = ($daydiff * $price) + ($new_diff_hr * $price_per_hour) + ($diff_12_hour * $price_per_12_hour);
+							die(var_dump($diff_12_hour));
 					}
 					else
 					{
@@ -186,7 +187,7 @@ function doBookreservation()
 	  $diff_day = $interval->format('%a');
 	  $diff_hour = $interval->format('%h');
 
-	if($diff_hour > 12)
+	if($diff_hour >= 12)
 	{
 		$new_diff_hr = $diff_hour - 12;
 		$diff_12_hour = 1;
