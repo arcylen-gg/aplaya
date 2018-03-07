@@ -3,7 +3,7 @@ ss<?php require_once("../../../includes/initialize.php"); ?>
 <html lang="en">
    <?php
     
-        $con=mysqli_connect("localhost", "root","water123");
+        $con=mysqli_connect("localhost", "root","digima2018");
         mysqli_select_db($con, "aplayadb");  
 ?>
 <head>
