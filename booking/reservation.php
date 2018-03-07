@@ -60,6 +60,7 @@ $result=$guest->single_guest($guestid);*/
               <th  width="120">Price(day)</th>
               <th align="center" width="120">Hours</th>
               <th  width="120">Price(hour)</th>
+              <th  width="120">Price(12hour)</th>
                <th align="center" width="120">Amenities</th>
               <th align="center" width="90">Amount</th>
            
@@ -93,7 +94,7 @@ $result=$guest->single_guest($guestid);*/
               echo '<td> &#8369 '. number_format($result->price).'</td>';
                 echo '<td>'.$_SESSION['magbanua_cart'][$i]['magbanuahour'].'</td>';
               echo '<td >  &#8369  '. number_format($result->price_per_hour).'</td>';
-               echo '<td >1</td>';
+              echo '<td > &#8369 '.number_format(str_replace(",", "",$result->price_per_12_hour)).'</td>';
                 echo '<td >'. $_SESSION['magbanua_cart'][$i]['magbanuaroomprice'].'</td>';
         
 
